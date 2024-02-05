@@ -1,0 +1,37 @@
+*{margin: 0; padding: 0; overflow: hidden;}
+
+#background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+#play {
+    position: absolute;
+    top: 60vh; 
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#characters {
+    position: absolute;
+    top: 74vh; 
+    left: 50vw; 
+    transform: translate(-50%, -50%);
+}
+
+#exit {
+    position: absolute;
+    top: 88vh; 
+    left: 50vw; 
+    transform: translate(-50%, -50%);
+}
+
+.button_img {
+    width: 22vw;
+}
