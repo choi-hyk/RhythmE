@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="start.js"></script>
+    <style>
+        *{margin: 0; padding: 0; overflow: hidden;}
+
+        #background {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        button {
+            border: none;
+            background-color: transparent;
+        }
+
+        #play {
+			position: absolute;
+			top: 10vh; 
+			left: 50vw;
+			transform: translateX(-50%); 
+		}
+
+		#characters {
+			position: absolute;
+			top: 25vh; 
+			left: 50vw; 
+			transform: translateX(-50%); 
+		}
+
+		#exit {
+			position: absolute;
+			top: 40vh; 
+			left: 50vw; 
+            transform: translateX(-50%); 
+		}
+
+        #play img {
+            width: 75vw;
+        }
+        #characters img {
+			width: 75vw; 
+		}
+
+		#exit img {
+			width: 75vw; 
+		}
+    </style>
+</head>
+<body>
+    <div id="image">
+        <img id="background" src="start_img/start_background.png">
+    </div>
+    <div id="button_group">
+        <button id="play">
+            <img src="start_img/start_start_btn.png">
+        </button>
+        <button id="characters" onclick = "location.href='characters.html';">
+            <img src="start_img/start_characters_btn.png">
+		</button>
+		<button id="exit">
+			<img src="start_img/start_exit_btn.png">
+		</button>
+    </div>
+</body>
+</html>
