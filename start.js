@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 
     $('#play').click(()=>{
-        var url = "game.html?";
+        var url = "setting_game.html?";
         location.href=url;
     });
     $('#characters').click(()=>{
