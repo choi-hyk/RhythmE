@@ -19,35 +19,28 @@
 
         #play {
 			position: absolute;
-			top: 10vh; 
+			top: 60vh; 
 			left: 50vw;
-			transform: translateX(-50%); 
+			transform: translate(-50%, -50%);
 		}
 
 		#characters {
 			position: absolute;
-			top: 25vh; 
+			top: 74vh; 
 			left: 50vw; 
-			transform: translateX(-50%); 
+			transform: translate(-50%, -50%);
 		}
 
 		#exit {
 			position: absolute;
-			top: 40vh; 
+			top: 88vh; 
 			left: 50vw; 
-            transform: translateX(-50%); 
+            transform: translate(-50%, -50%);
 		}
 
-        #play img {
-            width: 75vw;
+        .button_img {
+            width: 22vw;
         }
-        #characters img {
-			width: 75vw; 
-		}
-
-		#exit img {
-			width: 75vw; 
-		}
     </style>
 </head>
 <body>
@@ -56,13 +49,13 @@
     </div>
     <div id="button_group">
         <button id="play">
-            <img src="start_img/start_start_btn.png">
+            <img class='button_img' src="start_img/start_start_btn.png">
         </button>
         <button id="characters" onclick = "location.href='characters.html';">
-            <img src="start_img/start_characters_btn.png">
+            <img class='button_img' src="start_img/start_characters_btn.png">
 		</button>
 		<button id="exit">
-			<img src="start_img/start_exit_btn.png">
+			<img class='button_img' src="start_img/start_exit_btn.png">
 		</button>
     </div>
 </body>
