@@ -1,0 +1,48 @@
+*{margin: 0; padding: 0; overflow: hidden;}
+
+#background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+#difficulty {
+    position: absolute;
+    top: 60vh; 
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#raise_arrow {
+    position: absolute;
+    top: 60vh; 
+    left: 65vw;
+    transform: translate(-50%, -50%);
+}
+
+#lower_arrow {
+    position: absolute;
+    top: 60vh; 
+    left: 35vw;
+    transform: translate(-50%, -50%);
+}
+
+#start {
+    position: absolute;
+    top: 80vh; 
+    left: 50vw; 
+    transform: translate(-50%, -50%);
+}
+
+.arrow_img {
+    width: 5vw;
+}
+
+.button_img {
+    width: 22vw;
+}
