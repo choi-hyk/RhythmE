@@ -21,4 +21,13 @@ $(document).ready(function(){
         $(this).attr("src", "start_img/start_exit_btn.png");
     });
 
+
+    $('#play').click(()=>{
+        var url = "game.html?";
+        location.href=url;
+    });
+    $('#characters').click(()=>{
+        var url = "characters.html?";
+        location.href=url;
+    });
 });
