@@ -4,62 +4,70 @@
 }
 
 body {
-    overflow: hidden; /* 좌우 스크롤 막기 */
+    overflow: hidden; 
 }
 
 #image {
     position: relative;
-    width: 500vw; /* 이미지 컨테이너 너비 설정 */
-    height: 100vh; /* 이미지 컨테이너 높이 설정 */
-    overflow: hidden; /* 넘치는 이미지를 숨김 */
+    width: 500vw; 
+    height: 100vh; 
+    overflow: hidden; 
     animation: moveBackground 25s linear infinite;
 }
 
+.rhythme {
+    position: fixed;
+    width: 150x;
+    height: 150px;
+    top: 68%;
+    left: 30%; 
+    transform: translate(-50%, -50%); 
+    z-index: 6; 
+}
 .background {
     position: absolute;
     top: 0;
-    width: 100vw; /* 이미지 요소 너비 설정 */
-    height: 100vh; /* 이미지 요소 높이 설정 */
+    width: 100vw;
+    height: 100vh; 
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background:nth-child(1) {
-    background-image: url('game_img/game_background1.png'); /* 첫 번째 이미지 */
-    left: 0; /* 첫 번째 이미지는 왼쪽에 위치 */
-    z-index: 5; /* 첫 번째 이미지는 가장 앞에 표시 */
+    background-image: url('game_img/game_background1.png'); 
+    left: 0; 
+    z-index: 5; 
 }
 
 .background:nth-child(2) {
-    background-image: url('game_img/game_background2.png'); /* 두 번째 이미지 */
-    left: 100vw; /* 두 번째 이미지는 왼쪽에서 1번째로 이동 */
-    z-index: 4; /* 두 번째 이미지는 두 번째로 앞에 표시 */
+    background-image: url('game_img/game_background2.png');
+    left: 100vw; 
+    z-index: 4; 
 }
-
 .background:nth-child(3) {
-    background-image: url('game_img/game_background3.png'); /* 세 번째 이미지 */
-    left: 200vw; /* 세 번째 이미지는 왼쪽에서 2번째로 이동 */
-    z-index: 3; /* 세 번째 이미지는 세 번째로 앞에 표시 */
+    background-image: url('game_img/game_background3.png'); 
+    left: 200vw; 
+    z-index: 3;
 }
 
 .background:nth-child(4) {
-    background-image: url('game_img/game_background4.png'); /* 네 번째 이미지 */
-    left: 300vw; /* 네 번째 이미지는 왼쪽에서 3번째로 이동 */
-    z-index: 2; /* 네 번째 이미지는 가장 뒤에 표시 */
+    background-image: url('game_img/game_background4.png'); 
+    left: 300vw; 
+    z-index: 2; 
 }
 
 .background:nth-child(5) {
-    background-image: url('game_img/game_background1.png'); /* 네 번째 이미지 */
-    left: 400vw; /* 네 번째 이미지는 왼쪽에서 3번째로 이동 */
-    z-index: 1; /* 네 번째 이미지는 가장 뒤에 표시 */
+    background-image: url('game_img/game_background1.png'); 
+    left: 400vw; 
+    z-index: 1;
 }
 
 
 @keyframes moveBackground {
     0% {
-        transform: translateX(0); /* 초기 위치 */
+        transform: translateX(0); 
     }
     100% {
-        transform: translateX(-400vw); /* 이동할 거리 (-100vw * 이미지 개수) */
+        transform: translateX(-400vw); 
     }
 }
