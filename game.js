@@ -13,19 +13,21 @@ $(document).ready(function() {
     
   //bgm 시작
     var bgm = new Audio('sound_pack/Beautiful_Days.wav');
+    var start_check;
     init();
-
+    
      //key 눌렀을떄 게임시작
     document.addEventListener("keydown", function(event){
-        if (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K') { 
-            startGame();
+        if(!start_check){
+            if (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K') { 
+                startGame();
 
+            }       
         }
-       
     });
 
     var jumping = false;
-
+    
     $(document).keydown(function(event) {
 
         if(!jumping){
@@ -48,7 +50,10 @@ $(document).ready(function() {
         clearInterval(imageInterval);
 
         character.attr('src', characterImages[0]);
-
+        imageInterval = setInterval(function() {
+            currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
+            character.attr('src', characterImages[currentCharacterIndex]);
+        }, 100); 
         character.animate({top: '60%'}, 250 , 'linear')
                  .animate({top: '75%'}, 250, 'linear', function() {
                     character.attr('src', characterImages[currentCharacterIndex]);
@@ -59,15 +64,14 @@ $(document).ready(function() {
 
     //게임시작
     function startGame(){
-            bgm.play();     
-            $('#image').css('animation-play-state', 'running');
-            imageInterval = setInterval(function() {
-                currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
-                character.attr('src', characterImages[currentCharacterIndex]);
-            }, 100); 
+        start_check = true;
+        bgm.play();     
+        $('#image').css('animation-play-state', 'running');
+        
     };
     //초기화 화면
     function init() {
+        start_check = false;
         bgm.pause();
         $('#image').css('animation-play-state', 'paused');
         jumping = false;
