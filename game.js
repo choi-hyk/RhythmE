@@ -16,7 +16,7 @@ $(document).ready(function() {
     init();
 
      //key 눌렀을떄 게임시작
-    document.addEventListener("keypress", function(event){
+    document.addEventListener("keydown", function(event){
         if (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K') { 
             startGame();
 
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     var jumping = false;
 
-    $(document).keypress(function(event) {
+    $(document).keydown(function(event) {
 
         if(!jumping){
 
@@ -52,10 +52,7 @@ $(document).ready(function() {
         character.animate({top: '60%'}, 250 , 'linear')
                  .animate({top: '75%'}, 250, 'linear', function() {
                     character.attr('src', characterImages[currentCharacterIndex]);
-                    imageInterval = setInterval(function() {
-                        currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
-                        character.attr('src', characterImages[currentCharacterIndex]);
-                    }, 100);    
+                      
                     jumping = false;
                  });
     } 
