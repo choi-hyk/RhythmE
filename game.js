@@ -56,18 +56,14 @@ $(document).ready(function() {
                     imageInterval = setInterval(function() {
                         currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                         character.attr('src', characterImages[currentCharacterIndex]);
-                    }, 100);
+                    }, 100);    
                     jumping = false;
                  });
     } 
 
   //초기화 화면
   function startGame(){
-        bgm.play();
-        setInterval(function() {
-            currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
-            character.attr('src', characterImages[currentCharacterIndex]);
-        }, 100); 
+        bgm.play();     
         $('#image').css('animation-play-state', 'running');
     };
 });
