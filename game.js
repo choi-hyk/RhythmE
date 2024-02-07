@@ -10,6 +10,17 @@ $(document).ready(function() {
     ];
 
     var currentCharacterIndex = 0;
+    
+   $('#image').css('animation-play-state', 'paused');
+  //bgm 시작
+    var bgm = new Audio('sound_pack/Beautiful_Days.wav');
+    bgm.pause();
+
+
+     //key 눌렀을떄 게임시작
+    document.addEventListener("keydown", function(event){
+        startGame();
+    });
 
     var jumping = false;
 
@@ -23,21 +34,14 @@ $(document).ready(function() {
         }
     }
     });
-
-    function JumpAction(){
-        character.attr('src', characterImages[0]);
-
-        character.animate({top: '60%'}, 250 , 'linear')
-                 .animate({top: '75%'}, 250, 'linear', function() {
-                    character.attr('src', characterImages[currentCharacterIndex]);
-                 });
-    }   
+  
 
     var imageInterval = setInterval(function() {
         currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
         character.attr('src', characterImages[currentCharacterIndex]);
     }, 100); 
 
+    //초기 점프 구현
     function JumpAction(){
 
         jumping = true;
@@ -55,5 +59,16 @@ $(document).ready(function() {
                     }, 100);
                     jumping = false;
                  });
-    }   
+    } 
+
+  //초기화 화면
+  function startGame(){
+        bgm.play();
+        setInterval(function() {
+            currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
+            character.attr('src', characterImages[currentCharacterIndex]);
+        }, 100); 
+        $('#image').css('animation-play-state', 'running');
+    };
 });
+
