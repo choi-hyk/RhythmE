@@ -18,13 +18,17 @@ $(document).ready(function() {
 
 
      //key 눌렀을떄 게임시작
-    document.addEventListener("keydown", function(event){
-        startGame();
+    document.addEventListener("keypress", function(event){
+        if (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K') { 
+            startGame();
+
+        }
+       
     });
 
     var jumping = false;
 
-    $(document).keydown(function(event) {
+    $(document).keypress(function(event) {
 
         if(!jumping){
 
