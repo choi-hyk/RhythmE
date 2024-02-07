@@ -67,4 +67,3 @@ $(document).ready(function() {
         $('#image').css('animation-play-state', 'running');
     };
 });
-
