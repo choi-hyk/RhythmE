@@ -10,16 +10,16 @@ body {
 #image {
     position: relative;
     width: 500vw; 
-    height: 100vh; 
+    height: 100vh;  
     overflow: hidden; 
     animation: moveBackground 25s linear infinite;
 }
 
 .rhythme {
     position: fixed;
-    width: 150x;
-    height: 150px;
-    top: 68%;
+    width: 95px;
+    height: 95px;
+    top: 75%;
     left: 30%; 
     transform: translate(-50%, -50%); 
     z-index: 6; 
