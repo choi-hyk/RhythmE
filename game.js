@@ -11,11 +11,9 @@ $(document).ready(function() {
 
     var currentCharacterIndex = 0;
     
-   $('#image').css('animation-play-state', 'paused');
   //bgm 시작
     var bgm = new Audio('sound_pack/Beautiful_Days.wav');
-    bgm.pause();
-
+    init();
 
      //key 눌렀을떄 게임시작
     document.addEventListener("keypress", function(event){
@@ -40,10 +38,7 @@ $(document).ready(function() {
     });
   
 
-    var imageInterval = setInterval(function() {
-        currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
-        character.attr('src', characterImages[currentCharacterIndex]);
-    }, 100); 
+    var imageInterval;
 
     //초기 점프 구현
     function JumpAction(){
@@ -65,9 +60,21 @@ $(document).ready(function() {
                  });
     } 
 
-  //초기화 화면
-  function startGame(){
-        bgm.play();     
-        $('#image').css('animation-play-state', 'running');
+    //게임시작
+    function startGame(){
+            bgm.play();     
+            $('#image').css('animation-play-state', 'running');
+            imageInterval = setInterval(function() {
+                currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
+                character.attr('src', characterImages[currentCharacterIndex]);
+            }, 100); 
     };
+    //초기화 화면
+    function init() {
+        bgm.pause();
+        $('#image').css('animation-play-state', 'paused');
+        jumping = false;
+        clearInterval(imageInterval);
+        character.attr('src','game_img/start_character.png');
+    }
 });
