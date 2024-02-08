@@ -9,6 +9,11 @@ $(document).ready(function() {
         "characters_img/rhythme4.png"
     ];
 
+    var blockImages = [
+        "game_img/red_block.png",
+        "game_img/green_block.png",
+        "game_img/blue_block.png"
+    ]
     var currentCharacterIndex = 0;
     
   //bgm 시작
