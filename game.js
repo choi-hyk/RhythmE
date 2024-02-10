@@ -18,12 +18,10 @@ $(document).ready(function() {
     
     var instructionInterval;
 
-
-    var blockImages = [
-        "game_img/red_block.png",
-        "game_img/green_block.png",
-        "game_img/blue_block.png"
-    ]
+    //block이 움직이는 속도
+    const block_speed = 10;
+    //block이 생성되는 속도
+    const block_createspeed = 1000;
 
     // BGM
     var bgm = new Audio('sound_pack/Beautiful_Days.wav');
@@ -37,20 +35,16 @@ $(document).ready(function() {
             startGame();
             hideInstructionImage();
         }
+        
         if (!jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
             JumpAction();
         }
     });
 
-    // 점프 이벤트 핸들러
-    $(document).keydown(function(event) {
-        if (!jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
-            JumpAction();
-        }
-    });
 
     var jumping = false;
     var imageInterval;
+    var gamingInterval;
 
     // 초기 점프 구현
     function JumpAction() {
@@ -67,12 +61,34 @@ $(document).ready(function() {
                 }, 100);
             });
     }
+     //block을 생성하는 함수
+     function createBlock(color){
+        const block = document.createElement('img');
+        block.classList.add('block');
+        block.src = 'game_img/'+color+'_block.png';
+        block.style.left = window.innerWidth+'px'
+        document.body.appendChild(block);
 
+        const moveInterval = setInterval(() => {
+            const currentLeft = parseFloat(block.style.left);
+            if(currentLeft <= -30) {
+                clearInterval(moveInterval);
+                block.remove();
+            } else {
+                block.style.left = (currentLeft - 5)+'px'
+            }
+        }, block_speed);
+    }
     // 게임 시작
     function startGame() {
         start_check = true;
         bgm.play();
         $('#image').css('animation-play-state', 'running');
+        gamingInterval = setInterval(() => {
+            const colors = ['green', 'blue', 'yellow'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            createBlock(randomColor);
+          }, block_createspeed);
     }
 
     // 초기화면
@@ -82,6 +98,7 @@ $(document).ready(function() {
         $('#image').css('animation-play-state', 'paused');
         jumping = false;
         clearInterval(imageInterval);
+        clearInterval(gamingInterval);
         character.attr('src', 'game_img/start_character.png');
 
         var index = 0;
@@ -95,4 +112,9 @@ $(document).ready(function() {
     function hideInstructionImage() {
         instruction.hide();
     }
+
+   
+
+    
+
 });

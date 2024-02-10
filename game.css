@@ -82,3 +82,10 @@ body {
         transform: translateX(-400vw); 
     }
 }
+
+.block {
+    position:absolute;
+    height: 30px;
+    width: 30px;
+    top: 80%;
+}
