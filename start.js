@@ -19,8 +19,8 @@ $(document).ready(function(){
         $(this).css('width','22vw');
     }, function() {
         $(this).attr("src", "start_img/start_exit_btn.png");
-    });
-
+    });  
+   
 
     $('#play').click(()=>{
         var url = "setting_game.html?";
@@ -30,4 +30,12 @@ $(document).ready(function(){
         var url = "characters.html?";
         location.href=url;
     });
+    
+    //웹 페이지 즁료
+    $('#exit').click(function() {
+        if (confirm('게임을 종료하시겠습니까?')) {
+            window.close();
+        }
+    });
+
 });

@@ -39,6 +39,17 @@ button {
     transform: translate(-50%, -50%);
 }
 
+#back {
+    position: absolute;
+    top: 9vh; 
+    left: 9vw; 
+    transform: translate(-50%, -50%);        
+}
+
+.back_img{
+    width: 7vw
+}
+
 .arrow_img {
     width: 5vw;
 }
