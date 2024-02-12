@@ -140,32 +140,36 @@ $(document).ready(function() {
     
     function moveBlock() {
         const blocks = [
-            new Block(1000, 'blue', 15)
-            // new Block(2000, 'green',15),
-            // new Block(3000, 'yellow',15),
-            // new Block(5000, 'blue', 15),
-            // new Block(6000, 'blue', 10),
-            // new Block(7000, 'blue', 10),
-            // new Block(8000, 'blue', 10),
-            // new Block(9000, 'blue', 10),
-            // new Block(10000, 'blue', 10),
-            // new Block(11000, 'blue', 10),
-            // new Block(12000, 'blue', 10),
-            // new Block(13000, 'blue', 10)
+            new Block(1000, 'blue', 15),
+            new Block(2000, 'green',15),
+            new Block(3000, 'yellow',15),
+            new Block(5000, 'blue', 15),
+            new Block(6000, 'blue', 15),
+            new Block(7000, 'blue', 15),
+            new Block(8000, 'blue', 15),
+            new Block(9000, 'blue', 15),
+            new Block(10000, 'blue', 15),
+            new Block(11000, 'blue', 15),
+            new Block(12000, 'blue', 15),
+            new Block(13000, 'blue', 20)
         ];
         blocks.forEach(block => {
             setTimeout(() => {
                 createBlock(block);
 
+                //1초에 블록이 움직이는 거리 계산
+                var cal_speed = (1000/block.speed) *5;
+
+                //블록 생성되었을때 이벤트 리스너 생성
                 setTimeout(() => {
                     enableKeyPress(block.color);   
-                    console.log('d');
-                }, window.innerWidth * 0.7 / block.speed);
-                
+                }, (window.innerWidth * 0.7 / cal_speed) *1000);
+
+                //블록 지나갔을때 이벤트 리스너 제거
                 setTimeout(() => {
                     document.removeEventListener("keydown", handleKeyPress);
-                    console.log('a');
-                }, (window.innerWidth * 0.7 / block.speed)+ 1000)
+                }, ((window.innerWidth * 0.7 / cal_speed) *1000)+200)
+
             },block.time);
         });
     }
