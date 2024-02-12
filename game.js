@@ -173,7 +173,7 @@ $(document).ready(function() {
     var block_color
         // 블록이 일정 위치에 도달했을 때 키 입력을 받도록 설정하는 함수
     function enableKeyPress(blockColor) {
-        block_color = this.blockColor;
+        block_color = blockColor;
         document.addEventListener("keydown", handleKeyPress);
     }
 
