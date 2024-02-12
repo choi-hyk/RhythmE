@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
     var difficulty = 0;    //초기 난이도
-
-
+    
+    //난이도 조절 버튼 함수
     function setButtonImages(difficulty) {
         switch (difficulty) {
             case 0:
@@ -18,6 +18,7 @@ $(document).ready(function(){
                 break;
         }
     }
+
     $('#start img').hover(function(){
         $(this).attr("src", "setting_game_img/start_btnhover.png");
         $(this).css('width','22vw');
@@ -59,6 +60,17 @@ $(document).ready(function(){
         }
         console.log("Current Difficulty: " + difficulty);
         setButtonImages(difficulty);
+    });
+
+    //뒤로가기 함수
+    $('#back img').hover(function(){
+        $(this).attr("src", "setting_game_img/back_btn1.png");
+        $(this).css('width','7vw');
+    }, function() {
+        $(this).attr("src", "setting_game_img/back_btn2.png");
+    });
+    $('#back').click(()=>{
+        history.back();
     });
 
     

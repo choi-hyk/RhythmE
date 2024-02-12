@@ -1,7 +1,27 @@
-*{margin: 0; padding: 0; overflow: hidden;}
+*{margin: 0; padding: 0; overflow: hidden; border: none;}
             
 #background {
     position: relative;
     width: 100vw;
     height: 100vh;
+}
+
+#back {
+    position: absolute;
+    top: 9vh; 
+    left: 9vw; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+#text{
+    position: absolute;
+    top: 9vh; 
+    left: 9vw; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+.back_img{   
+    width: 7vw
 }
