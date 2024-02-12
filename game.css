@@ -98,3 +98,9 @@ body {
 .back_img{
     width: 7vw    
 }
+
+#score_board {
+    position : absolute;
+    top: 10vh;
+    left : 50%;
+}
