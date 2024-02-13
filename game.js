@@ -169,6 +169,7 @@ $(document).ready(function() {
                 //블록 지나갔을때 이벤트 리스너 제거
                 setTimeout(() => {
                     document.removeEventListener("keydown", handleKeyPress);
+                    document.removeEventListener("keydown", handleSameKeyPress);
                     if(!correct_key){
                         decreaseScore();
                     }
@@ -181,17 +182,25 @@ $(document).ready(function() {
     
     //알맞은 키를 눌렀는지 여부
     var correct_key = false;
+    var green_sCheck = false; //green block일때 s를 눌렀는지 확인
+    var green_kCheck = false; //green block일때 k를 눌렀는지 확인
 
     // 블록이 일정 위치에 도달했을 때 키 입력을 받도록 설정하는 함수
     function enableKeyPress(blockColor) {
         block_color = blockColor;
         document.addEventListener("keydown", handleKeyPress);
+        document.addEventListener("keydown", handleSameKeyPress);
     }
 
     function handleKeyPress(event) {
         // green 블록이면 's'와 'k'를 동시에 눌러야 함
-        if (block_color === 'green' && ((event.key === 's' || event.key === 'S') && (event.key === 'k' || event.key === 'K'))) {
-            increaseScore();
+        if (block_color === 'green' && (event.key === 's' || event.key === 'S')) {
+            if(green_kCheck == false){ //green block일 때 k를 아직 누르지 않았다면
+                green_sCheck = true;   //s 눌렀다고 표시
+            } else{     //k를 이미 누르고 s를 누른 상황
+                increaseScore();
+                green_kCheck = false;
+            }
             correct_key = true;
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
@@ -201,25 +210,39 @@ $(document).ready(function() {
             increaseScore();
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
-        else if (block_color === 'blue' && (event.key === 's' || event.key === 'S')) {
-            correct_key = true;
-            decreaseScore();
-            console.log('점수감소');
-            document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
-        }
         // yellow 블록이면 's'를 눌러야 함
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
             increaseScore();
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
+        
+       
+    }
+
+    function handleSameKeyPress(event){
+        if (block_color === 'blue' && (event.key === 's' || event.key === 'S')) {
+            correct_key = true;
+            decreaseScore();
+            console.log('점수감소');
+            document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
+        }
         else if (block_color === 'yellow' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
             decreaseScore();
             console.log('점수감소');
-            document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
+            document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
         }
-       
+        if (block_color === 'green' && (event.key === 'k' || event.key === 'K')) {
+            if(green_sCheck == true){ //s를 누르고 k를 누른 상황
+                increaseScore();
+                green_sCheck=false;
+            } else {
+                green_kCheck = true;
+            }
+            correct_key = true;
+            document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
+        }
     }
 
     //점수 증가 함수
