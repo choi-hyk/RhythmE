@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'GalacticaGrid'; 
+    src: url('GalacticaGrid.ttf') format('truetype'); 
+}
+
 *{margin: 0; padding: 0; overflow: hidden; border: none;}
 
 body {
@@ -99,14 +104,29 @@ body {
     width: 7vw    
 }
 
-#score {
-    position : absolute;
-    top: 7vh;
+#score_board {
+    position : fixed;
+    top: 9vh;
     left : 75%;
+    overflow: hidden;
+    width: 44vw;
 }
 
 .score_img{
+    width: 8vw;
+    float: left;
+    height: 2.2vw;
+}
 
-    width: 10vw
+.score{
+    width: 8vw;
+    height: 3vw;
+    line-height: 3vw;
+    float: left;
+   
+    font-size: 2.5vw;
+    color: #d77bba;
+    text-align: center;
+    font-family: 'GalacticaGrid', sans-serif;
 }
 

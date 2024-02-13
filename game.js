@@ -103,7 +103,7 @@ $(document).ready(function() {
         //     const randomColor = colors[Math.floor(Math.random() * colors.length)];
         //     createBlock(randomColor);
         //   }, block_createspeed);
-
+        $('.score').text(score);
         moveBlock();
     }
 
@@ -213,14 +213,14 @@ $(document).ready(function() {
     //점수 증가 함수
     function increaseScore() {
         score += 100;
-        $("#score").text(score);
+        $(".score").text(score);
         console.log(score);
     }
 
     //점수 감소 함수
     function decreaseScore() {
         score -= 100;
-        $("#score").text(score);
+        $(".score").text(score);
         console.log(score);
     }
 });
