@@ -99,8 +99,14 @@ body {
     width: 7vw    
 }
 
-#score_board {
+#score {
     position : absolute;
-    top: 10vh;
-    left : 50%;
+    top: 7vh;
+    left : 75%;
 }
+
+.score_img{
+
+    width: 10vw
+}
+
