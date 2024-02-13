@@ -202,19 +202,20 @@ $(document).ready(function() {
                 green_kCheck = false;
                 correct_key = true;
             }
-            
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         // blue 블록이면 'k'를 눌러야 함
         else if (block_color === 'blue' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
             increaseScore();
+            document.removeEventListener("keydown", handleSameKeyPress);
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         // yellow 블록이면 's'를 눌러야 함
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
             increaseScore();
+            document.removeEventListener("keydown", handleSameKeyPress);
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         
@@ -224,15 +225,17 @@ $(document).ready(function() {
     function handleSameKeyPress(event){
         if (block_color === 'blue' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
-            decreaseScore();
+            failChangeScore();
             console.log('점수감소');
             document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
+            document.removeEventListener("keydown", handleKeyPress);
         }
         else if (block_color === 'yellow' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
-            decreaseScore();
+            failChangeScore();
             console.log('점수감소');
             document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
+            document.removeEventListener("keydown", handleKeyPress);
         }
         if (block_color === 'green' && (event.key === 'k' || event.key === 'K')) {
             if(green_sCheck == true){ //s를 누르고 k를 누른 상황
@@ -257,6 +260,12 @@ $(document).ready(function() {
     //점수 감소 함수
     function decreaseScore() {
         score -= 100;
+        $(".score").text(score);
+        console.log(score);
+    }
+
+    function failChangeScore() {
+        score -= 200;
         $(".score").text(score);
         console.log(score);
     }
