@@ -201,10 +201,22 @@ $(document).ready(function() {
             increaseScore();
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
+        else if (block_color === 'blue' && (event.key === 's' || event.key === 'S')) {
+            correct_key = true;
+            decreaseScore();
+            console.log('점수감소');
+            document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
+        }
         // yellow 블록이면 's'를 눌러야 함
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
             increaseScore();
+            document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
+        }
+        else if (block_color === 'yellow' && (event.key === 'k' || event.key === 'K')) {
+            correct_key = true;
+            decreaseScore();
+            console.log('점수감소');
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
        
