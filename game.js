@@ -8,7 +8,8 @@ $(document).ready(function() {
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
-        history.back();
+        var url = "setting_game.html?";
+        location.href=url;
     });
 
     let score = 10000;

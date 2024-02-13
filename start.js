@@ -34,7 +34,8 @@ $(document).ready(function(){
     //웹 페이지 즁료
     $('#exit').click(function() {
         if (confirm('게임을 종료하시겠습니까?')) {
-            window.close();
+            window.location.href = "about:blank";
+            // window.close();
         }
     });
 
