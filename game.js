@@ -12,7 +12,7 @@ $(document).ready(function() {
         location.href=url;
     });
 
-    let score = 10000;
+    let score = 100;
 
     // 캐릭터 선택
     var character = $('.rhythme');
@@ -263,11 +263,34 @@ $(document).ready(function() {
         score -= 100;
         $(".score").text(score);
         console.log(score);
+        
+        if (score <= 0) {
+          gameOver();                 
+        }
     }
 
     function failChangeScore() {
         score -= 200;
         $(".score").text(score);
         console.log(score);
+        if (score <= 0) {
+           gameOver()
+        }
     }
+    function gameOver() {
+        // 캐릭터 애니메이션 중지
+        character.stop();
+    
+        // 사용자 입력 무시
+        $(document).off("keydown");
+    
+        // 1초 후에 화면 블러 처리 및 점수 고정
+        setTimeout(function() {
+            $("body").css("filter", "blur(5px)");
+            $('#score').css('position', 'fixed');
+        }, 1000);
+    
+        $('#image').css('animation-play-state', 'paused');
+    }
+
 });
