@@ -200,8 +200,9 @@ $(document).ready(function() {
             } else{     //k를 이미 누르고 s를 누른 상황
                 increaseScore();
                 green_kCheck = false;
+                correct_key = true;
             }
-            correct_key = true;
+            
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         // blue 블록이면 'k'를 눌러야 함
@@ -237,10 +238,11 @@ $(document).ready(function() {
             if(green_sCheck == true){ //s를 누르고 k를 누른 상황
                 increaseScore();
                 green_sCheck=false;
+                correct_key = true;
             } else {
                 green_kCheck = true;
             }
-            correct_key = true;
+            
             document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
         }
     }
