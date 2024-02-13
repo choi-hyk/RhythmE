@@ -11,7 +11,7 @@ $(document).ready(function() {
         history.back();
     });
 
-    let score = 0;
+    let score = 10000;
 
     // 캐릭터 선택
     var character = $('.rhythme');
@@ -65,9 +65,9 @@ $(document).ready(function() {
         jumping = true;
         clearInterval(imageInterval);
         character.attr('src', characterImages[0]);
-        character.animate({ top: '60%' }, 250, 'linear')
-            .animate({ top: '75%' }, 250, 'linear', function() {
-                character.attr('src', characterImages[currentCharacterIndex]);
+        character.animate({ top: '65%' }, 190, 'linear')
+            .animate({ top: '75%' }, 150, 'linear', function() {
+                character.attr('src', characterImages[3]);
                 jumping = false;
                 imageInterval = setInterval(function() {
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
@@ -162,20 +162,27 @@ $(document).ready(function() {
 
                 //블록 생성되었을때 이벤트 리스너 생성
                 setTimeout(() => {
-                    enableKeyPress(block.color);   
+                    enableKeyPress(block.color);
+                correct_key = false;
                 }, (window.innerWidth * 0.7 / cal_speed) *1000);
 
                 //블록 지나갔을때 이벤트 리스너 제거
                 setTimeout(() => {
                     document.removeEventListener("keydown", handleKeyPress);
+                    if(!correct_key){
+                        decreaseScore();
+                    }
                 }, ((window.innerWidth * 0.7 / cal_speed) *1000)+200)
-
             },block.time);
         });
     }
 
     var block_color
-        // 블록이 일정 위치에 도달했을 때 키 입력을 받도록 설정하는 함수
+    
+    //알맞은 키를 눌렀는지 여부
+    var correct_key = false;
+
+    // 블록이 일정 위치에 도달했을 때 키 입력을 받도록 설정하는 함수
     function enableKeyPress(blockColor) {
         block_color = blockColor;
         document.addEventListener("keydown", handleKeyPress);
@@ -183,23 +190,36 @@ $(document).ready(function() {
 
     function handleKeyPress(event) {
         // green 블록이면 's'와 'k'를 동시에 눌러야 함
-        if (block_color === 'green' && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
+        if (block_color === 'green' && ((event.key === 's' || event.key === 'S') && (event.key === 'k' || event.key === 'K'))) {
             increaseScore();
+            correct_key = true;
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         // blue 블록이면 'k'를 눌러야 함
         else if (block_color === 'blue' && (event.key === 'k' || event.key === 'K')) {
+            correct_key = true;
             increaseScore();
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         // yellow 블록이면 's'를 눌러야 함
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
+            correct_key = true;
             increaseScore();
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
+       
     }
+
+    //점수 증가 함수
     function increaseScore() {
-        score ++;
+        score += 100;
+        $("#score").text(score);
+        console.log(score);
+    }
+
+    //점수 감소 함수
+    function decreaseScore() {
+        score -= 100;
         $("#score").text(score);
         console.log(score);
     }
