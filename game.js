@@ -215,7 +215,7 @@ $(document).ready(function() {
             new Block(37000, 'yellow', 13, 5),
             new Block(38000, 'green', 13, 5),
             new Block(39000, 'blue', 13, 5),
-            new Block(40000, 'yellow', 13, 5), ////////////////////////////
+            new Block(40000, 'yellow', 13, 5), 
             new Block(44000, 'green', 7, 5),
             new Block(45000, 'green', 7, 8),
             new Block(46000, 'green', 7, 8),
@@ -338,7 +338,7 @@ $(document).ready(function() {
         console.log(score);
         
         if (score <= 0) {
-        //   gameOver();                 
+        gameOver();                 
         }
     }
 
@@ -347,7 +347,7 @@ $(document).ready(function() {
         $(".score").text(score);
         console.log(score);
         if (score <= 0) {
-        //    gameOver()
+        gameOver();
         }
     }
 
@@ -358,8 +358,6 @@ $(document).ready(function() {
     function gameComplete(){
     
     isGameComplete = true;
-
-
 
     }
 
