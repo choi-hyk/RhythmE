@@ -90,7 +90,7 @@ $(document).ready(function() {
                 clearInterval(moveInterval);
                 block_img.remove();
             } else {
-                block_img.style.left = (currentLeft - 5)+'px'
+                block_img.style.left = (currentLeft - block.movePx)+'px'
             }
         }, block.speed);
     }
@@ -132,34 +132,72 @@ $(document).ready(function() {
 
    
     class Block {
-        constructor(time, color, speed){
+        constructor(time, color, speed, movePx){
             this.color = color;
             this.time = time;
             this.speed = speed;
+            this.movePx = movePx;
         }
     }
     
     function moveBlock() {
         const blocks = [
-            new Block(1000, 'blue', 15),
-            new Block(2000, 'green',15),
-            new Block(3000, 'yellow',15),
-            new Block(5000, 'blue', 15),
-            new Block(6000, 'blue', 15),
-            new Block(7000, 'blue', 15),
-            new Block(8000, 'blue', 15),
-            new Block(9000, 'blue', 15),
-            new Block(10000, 'blue', 15),
-            new Block(11000, 'blue', 15),
-            new Block(12000, 'blue', 15),
-            new Block(13000, 'blue', 20)
+            new Block(1000, 'blue', 13, 5),
+            new Block(2000, 'green',13, 5),
+            new Block(3000, 'yellow',13, 5),
+            new Block(5000, 'blue', 13, 5),
+            new Block(6000, 'blue', 13, 5),
+            new Block(7000, 'yellow', 13, 5),
+            new Block(8000, 'blue', 13, 5),
+            new Block(9000, 'green', 13, 5),
+            new Block(10000, 'blue', 13, 5),
+            new Block(11000, 'yellow', 13, 5),
+            new Block(12000, 'yellow', 13, 5),
+            new Block(13000, 'green', 13, 5),
+            new Block(14000, 'blue', 13, 5),
+            new Block(15000, 'green', 13, 5),
+            new Block(16000, 'blue', 13, 5),
+            new Block(17000, 'blue', 13, 5),
+            new Block(18000, 'green', 13, 5),
+            new Block(19000, 'green', 13, 5),
+            new Block(20000, 'green', 13, 5),
+            new Block(21000, 'yellow', 13, 5),
+            new Block(22000, 'blue', 13, 5),
+            new Block(23000, 'blue', 13, 5),
+            new Block(24000, 'yellow', 13, 5),
+            new Block(25000, 'blue', 13, 5),
+            new Block(26000, 'yellow', 13, 5),
+            new Block(27000, 'yellow', 13, 5),
+            new Block(28000, 'green', 13, 5),
+            new Block(29000, 'blue', 13, 5),
+            new Block(30000, 'blue', 13, 5),
+            new Block(31000, 'green', 13, 5),
+            new Block(32000, 'yellow', 13, 5),
+            new Block(33000, 'yellow', 13, 5),
+            new Block(34000, 'green', 13, 5),
+            new Block(35000, 'blue', 13, 5),
+            new Block(36000, 'blue', 13, 5),
+            new Block(37000, 'yellow', 13, 5),
+            new Block(38000, 'green', 13, 5),
+            new Block(39000, 'blue', 13, 5),
+            new Block(40000, 'yellow', 13, 5), ////////////////////////////
+            new Block(44000, 'green', 7, 5),
+            new Block(45000, 'green', 7, 8),
+            new Block(46000, 'green', 7, 8),
+            new Block(47000, 'green', 7, 8),
+            new Block(46000, 'green', 7, 8),
+            new Block(47000, 'green', 7, 8),
+            new Block(48000, 'green', 7, 8),
+            new Block(49000, 'green', 7, 8),
+            new Block(50000, 'green', 7, 8)
+            
         ];
         blocks.forEach(block => {
             setTimeout(() => {
                 createBlock(block);
 
                 //1초에 블록이 움직이는 거리 계산
-                var cal_speed = (1000/block.speed) *5;
+                var cal_speed = (1000/block.speed) *block.movePx;
 
                 //블록 생성되었을때 이벤트 리스너 생성
                 setTimeout(() => {
@@ -265,7 +303,7 @@ $(document).ready(function() {
         console.log(score);
         
         if (score <= 0) {
-          gameOver();                 
+        //   gameOver();                 
         }
     }
 
@@ -274,7 +312,7 @@ $(document).ready(function() {
         $(".score").text(score);
         console.log(score);
         if (score <= 0) {
-           gameOver()
+        //    gameOver()
         }
     }
     function gameOver() {
