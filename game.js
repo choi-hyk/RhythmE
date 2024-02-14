@@ -158,6 +158,7 @@ $(document).ready(function() {
             instruction.attr('src', instructionImages[index]);
             index = (index + 1) % instructionImages.length;
         }, 500);
+        setTimeout(gameComplete, 4000);
     }
 
     // 인스트럭션 숨기기
@@ -356,10 +357,39 @@ $(document).ready(function() {
 
     //게임 완료 
     function gameComplete(){
+        
+        isGameComplete = true;
     
-    isGameComplete = true;
-
-    }
+        $('.score').hide();
+        $('.score_img').hide();
+        
+        // 뒤로가기 이미지 숨기기
+        $('#back').hide();
+    
+        setTimeout(function(){
+            
+            // 블록 모두 제거
+            $('.block').remove(); 
+        
+            // 캐릭터 애니메이션 중지
+            character.stop();
+        
+            // 배경 애니메이션 중지
+            $('#image').css('animation-play-state', 'paused');
+    
+            // 1초 후에 화면 블러 처리 및 점수 고정
+            setTimeout(function() {
+                $("#image").css("filter", "blur(5px)");
+                $(".rhythme").css("filter", "blur(5px)");
+                document.getElementById("gameCompleteScreen").style.display = "flex";
+                $(".score").text(score);
+                document.getElementById("reStart").style.display = "flex";
+                document.getElementById("quit").style.display = "flex";
+            }, 1000);
+        },400);
+    
+    
+        }
 
     //게임오버 전역변수
     var isGameOver = false;
