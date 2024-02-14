@@ -1,4 +1,29 @@
 $(document).ready(function() {
+    
+    //게임오버 버튼 구현
+    $('#reStart img').hover(function(){
+        $(this).attr("src", "game_img/restart_text2.png");
+        $(this).css('width','22vw');
+    }, function() {
+        $(this).attr("src", "game_img/restart_text1.png");
+    });
+    
+    $('#quit img').hover(function(){
+        $(this).attr("src", "game_img/quit_text1.png");
+        $(this).css('width','22vw');
+    }, function() {
+        $(this).attr("src", "game_img/quit_text2.png");
+    });
+
+    $('#reStart').click(()=>{
+        var url = "game.html?";
+        location.href=url;
+    });
+
+    $('#quit').click(()=>{
+        var url = "start.html?";
+        location.href=url;
+    });
 
     //뒤로가기 함수
     $('#back img').hover(function(){
@@ -50,7 +75,7 @@ $(document).ready(function() {
             hideInstructionImage();
         }
         
-        if (!jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
+        if (!isGameOver && !jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
             JumpAction();
         }
     });
@@ -84,17 +109,22 @@ $(document).ready(function() {
         document.body.appendChild(block_img);
 
         const moveInterval = setInterval(() => {
-            const currentLeft = parseFloat(block_img.style.left);
-            if(currentLeft <= -30) {
-                clearInterval(moveInterval);
-                block_img.remove();
+            if (!isGameOver) { // 게임 오버 상태가 아닐 때만 블록을 이동시킴
+                const currentLeft = parseFloat(block_img.style.left);
+                if(currentLeft <= -30) {
+                    clearInterval(moveInterval);
+                    block_img.remove();
+                } else {
+                    block_img.style.left = (currentLeft - 5)+'px'
+                }
             } else {
-                block_img.style.left = (currentLeft - 5)+'px'
+                clearInterval(moveInterval); // 게임 오버 상태일 때는 블록 이동을 멈춤
             }
         }, block.speed);
     }
     // 게임 시작
     function startGame() {
+        $('.score_img').show();
         start_check = true;
         bgm.play();
         $('#image').css('animation-play-state', 'running');
@@ -105,11 +135,16 @@ $(document).ready(function() {
         //   }, block_createspeed);
         $('.score').text(score);
         moveBlock();
+        
+        //게임 컴플리트
+        setTimeout(gameComplete, 10000);
+
     }
 
     // 초기화면
     function init() {
         start_check = false;
+        $('.score_img').hide();
         bgm.pause();
         $('#image').css('animation-play-state', 'paused');
         jumping = false;
@@ -276,20 +311,55 @@ $(document).ready(function() {
            gameOver()
         }
     }
-    function gameOver() {
-        // 캐릭터 애니메이션 중지
-        character.stop();
+
+    //게임완료 전역변수
+    var isGameComplete = false;
+
+    //게임 완료 
+    function gameComplete(){
     
-        // 사용자 입력 무시
-        $(document).off("keydown");
-    
-        // 1초 후에 화면 블러 처리 및 점수 고정
-        setTimeout(function() {
-            $("body").css("filter", "blur(5px)");
-            $('#score').css('position', 'fixed');
-        }, 1000);
-    
-        $('#image').css('animation-play-state', 'paused');
+    isGameComplete = true;
+
+
+
+    }
+
+    //게임오버 전역변수
+    var isGameOver = false;
+
+    //게임 오버
+    function gameOver() {        
+        
+        // 스코어 이미지 제거
+        $('.score').hide();
+        $('.score_img').hide();
+        
+        // 뒤로가기 이미지 숨기기
+        $('#back').hide();
+
+        setTimeout(function(){
+
+            isGameOver = true;         
+            
+            // 블록 모두 제거
+            $('.block').remove(); 
+        
+            // 캐릭터 애니메이션 중지
+            character.stop();
+        
+            // 배경 애니메이션 중지
+            $('#image').css('animation-play-state', 'paused');
+
+            // 1초 후에 화면 블러 처리 및 점수 고정
+            setTimeout(function() {
+                $("#image").css("filter", "blur(5px)");
+                $(".rhythme").css("filter", "blur(5px)");
+                document.getElementById("gameOverScreen").style.display = "flex";
+                document.getElementById("reStart").style.display = "flex";
+                document.getElementById("quit").style.display = "flex";
+            }, 1000);
+        },400);
+       
     }
 
 });
