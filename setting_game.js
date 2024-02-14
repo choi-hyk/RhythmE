@@ -70,7 +70,8 @@ $(document).ready(function(){
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
-        history.back();
+        var url = "start.html?";
+        location.href=url;
     });
 
     
