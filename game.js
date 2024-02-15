@@ -116,7 +116,7 @@ $(document).ready(function() {
                     clearInterval(moveInterval);
                     block_img.remove();
                 } else {
-                    block_img.style.left = (currentLeft - movePx)+'px'
+                    block_img.style.left = (currentLeft - block.movePx)+'px'
                 }
             } else {
                 clearInterval(moveInterval); // 게임 오버 상태일 때는 블록 이동을 멈춤
