@@ -439,21 +439,35 @@ $(document).ready(function() {
         }
     }
 
+    const scoreImages = ['cool_text.png', 'great_text.png', 'perfect_text.png','miss_text.png'];
+
+    function showAchievement(index) {
+        const achievementElement = $('.achievement').eq(index);
+        achievementElement.attr('src', 'game_img/' + scoreImages[index]);
+        achievementElement.fadeIn();
+        setTimeout(() => {
+            achievementElement.fadeOut();
+        }, 500);
+    }
+
     //점수 증가 함수
     function increaseScore() {
         score += 50;
+        showAchievement(0);
         $(".score").text(score);
         console.log('cool!');
     }
 
     function greatScore() {
         score += 100;
+        showAchievement(1);
         $(".score").text(score);
         console.log('great!');
     }
 
     function perfectScore() {
         score += 200;
+        showAchievement(2);
         $(".score").text(score);
         console.log('perfect!');
     }
@@ -461,8 +475,10 @@ $(document).ready(function() {
     //점수 감소 함수
     function decreaseScore() {
         score -= 100;
-        $(".score").text(score);
         
+        $(".score").text(score);
+
+        showAchievement(3);       
         
         if (score <= 0) {
         gameOver();                 
@@ -472,6 +488,8 @@ $(document).ready(function() {
     function failChangeScore() {
         score -= 200;
         $(".score").text(score);
+
+        showAchievement(3);
         
         if (score <= 0) {
         gameOver();
@@ -529,6 +547,8 @@ $(document).ready(function() {
         
         // 뒤로가기 이미지 숨기기
         $('#back').hide();
+
+        $('.achievement').hide();
 
         setTimeout(function(){
 
