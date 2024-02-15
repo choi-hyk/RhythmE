@@ -47,6 +47,14 @@ $(document).ready(function() {
         "characters_img/rhythme3.png",
         "characters_img/rhythme4.png"
     ];
+
+    var sadCharacterImages = [
+        "characters_img/sad1.png",
+        "characters_img/sad2.png",
+        "characters_img/sad3.png",
+        "characters_img/sad4.png"
+    ];
+
     var currentCharacterIndex = 0;
 
     // 인스트럭션
@@ -471,6 +479,16 @@ $(document).ready(function() {
         $(".score").text(score);
         console.log('perfect!');
     }
+    
+    //우는 캐릭터 이미지 변경
+    function changeCharacterImageToSad() {
+
+        character.attr('src', sadCharacterImages[currentCharacterIndex]);
+
+        setTimeout(function() {
+            character.attr('src', characterImages[currentCharacterIndex]);
+        }, 1500);
+    }
 
     //점수 감소 함수
     function decreaseScore() {
@@ -478,7 +496,9 @@ $(document).ready(function() {
         
         $(".score").text(score);
 
-        showAchievement(3);       
+        showAchievement(3);  
+        
+        changeCharacterImageToSad();
         
         if (score <= 0) {
         gameOver();                 
@@ -490,6 +510,8 @@ $(document).ready(function() {
         $(".score").text(score);
 
         showAchievement(3);
+
+        changeCharacterImageToSad();
         
         if (score <= 0) {
         gameOver();
@@ -525,6 +547,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 $("#image").css("filter", "blur(5px)");
                 $(".rhythme").css("filter", "blur(5px)");
+                $(".shadow").css("filter", "blur(5px)");
                 document.getElementById("gameCompleteScreen").style.display = "flex";
                 $(".score").text(score);
                 document.getElementById("reStart").style.display = "flex";
@@ -548,7 +571,7 @@ $(document).ready(function() {
         // 뒤로가기 이미지 숨기기
         $('#back').hide();
 
-        $('.achievement').hide();
+        $('.achievement').remove();
 
         setTimeout(function(){
 
@@ -567,6 +590,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 $("#image").css("filter", "blur(5px)");
                 $(".rhythme").css("filter", "blur(5px)");
+                $(".shadow").css("filter", "blur(5px)");
                 document.getElementById("gameOverScreen").style.display = "flex";
                 document.getElementById("reStart").style.display = "flex";
                 document.getElementById("quit").style.display = "flex";

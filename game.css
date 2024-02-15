@@ -27,6 +27,16 @@ body {
     z-index: 6; 
 }
 
+.shadow {
+    position: fixed;
+    width: 60px;
+    top: 79.9%;
+    left: 30.5%; 
+    opacity: 0.5;
+    transform: translate(-50%, -50%); 
+    z-index: 5; 
+}
+
 .instruction {
     position: fixed;
     width: 380px;
