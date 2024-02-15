@@ -37,7 +37,7 @@ $(document).ready(function() {
         location.href=url;
     });
 
-    let score = 100;
+    let score = 1000;
 
     // 캐릭터 선택
     var character = $('.rhythme');
@@ -176,6 +176,10 @@ $(document).ready(function() {
         }
     }
     
+    
+    var currentTime;
+    var pointTime;
+
     function moveBlock() {
         const blocks = [
             new Block(1000, 'blue', 13, 5),
@@ -275,12 +279,16 @@ $(document).ready(function() {
 
                 //1초에 블록이 움직이는 거리 계산
                 var cal_speed = (1000/block.speed) *block.movePx;
-
+                // pointTime = (window.innerWidth * 0.7 / cal_speed) * 1000
+                
+               
+                
                 //블록 생성되었을때 이벤트 리스너 생성
                 setTimeout(() => {
+                    
                     enableKeyPress(block.color);
-                correct_key = false;
-                }, (window.innerWidth * 0.7 / cal_speed) *1000);
+                    correct_key = false;
+                }, ((window.innerWidth * 0.7 / cal_speed) *1000));
 
                 //블록 지나갔을때 이벤트 리스너 제거
                 setTimeout(() => {
@@ -289,7 +297,7 @@ $(document).ready(function() {
                     if(!correct_key){
                         decreaseScore();
                     }
-                }, ((window.innerWidth * 0.7 / cal_speed) *1000)+200)
+                }, ((window.innerWidth * 0.7 / cal_speed) *1000)+300)
             },block.time);
         });
     }
@@ -303,18 +311,31 @@ $(document).ready(function() {
 
     // 블록이 일정 위치에 도달했을 때 키 입력을 받도록 설정하는 함수
     function enableKeyPress(blockColor) {
+        var d = new Date();
+                currentTime = d.getMilliseconds();
+                console.log('현재시간:'+currentTime);
         block_color = blockColor;
         document.addEventListener("keydown", handleKeyPress);
         document.addEventListener("keydown", handleSameKeyPress);
     }
 
     function handleKeyPress(event) {
+        var date = new Date();
+        var timegap = date.getMilliseconds() - currentTime;
         // green 블록이면 's'와 'k'를 동시에 눌러야 함
         if (block_color === 'green' && (event.key === 's' || event.key === 'S')) {
             if(green_kCheck == false){ //green block일 때 k를 아직 누르지 않았다면
                 green_sCheck = true;   //s 눌렀다고 표시
             } else{     //k를 이미 누르고 s를 누른 상황
-                increaseScore();
+                if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
+                    greatScore();
+                }
+                else if(timegap <50 || timegap > 250){
+                    increaseScore();
+                }
+               else{
+                    perfectScore();
+               }
                 green_kCheck = false;
                 correct_key = true;
             }
@@ -323,14 +344,34 @@ $(document).ready(function() {
         // blue 블록이면 'k'를 눌러야 함
         else if (block_color === 'blue' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
-            increaseScore();
+            console.log('키누른 시간:'+date.getMilliseconds());
+            console.log('시간차:'+(date.getMilliseconds()-currentTime));
+            if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
+                greatScore();
+            }
+            else if(timegap <50 || timegap > 250){
+                increaseScore();
+            }
+           else{
+                perfectScore();
+           }
             document.removeEventListener("keydown", handleSameKeyPress);
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
         // yellow 블록이면 's'를 눌러야 함
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
-            increaseScore();
+            console.log('키누른 시간:'+date.getMilliseconds());
+            console.log('시간차:'+ (date.getMilliseconds()-currentTime));
+            if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
+                greatScore();
+            }
+            else if(timegap <50 || timegap > 250){
+                increaseScore();
+            }
+           else{
+                perfectScore();
+           }
             document.removeEventListener("keydown", handleSameKeyPress);
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
         }
@@ -339,6 +380,8 @@ $(document).ready(function() {
     }
 
     function handleSameKeyPress(event){
+        var date = new Date();
+        var timegap = date.getMilliseconds() - currentTime;
         if (block_color === 'blue' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
             failChangeScore();
@@ -355,7 +398,15 @@ $(document).ready(function() {
         }
         if (block_color === 'green' && (event.key === 'k' || event.key === 'K')) {
             if(green_sCheck == true){ //s를 누르고 k를 누른 상황
-                increaseScore();
+                if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
+                    greatScore();
+                }
+                else if(timegap <50 || timegap > 250){
+                    increaseScore();
+                }
+               else{
+                    perfectScore();
+               }
                 green_sCheck=false;
                 correct_key = true;
             } else {
@@ -368,16 +419,28 @@ $(document).ready(function() {
 
     //점수 증가 함수
     function increaseScore() {
+        score += 50;
+        $(".score").text(score);
+        console.log('cool!');
+    }
+
+    function greatScore() {
         score += 100;
         $(".score").text(score);
-        console.log(score);
+        console.log('great!');
+    }
+
+    function perfectScore() {
+        score += 200;
+        $(".score").text(score);
+        console.log('perfect!');
     }
 
     //점수 감소 함수
     function decreaseScore() {
         score -= 100;
         $(".score").text(score);
-        console.log(score);
+        
         
         if (score <= 0) {
         gameOver();                 
@@ -387,7 +450,7 @@ $(document).ready(function() {
     function failChangeScore() {
         score -= 200;
         $(".score").text(score);
-        console.log(score);
+        
         if (score <= 0) {
         gameOver();
         }
