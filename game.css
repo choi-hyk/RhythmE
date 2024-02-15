@@ -171,3 +171,14 @@ button {
     left: 50vw; 
     transform: translate(-50%, -50%);
 }
+
+.achievement {
+    position: fixed;
+    display: none;
+    width: 150px;
+    height: 30px;
+    top: 65%;
+    left: 20%; 
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+}
