@@ -116,7 +116,7 @@ $(document).ready(function() {
                     clearInterval(moveInterval);
                     block_img.remove();
                 } else {
-                    block_img.style.left = (currentLeft - 5)+'px'
+                    block_img.style.left = (currentLeft - movePx)+'px'
                 }
             } else {
                 clearInterval(moveInterval); // 게임 오버 상태일 때는 블록 이동을 멈춤
@@ -138,7 +138,7 @@ $(document).ready(function() {
         moveBlock();
         
         //게임 컴플리트
-        setTimeout(gameComplete, 10000);
+        setTimeout(gameComplete, 2210000);
 
     }
 
@@ -158,7 +158,7 @@ $(document).ready(function() {
             instruction.attr('src', instructionImages[index]);
             index = (index + 1) % instructionImages.length;
         }, 500);
-        setTimeout(gameComplete, 4000);
+      
     }
 
     // 인스트럭션 숨기기
