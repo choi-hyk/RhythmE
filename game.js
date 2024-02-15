@@ -138,7 +138,7 @@ $(document).ready(function() {
         moveBlock();
         
         //게임 컴플리트
-        setTimeout(gameComplete, 2210000);
+        setTimeout(gameComplete, 221000);
 
     }
 
@@ -222,67 +222,94 @@ $(document).ready(function() {
             new Block(39000, 'blue', 13, 5),
             new Block(40000, 'yellow', 13, 5), /////////////
             new Block(44000, 'green', 7, 5.3),
-            new Block(45000, 'green', 7, 8),
-            new Block(46000, 'green', 7, 8),
-            new Block(47000, 'green', 7, 8),
-            new Block(46000, 'green', 7, 8),
-            new Block(47000, 'green', 7, 8),
-            new Block(48000, 'green', 7, 8),
-            new Block(49000, 'green', 7, 8),
-            new Block(50000, 'green', 7, 8),
-            new Block(51000, 'green', 7, 8),
-            new Block(52000, 'green', 7, 8),
-            new Block(53000, 'green', 7, 8),
-            new Block(54000, 'blue', 7, 8),
-            new Block(55000, 'yellow', 7, 8),
-            new Block(56000, 'yellow', 7, 8),
-            new Block(57000, 'blue', 7, 8),
-            new Block(58000, 'yellow', 7, 8),
-            new Block(59000, 'green', 7, 8),
-            new Block(60000, 'blue', 7, 8),
-            new Block(61000, 'green', 7, 8),
-            new Block(62000, 'green', 7, 8),
-            new Block(63000, 'blue', 7, 8),
-            new Block(64000, 'green', 7, 8),
-            new Block(65000, 'yellow', 7, 8),
-            new Block(66000, 'blue', 7, 8),
-            new Block(67000, 'yellow', 7, 8),
-            new Block(68000, 'blue', 7, 8),
-            new Block(69000, 'yellow', 7, 8),
-            new Block(70000, 'blue', 7, 8),
-            new Block(71000, 'green', 7, 8),
-            new Block(72000, 'green', 7, 8),
-            new Block(73000, 'green', 7, 8),
-            new Block(74000, 'green', 7, 8),
-            new Block(75000, 'green', 7, 8),
-            new Block(76000, 'green', 7, 8),
-            new Block(77000, 'green', 7, 8),
-            new Block(78000, 'green', 7, 8),
-            new Block(79000, 'green', 7, 8),
-            new Block(80000, 'green', 7, 8),
-            new Block(81000, 'green', 7, 8),
-            new Block(82000, 'green', 7, 8),
-            new Block(83000, 'green', 7, 8),
-            new Block(84000, 'green', 7, 8),
-            new Block(85000, 'green', 7, 8),
-            new Block(86000, 'green', 7, 8),
-            new Block(87000, 'green', 7, 8),
-            new Block(88000, 'green', 7, 8),
-            new Block(89000, 'green', 7, 8)
-            
+            new Block(45000, 'green', 6, 5),
+            new Block(46000, 'green', 6, 5),
+            new Block(47000, 'green', 6, 5),
+            new Block(46000, 'green', 6, 5),
+            new Block(47000, 'green', 6, 5),
+            new Block(48000, 'green', 6, 5),
+            new Block(49000, 'green', 6, 5),
+            new Block(50000, 'green', 6, 5),
+            new Block(51000, 'green', 6, 5),
+            new Block(52000, 'green', 6, 5),
+            new Block(53000, 'green', 6, 5),
+            new Block(54000, 'blue', 6, 5),
+            new Block(55000, 'yellow', 7, 5),
+            new Block(56000, 'yellow', 7, 5),
+            new Block(57000, 'blue', 7, 5),
+            new Block(58000, 'yellow', 7, 5),
+            new Block(59000, 'green', 7, 5),
+            new Block(60000, 'blue', 7, 5),
+            new Block(61000, 'green', 7, 5),
+            new Block(62000, 'green', 7, 5),
+            new Block(63000, 'blue', 7, 5),
+            new Block(64000, 'green', 7, 5),
+            new Block(65000, 'yellow', 7, 5),
+            new Block(66000, 'blue', 7, 5),
+            new Block(67000, 'yellow', 7, 5),
+            new Block(68000, 'blue', 7, 5),
+            new Block(69000, 'yellow', 7, 5),
+            new Block(70000, 'blue', 7, 5),
+            new Block(71000, 'green', 7, 5),
+            new Block(72000, 'green', 7, 5),
+            new Block(73000, 'green', 7, 5),
+            new Block(74000, 'green', 7, 5),
+            new Block(75000, 'green', 7, 5),
+            new Block(76000, 'green', 7, 5),
+            new Block(77000, 'green', 7, 5),
+            new Block(78000, 'green', 7, 5),
+            new Block(79000, 'green', 7, 5),
+            new Block(80000, 'green', 7, 5),
+            new Block(81000, 'green', 7, 5),
+            new Block(82000, 'green', 7, 5),
+            new Block(83000, 'green', 7, 5),
+            new Block(84000, 'green', 7, 5),
+            new Block(85000, 'green', 7, 5),
+            new Block(86000, 'green', 7, 5),
+            new Block(87000, 'green', 7, 5),
+            new Block(88000, 'green', 7, 5),
+            new Block(89000, 'green', 7, 5),
+            new Block(90000, 'green', 7, 5),
+            new Block(91000, 'green', 7, 5),
+            new Block(92000, 'green', 7, 5),
+            new Block(93000, 'green', 7, 5),
+            new Block(94000, 'green', 7, 5),
+            new Block(95000, 'green', 7, 5),
+            new Block(96000, 'green', 7, 5),
+            new Block(97000, 'green', 7, 5),
+            new Block(98000, 'green', 7, 5),
+            new Block(99000, 'green', 7, 5),
+            new Block(100000, 'green', 7, 5),
+            new Block(110000, 'green', 7, 5),
+            new Block(120000, 'green', 7, 5),
+            new Block(130000, 'green', 7, 5),
+            new Block(140000, 'green', 7, 5),
+            new Block(150000, 'green', 7, 5),
+            new Block(160000, 'green', 7, 5),
+            new Block(170000, 'green', 7, 5),
+            new Block(180000, 'green', 7, 5),
+            new Block(190000, 'green', 7, 5),
+            new Block(200000, 'green', 7, 5),
+            new Block(210000, 'green', 7, 5),
+            new Block(220000, 'green', 7, 5),
+            new Block(230000, 'green', 7, 5),
+            new Block(240000, 'green', 7, 5)
             
             
         ];
         blocks.forEach(block => {
             setTimeout(() => {
                 createBlock(block);
-
+                var cal_speed = 0;
                 //1초에 블록이 움직이는 거리 계산
-                var cal_speed = (1000/block.speed) *block.movePx;
+                if(block.speed < 10){
+                    cal_speed = (1000/(block.speed))*block.movePx;
+                }else{
+                    cal_speed = (1000/block.speed) *block.movePx;
+                }
                 // pointTime = (window.innerWidth * 0.7 / cal_speed) * 1000
                 
-               
-                
+
                 //블록 생성되었을때 이벤트 리스너 생성
                 setTimeout(() => {
                     
@@ -313,7 +340,6 @@ $(document).ready(function() {
     function enableKeyPress(blockColor) {
         var d = new Date();
                 currentTime = d.getMilliseconds();
-                console.log('현재시간:'+currentTime);
         block_color = blockColor;
         document.addEventListener("keydown", handleKeyPress);
         document.addEventListener("keydown", handleSameKeyPress);
@@ -344,8 +370,6 @@ $(document).ready(function() {
         // blue 블록이면 'k'를 눌러야 함
         else if (block_color === 'blue' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
-            console.log('키누른 시간:'+date.getMilliseconds());
-            console.log('시간차:'+(date.getMilliseconds()-currentTime));
             if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
                 greatScore();
             }
@@ -361,8 +385,6 @@ $(document).ready(function() {
         // yellow 블록이면 's'를 눌러야 함
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
-            console.log('키누른 시간:'+date.getMilliseconds());
-            console.log('시간차:'+ (date.getMilliseconds()-currentTime));
             if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
                 greatScore();
             }
