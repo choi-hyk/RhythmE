@@ -6,6 +6,11 @@
     height: 100vh;
 }
 
+button {
+    border: none;
+    background-color: transparent;
+}
+
 #back {
     position: absolute;
     top: 9vh; 
@@ -22,6 +27,98 @@
     background-color: transparent;
 }
 
+
+#hat_box{
+    position: absolute;
+    top: 30%; 
+    left: 75%; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+
+#clothes_box{
+    position: absolute;
+    top: 70%; 
+    left: 75%; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+.clothes_box{
+    width: 20vw;
+    height: 35vh;
+}
+
+#hat{
+    position: absolute;
+    top: 37%; 
+    left: 74.5%; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+#clothes{
+    position: absolute;
+    top: 67%; 
+    left: 74.5%; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+.hat_img{
+
+width: 20vw;
+
+}
+
+.clothes_img{
+
+    width: 30vw;
+    
+    }
+
 .back_img{   
     width: 7vw
 }
+
+#raise_arrow1 {
+    position: absolute;
+    top: 30%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+}
+
+#lower_arrow1 {
+    position: absolute;
+    top: 30%; 
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+
+}
+
+#raise_arrow2 {
+    position: absolute;
+    top: 70%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+
+}
+
+#lower_arrow2 {
+    position: absolute;
+    top: 70%; 
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    
+
+}
+
+.arrow_img {
+    width: 7vw;
+}
+
