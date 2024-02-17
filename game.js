@@ -478,7 +478,7 @@ $(document).ready(function() {
         achievementElement.fadeIn();
         setTimeout(() => {
             achievementElement.fadeOut();
-        }, 500);
+        }, 300);
     }
 
     //점수 증가 함수
