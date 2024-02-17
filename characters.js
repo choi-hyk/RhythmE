@@ -1,25 +1,25 @@
-const characterImages = [
-    "characters_img/rhythme1.png",
-    "characters_img/rhythme2.png",
-    "characters_img/rhythme3.png",
-    "characters_img/rhythme4.png"
-];
-
-const shadowImages = [
-    "game_img/shadow.png",
-    "game_img/shadow2.png",
-    "game_img/shadow3.png",
-    "game_img/shadow4.png",
-    "game_img/shadow5.png"
-]
-
 $(document).ready(function() {
 
-   
+    const characterImages = [
+        "characters_img/rhythme1.png",
+        "characters_img/rhythme2.png",
+        "characters_img/rhythme3.png",
+        "characters_img/rhythme4.png"
+    ];
+    
+    const shadowImages = [
+        "game_img/shadow.png",
+        "game_img/shadow2.png",
+        "game_img/shadow3.png",
+        "game_img/shadow4.png",
+        "game_img/shadow5.png"
+    ]
 
     var jumping = false;
     var character = $('.rhythme');
     var shadow = $('.shadow');
+    var currentCharacterIndex = 0;
+    var currentShadowIndex = 1;
 
     $('#back img').hover(function(){
 
@@ -34,13 +34,13 @@ $(document).ready(function() {
         location.href=url;
     });
 
-    // // 게임 시작 및 점프 이벤트 핸들러
-    // document.addEventListener("keydown", function(event) {
+    // 게임 시작 및 점프 이벤트 핸들러
+    document.addEventListener("keydown", function(event) {
         
-    //     if (!jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
-    //         JumpAction();
-    //     }
-    // });
+        if (!jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
+            JumpAction();
+        }
+    });
 
 
     var imageInterval;
@@ -50,9 +50,9 @@ $(document).ready(function() {
         clearInterval(imageInterval);
         character.attr('src', characterImages[0]);
         shadow.attr('src', shadowImages[4]);
-        character.animate({ top: '39%' }, 190, 'linear')
+        character.animate({ top: '37%' }, 190, 'linear')
             .animate({ top: '41%' }, 150, 'linear', function() {
-                character.attr('src', characterImages[3]);
+                character.attr('src', characterImages[0]);
                 shadow.attr('src',shadowImages[0]);
                 jumping = false;
                 imageInterval = setInterval(function() {
@@ -66,10 +66,7 @@ $(document).ready(function() {
             });
     }
 
-    setInterval(() => {
-        JumpAction();
-        clearInterval(imageInterval);
-    },500);
+    // clearInterval(imageInterval);
     
 
 });
