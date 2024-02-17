@@ -115,8 +115,6 @@ width: 20vw;
     left: 60%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    
-
 }
 
 .arrow_img {
@@ -128,7 +126,7 @@ width: 20vw;
     position: fixed;
     width: 150px;
     height: 150px;
-    top: 41%;
+    top: 43%;
     left: 29.5%; 
     transform: translate(-50%, -50%); 
     z-index: 6; 
@@ -137,8 +135,8 @@ width: 20vw;
 .shadow {
     position: fixed;
     width: 60px;
-    top: 50%;
-    left: 29.8%; 
+    top: 51%;
+    left: 29.9%; 
     opacity: 0.5;
     transform: translate(-50%, -50%); 
     z-index: 5; 
