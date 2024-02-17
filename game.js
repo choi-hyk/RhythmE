@@ -41,6 +41,8 @@ $(document).ready(function() {
 
     // 캐릭터 선택
     var character = $('.rhythme');
+    var shadow = $('.shadow');
+
     var characterImages = [
         "characters_img/rhythme1.png",
         "characters_img/rhythme2.png",
@@ -55,7 +57,16 @@ $(document).ready(function() {
         "characters_img/sad4.png"
     ];
 
+    var shadowImages = [
+        "game_img/shadow.png",
+        "game_img/shadow2.png",
+        "game_img/shadow3.png",
+        "game_img/shadow4.png",
+        "game_img/shadow5.png"
+    ]
+
     var currentCharacterIndex = 0;
+    var currentShadowIndex = 1;
 
     // 인스트럭션
     var instruction = $('.instruction');
@@ -93,19 +104,29 @@ $(document).ready(function() {
     var jumping = false;
     var imageInterval;
     var gamingInterval;
+    var sadCheck = false;
 
     // 초기 점프 구현
     function JumpAction() {
         jumping = true;
         clearInterval(imageInterval);
         character.attr('src', characterImages[0]);
+        shadow.attr('src', shadowImages[4]);
         character.animate({ top: '65%' }, 190, 'linear')
             .animate({ top: '75%' }, 150, 'linear', function() {
                 character.attr('src', characterImages[3]);
+                shadow.attr('src',shadowImages[0]);
                 jumping = false;
                 imageInterval = setInterval(function() {
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
-                    character.attr('src', characterImages[currentCharacterIndex]);
+                    currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
+                    if(!sadCheck){
+                        character.attr('src', characterImages[currentCharacterIndex]);
+                    }else{
+                        character.attr('src',sadCharacterImages[currentCharacterIndex]);
+                    }
+                    shadow.attr('src',shadowImages[currentShadowIndex]);
+                    
                 }, 100);
             });
     }
@@ -186,7 +207,6 @@ $(document).ready(function() {
     
     
     var currentTime;
-    var pointTime;
 
     function moveBlock() {
         const blocks = [
@@ -482,12 +502,11 @@ $(document).ready(function() {
     
     //우는 캐릭터 이미지 변경
     function changeCharacterImageToSad() {
-
-        character.attr('src', sadCharacterImages[currentCharacterIndex]);
+        sadCheck = true;
 
         setTimeout(function() {
-            character.attr('src', characterImages[currentCharacterIndex]);
-        }, 1500);
+            sadCheck = false;
+        }, 1000);
     }
 
     //점수 감소 함수
