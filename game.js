@@ -311,7 +311,7 @@ $(document).ready(function() {
                 var cal_speed = 0;
                 //1초에 블록이 움직이는 거리 계산
                 if(block.speed < 10){
-                    cal_speed = (1000/(block.speed))*block.movePx;
+                    cal_speed = (1000/(block.speed)-0.5)*block.movePx;
                 }else{
                     cal_speed = (1000/block.speed) *block.movePx;
                 }
