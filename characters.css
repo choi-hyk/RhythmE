@@ -25,3 +25,23 @@
 .back_img{   
     width: 7vw
 }
+
+.rhythme {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    top: 41%;
+    left: 29.5%; 
+    transform: translate(-50%, -50%); 
+    z-index: 6; 
+}
+
+.shadow {
+    position: fixed;
+    width: 60px;
+    top: 50%;
+    left: 29.8%; 
+    opacity: 0.5;
+    transform: translate(-50%, -50%); 
+    z-index: 5; 
+}
