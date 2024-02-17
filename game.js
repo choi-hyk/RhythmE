@@ -167,7 +167,7 @@ $(document).ready(function() {
         moveBlock();
         
         //게임 컴플리트
-        setTimeout(gameComplete, 221000);
+        setTimeout(gameComplete, 220000);
 
     }
 
@@ -211,8 +211,11 @@ $(document).ready(function() {
     function moveBlock() {
         const blocks = [
             new Block(1000, 'blue', 13, 5),
+            new Block(1500, 'green',13, 5),
             new Block(2000, 'green',13, 5),
+            new Block(2500, 'green',13, 5),
             new Block(3000, 'yellow',13, 5),
+            new Block(3500, 'yellow',13, 5),
             new Block(5000, 'blue', 13, 5),
             new Block(6000, 'blue', 13, 5),
             new Block(7000, 'yellow', 13, 5),
@@ -308,20 +311,20 @@ $(document).ready(function() {
             new Block(98000, 'green', 7, 5),
             new Block(99000, 'blue', 7, 5),
             new Block(100000, 'blue', 7, 5),
-            new Block(110000, 'blue', 7, 5),
-            new Block(120000, 'yellow', 7, 5),
-            new Block(130000, 'yellow', 7, 5),
-            new Block(140000, 'green', 7, 5),
-            new Block(150000, 'green', 7, 5),
-            new Block(160000, 'yellow', 7, 5),
-            new Block(170000, 'yellow', 7, 5),
-            new Block(180000, 'blue', 7, 5),
-            new Block(190000, 'green', 7, 5),
-            new Block(200000, 'yellow', 7, 5),
-            new Block(210000, 'green', 7, 5),
-            new Block(220000, 'blue', 7, 5),
-            new Block(230000, 'green', 7, 5),
-            new Block(240000, 'green', 7, 5)
+            new Block(101000, 'blue', 7, 5),
+            new Block(102000, 'yellow', 7, 5),
+            new Block(103000, 'yellow', 7, 5),
+            new Block(104000, 'green', 7, 5),
+            new Block(105000, 'green', 7, 5),
+            new Block(106000, 'yellow', 7, 5),
+            new Block(107000, 'yellow', 7, 5),
+            new Block(108000, 'blue', 7, 5),
+            new Block(109000, 'green', 7, 5),
+            new Block(110000, 'yellow', 7, 5),
+            new Block(111000, 'green', 7, 5),
+            new Block(112000, 'blue', 7, 5),
+            new Block(113000, 'green', 7, 5),
+            new Block(115000, 'green', 7, 5)
             
             
         ];
@@ -542,7 +545,7 @@ $(document).ready(function() {
 
     //게임 완료 
     function gameComplete(){
-        
+        bgm.pause;
         isGameComplete = true;
     
         $('.score').hide();
