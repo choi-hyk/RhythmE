@@ -141,3 +141,23 @@ width: 20vw;
     transform: translate(-50%, -50%); 
     z-index: 5; 
 }
+
+.wearing_hat {
+    position: fixed;
+    width: 150px;
+    top: 42.6%;
+    left: 29.5%;
+    transform: translate(-50%, -50%); 
+    z-index: 7;
+    /* display: none; */
+}
+
+.wearing_clothes {
+    position: fixed;
+    width: 150px;
+    top: 43.2%;
+    left: 29.5%;
+    transform: translate(-50%, -50%); 
+    z-index: 7;
+    /* display: none; */
+}
