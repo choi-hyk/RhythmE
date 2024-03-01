@@ -1,5 +1,18 @@
 $(document).ready(function() {
     
+    // 현재 URL에서 query string을 가져옴
+    const queryParams = new URLSearchParams(window.location.search);
+
+    if (queryParams.has("difficulty")) {
+    
+    const difficulty = queryParams.get("difficulty");
+    console.log("난이도: " + difficulty);
+
+    } else {
+        // "difficulty" 파라미터가 없는 경우의 처리
+        console.log("난이도 파라미터가 없습니다.");
+    }
+
     //게임오버 버튼 구현
     $('#reStart img').hover(function(){
         $(this).attr("src", "game_img/restart_text2.png");
