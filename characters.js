@@ -132,7 +132,7 @@ $('#back img').hover(function(){
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
-        var url = "start.html?";
+        var url = "index.html?";
         location.href=url;
     });
 
