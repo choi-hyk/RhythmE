@@ -28,22 +28,23 @@ $(document).ready(function() {
         switch (hatIndex) {
             case 1:
                 $('#hat img').attr("src", "clothes/pink_hat1.png");
-                hat.attr("src", "clothes/pink_hat" + currentClothesIndex + ".png");
+                hat.attr("src", "clothes/pink_hat" + (currentHatIndex + 2) + ".png");
+                console.log(currentHatIndex);
                 hatColor = 'pink';
                 break;
             case 2:
                 $('#hat img').attr("src", "clothes/green_hat1.png");
-                hat.attr("src", "clothes/green_hat" + currentClothesIndex + ".png");
+                hat.attr("src", "clothes/green_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'green';
                 break;
             case 3:
                 $('#hat img').attr("src", "clothes/yellow_hat1.png");
-                hat.attr("src", "clothes/yellow_hat" + currentClothesIndex + ".png");
+                hat.attr("src", "clothes/yellow_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'yellow';
                 break;
             case 4:
                 $('#hat img').attr("src", "clothes/blue_hat1.png");
-                hat.attr("src", "clothes/blue_hat" + currentClothesIndex + ".png");
+                hat.attr("src", "clothes/blue_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'blue';
                 break;
             default:
@@ -55,22 +56,22 @@ $(document).ready(function() {
         switch (clothesIndex) {
             case 1:
                 $('#clothes img').attr("src", "clothes/pink1.png");
-                clothes.attr("src", "clothes/pink" + currentClothesIndex + ".png");
+                clothes.attr("src", "clothes/pink" + (currentClothesIndex + 2) + ".png");
                 clothesColor = 'pink';
                 break;
             case 2:
                 $('#clothes img').attr("src", "clothes/green1.png");
-                clothes.attr("src", "clothes/green" + currentClothesIndex + ".png");
+                clothes.attr("src", "clothes/green" + (currentClothesIndex + 2) + ".png");
                 clothesColor = 'green';
                 break;
             case 3:
                 $('#clothes img').attr("src", "clothes/yellow1.png");
-                clothes.attr("src", "clothes/yellow" + currentClothesIndex + ".png");
+                clothes.attr("src", "clothes/yellow" + (currentClothesIndex + 2) + ".png");
                 clothesColor = 'yellow';
                 break;
             case 4:
                 $('#clothes img').attr("src", "clothes/blue1.png");
-                clothes.attr("src", "clothes/blue" + currentClothesIndex + ".png");
+                clothes.attr("src", "clothes/blue" + (currentClothesIndex + 2) +  ".png");
                 clothesColor = 'blue';
                 break;
             default:
@@ -167,7 +168,8 @@ $('#back img').hover(function(){
     var clothes = $('.wearing_clothes');
 
     var currentCharacterIndex = 0;
-    var currentClothesIndex = 2;
+    var currentHatIndex = 0;
+    var currentClothesIndex = 0;
     var currentShadowIndex = 1;
 
     // 게임 시작 및 점프 이벤트 핸들러
@@ -180,38 +182,29 @@ $('#back img').hover(function(){
 
 
     var imageInterval;
-    var clothesInterval;
-    var hatInterval;
+   
 
     function JumpAction() {
         
         jumping = true;
 
         clearInterval(imageInterval);
-        clearInterval(clothesInterval);
-        clearInterval(hatInterval);
+
         character.attr('src', characterImages[0]);
         shadow.attr('src', shadowImages[4]);
         hat.attr('src',"clothes/" + hatColor + "_hat2.png");
         clothes.attr('src',"clothes/" + clothesColor + "2.png");
 
-        hat.animate({ top: '39%' }, 190, 'linear')
-        .animate({ top: '43%' }, 150, 'linear', function() {
+        hat.animate({ top: '39.1%' }, 190, 'linear')
+        .animate({ top: '43.1%' }, 150, 'linear', function() {
             hat.attr('src',"clothes/" + hatColor + "_hat2.png");
             jumping = false;
-            hatInterval = setInterval(function() {
-                hat.attr('src',"clothes/" + hatColor + "_hat" + currentClothesIndex + ".png");
-            }, 100);
         });
 
-        clothes.animate({ top: '39%' }, 190, 'linear')
-        .animate({ top: '43%' }, 150, 'linear', function() {
+        clothes.animate({ top: '38.8%' }, 190, 'linear')
+        .animate({ top: '42.8%' }, 150, 'linear', function() {
             clothes.attr('src',"clothes/" + clothesColor + "2.png");
             jumping = false;
-            clothesInterval = setInterval(function() {
-                currentClothesIndex = 1 + (currentClothesIndex + 1) % 4;
-                clothes.attr('src',"clothes/" + clothesColor + currentClothesIndex + ".png");                    
-            }, 100);
         });
 
         character.animate({ top: '39%' }, 190, 'linear')
@@ -220,6 +213,10 @@ $('#back img').hover(function(){
                 shadow.attr('src',shadowImages[0]);
                 jumping = false;
                 imageInterval = setInterval(function() {
+                    currentClothesIndex = (currentClothesIndex + 1) % 4;
+                    clothes.attr('src',"clothes/" + clothesColor + (currentClothesIndex + 2) + ".png");  
+                    currentHatIndex = (currentHatIndex + 1) % 4;
+                    hat.attr('src',"clothes/" + hatColor + "_hat" + (currentHatIndex + 2) + ".png");
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                     currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
                     character.attr('src', characterImages[currentCharacterIndex]);
