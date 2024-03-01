@@ -147,7 +147,7 @@ $(document).ready(function() {
      function createBlock(block){
         const block_img = document.createElement('img');
         block_img.classList.add('block');
-        block_img.src = 'game_img/'+block.color+'_block.png';
+        block_img.src = 'game_img/'+block.color+'_block.gif';
         block_img.style.left = window.innerWidth+'px'
         document.body.appendChild(block_img);
 
