@@ -27,7 +27,9 @@ $(document).ready(function(){
     });
 
     $('#start').click(()=>{
-        var url = "game.html?";
+        const queryParams = new URLSearchParams();
+        queryParams.set("difficulty", difficulty);
+        var url = "game.html?" + queryParams.toString();
         location.href=url;
     });
 
