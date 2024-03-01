@@ -18,10 +18,26 @@ var hatColor = 'pink';
 var clothesColor = 'pink';
 
 
+
+var instructionInterval;
+
 $(document).ready(function() {    
     var hatIndex = 1;
 
     var clothesIndex = 1;
+    
+    var index = 0;
+
+    var instruction = $('.press');
+var instructionImages = [
+    "setting_game_img/press1.png",
+    "setting_game_img/press2.png"
+];
+
+    instructionInterval = setInterval(function() {
+    instruction.attr('src', instructionImages[index]);
+    index = (index + 1) % instructionImages.length;
+    }, 500);
 
     function setHatImages(hatIndex) {
 
@@ -78,6 +94,68 @@ $(document).ready(function() {
                 break;
         }
     }
+
+    var resetHat = true;
+    $('.wearing_hat').hide();
+    var resetClothes = true;
+    $('.wearing_clothes').hide();
+
+    $('#reset_hat img').hover(function(){
+        if(resetHat){
+            $(this).attr("src", "setting_game_img/X1.png");
+        }
+        else{
+            $(this).attr("src", "setting_game_img/X2.png");
+        }
+        $(this).css('width','5vw');
+    }, function() {
+        if(resetHat){
+            $(this).attr("src", "setting_game_img/X2.png");
+        }
+        else{
+            $(this).attr("src", "setting_game_img/X1.png");
+        }
+    });
+
+    $('#reset_hat').click(()=>{
+
+        if(!resetHat){
+            resetHat = true;
+            $('.wearing_hat').hide();
+        } else {
+            resetHat = false;
+            $('.wearing_hat').show();
+        }
+    });
+
+    $('#reset_clothes img').hover(function(){
+        if(resetClothes){
+            $(this).attr("src", "setting_game_img/X1.png");
+        }
+        else{
+            $(this).attr("src", "setting_game_img/X2.png");
+        }
+        $(this).css('width','5vw');
+    }, function() {
+        if(resetClothes){
+            $(this).attr("src", "setting_game_img/X2.png");
+        }
+        else{
+            $(this).attr("src", "setting_game_img/X1.png");
+        }
+    });
+
+    $('#reset_clothes').click(()=>{
+
+        if(!resetClothes){
+            resetClothes = true;
+            $('.wearing_clothes').hide();
+        } else {
+            resetClothes = false;
+            $('.wearing_clothes').show();
+        }
+        
+    });
 
     $('#lower_arrow1 img').hover(function(){
         $(this).attr("src", "setting_game_img/difficulty_arrow_lefthover.png");

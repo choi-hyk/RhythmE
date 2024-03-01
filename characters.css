@@ -48,6 +48,18 @@ button {
 .clothes_box{
     width: 20vw;
     height: 35vh;
+   
+}
+
+.press{
+    position: fixed;
+    width: 400px;
+    height: 40px;
+    top: 70%;
+    left: 30%;
+    transform: translate(-50%, -50%); 
+    z-index: 5;
+
 }
 
 #hat{
@@ -106,6 +118,7 @@ width: 20vw;
     left: 90%;
     transform: translate(-50%, -50%);
     background-color: transparent;
+    z-index: 2;
 
 }
 
@@ -115,10 +128,40 @@ width: 20vw;
     left: 60%;
     transform: translate(-50%, -50%);
     background-color: transparent;
+    z-index: 2;
+
 }
 
 .arrow_img {
     width: 7vw;
+    height: 7vw;
+}
+
+.reset_button{
+
+width: 5vw;
+
+}
+
+#reset_hat{
+
+    position: absolute;
+    top: 15%; 
+    left: 62%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    
+}
+
+#reset_clothes{
+
+    position: absolute;
+    top: 55%; 
+    left: 62%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 4;
+    
 }
 
 
@@ -136,7 +179,7 @@ width: 20vw;
     position: fixed;
     width: 120px;
     top: 53%;
-    left: 29.9%; 
+    left: 30.3%; 
     opacity: 0.5;
     transform: translate(-50%, -50%); 
     z-index: 5; 
