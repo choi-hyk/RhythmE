@@ -476,10 +476,19 @@ $(document).ready(function() {
     function showAchievement(index) {
         const achievementElement = $('.achievement').eq(index);
         achievementElement.attr('src', 'game_img/' + scoreImages[index]);
-        achievementElement.fadeIn();
-        setTimeout(() => {
-            achievementElement.fadeOut();
-        }, 50);
+        
+        
+        achievementElement.fadeIn(100, function() {
+            achievementElement.animate({
+                top: '-=20px',
+                opacity: 0 
+            }, 300, function() {
+                
+                achievementElement.hide(); 
+                achievementElement.css('top', '65%'); 
+                achievementElement.css('opacity', '1'); 
+            });
+        });
     }
 
     //점수 증가 함수
