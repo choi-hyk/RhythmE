@@ -124,8 +124,8 @@ width: 20vw;
 
 .rhythme {
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     top: 43%;
     left: 29.5%; 
     transform: translate(-50%, -50%); 
@@ -134,8 +134,8 @@ width: 20vw;
 
 .shadow {
     position: fixed;
-    width: 60px;
-    top: 51%;
+    width: 120px;
+    top: 53%;
     left: 29.9%; 
     opacity: 0.5;
     transform: translate(-50%, -50%); 
@@ -144,8 +144,9 @@ width: 20vw;
 
 .wearing_hat {
     position: fixed;
-    width: 150px;
-    top: 42.6%;
+    width: 200px;
+    height: 200px;
+    top: 43.1%;
     left: 29.5%;
     transform: translate(-50%, -50%); 
     z-index: 7;
@@ -154,8 +155,9 @@ width: 20vw;
 
 .wearing_clothes {
     position: fixed;
-    width: 150px;
-    top: 43.2%;
+    width: 200px;
+    height: 200px;
+    top: 42.8%;
     left: 29.5%;
     transform: translate(-50%, -50%); 
     z-index: 7;
