@@ -180,12 +180,16 @@ $('#back img').hover(function(){
 
 
     var imageInterval;
+    var clothesInterval;
+    var hatInterval;
 
     function JumpAction() {
         
         jumping = true;
 
         clearInterval(imageInterval);
+        clearInterval(clothesInterval);
+        clearInterval(hatInterval);
         character.attr('src', characterImages[0]);
         shadow.attr('src', shadowImages[4]);
         hat.attr('src',"clothes/" + hatColor + "_hat2.png");
@@ -195,7 +199,7 @@ $('#back img').hover(function(){
         .animate({ top: '43%' }, 150, 'linear', function() {
             hat.attr('src',"clothes/" + hatColor + "_hat2.png");
             jumping = false;
-            imageInterval = setInterval(function() {
+            hatInterval = setInterval(function() {
                 hat.attr('src',"clothes/" + hatColor + "_hat" + currentClothesIndex + ".png");
             }, 100);
         });
@@ -204,7 +208,7 @@ $('#back img').hover(function(){
         .animate({ top: '43%' }, 150, 'linear', function() {
             clothes.attr('src',"clothes/" + clothesColor + "2.png");
             jumping = false;
-            imageInterval = setInterval(function() {
+            clothesInterval = setInterval(function() {
                 currentClothesIndex = 1 + (currentClothesIndex + 1) % 4;
                 clothes.attr('src',"clothes/" + clothesColor + currentClothesIndex + ".png");                    
             }, 100);
