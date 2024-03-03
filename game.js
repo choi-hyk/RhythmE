@@ -1,16 +1,40 @@
 $(document).ready(function() {
     
     // 현재 URL에서 query string을 가져옴
-    const queryParams = new URLSearchParams(window.location.search);
+    var queryParams = new URLSearchParams(window.location.search);
+    console.log("game 진입\n"+queryParams.toString());
 
     if (queryParams.has("difficulty")) {
-    
-    const difficulty = queryParams.get("difficulty");
+
+    const difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
     console.log("난이도: " + difficulty);
 
     } else {
         // "difficulty" 파라미터가 없는 경우의 처리
         console.log("난이도 파라미터가 없습니다.");
+    }
+
+    if(queryParams.has("resetHat")){
+
+        const resetHat = JSON.parse(queryParams.get("resetHat")); //resetHat : 모자 미사용여부
+        console.log("모자 미사용여부: "+ resetHat);
+        if(!resetHat){
+            const hatColor = queryParams.get("hatColor"); //hatColor : 모자 색
+            console.log("모자 색: "+ hatColor);
+        }
+    } else {
+        console.log("모자 미사용여부 파라미터가 없습니다.");
+    }
+    if(queryParams.has("resetClothes")){
+
+        const resetClothes = JSON.parse(queryParams.get("resetClothes")); //resetClothes : 옷 미사용여부
+        console.log("옷 미사용여부: "+ resetClothes);
+        if(!resetClothes){
+            const clothesColor = queryParams.get("clothesColor");   //clothesColor : 옷 색
+            console.log("모자 색: "+ clothesColor);
+        }
+    } else {
+        console.log("옷 미사용여부 파라미터가 없습니다.");
     }
 
     //게임오버 버튼 구현
@@ -46,7 +70,7 @@ $(document).ready(function() {
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
-        var url = "setting_game.html?";
+        var url = "setting_game.html?" + queryParams.toString();
         location.href=url;
     });
 

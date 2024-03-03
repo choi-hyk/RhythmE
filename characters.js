@@ -12,32 +12,95 @@ const shadowImages = [
     "game_img/shadow4.png",
     "game_img/shadow5.png"
 ];
-
-var hatColor = 'pink';
-
-var clothesColor = 'pink';
-
+const instructionImages = [
+    "setting_game_img/press1.png",
+    "setting_game_img/press2.png"
+    ];
 
 
 var instructionInterval;
 
-$(document).ready(function() {    
-    var hatIndex = 1;
-
-    var clothesIndex = 1;
+$(document).ready(function() {  
     
+    // 현재 URL에서 query string을 가져옴
+    var queryParams = new URLSearchParams(window.location.search);
+    console.log("character 진입\n"+queryParams.toString());
+    
+    //이전 페이지에서 모자 미사용여부 정보가 있을때
+    if(queryParams.has("resetHat")){
+
+        var resetHat = JSON.parse(queryParams.get("resetHat")); //resetHat : 모자 미사용여부
+        console.log("모자 미사용여부: "+ resetHat);
+        
+    } else {
+        var resetHat = true;
+        console.log("모자 미사용여부 파라미터가 없습니다.");
+    }
+    //이전 페이지에서 모자 색 정보가 있을때
+    if(queryParams.has("hatColor")){
+        var hatColor = queryParams.get("hatColor");
+        var hatIndex = calIndex(hatColor);
+        console.log(hatIndex);
+        console.log("모자 색: "+ hatColor);
+    } else {
+        var hatColor = "pink";
+        var hatIndex = 1;
+        console.log("모자 색 파라미터가 없습니다.");
+    }
+    //이전 페이지에서 옷 미사용여부 정보가 있을때
+    if(queryParams.has("resetClothes")){
+
+        var resetClothes = JSON.parse(queryParams.get("resetClothes")); //resetClothes : 옷 미사용여부
+        console.log("옷 미사용여부: "+ resetClothes);
+
+    } else {
+        var resetClothes = true;
+        console.log("옷 미사용여부 파라미터가 없습니다.");
+    }
+    //이전 페이지에서 옷 색 정보가 있을때
+    if(queryParams.has("clothesColor")){
+        var clothesColor = queryParams.get("clothesColor");   //clothesColor : 옷 색
+        var clothesIndex = calIndex(clothesColor);
+        console.log("옷 색: "+ clothesColor);
+
+    } else {
+        var clothesColor = "pink";
+        var clothesIndex = 1;
+        console.log("옷 색 파라미터가 없습니다.");
+    }
+
     var index = 0;
 
+     var jumping = false;
+    var character = $('.rhythme');
+    var shadow = $('.shadow');
+    var hat = $('.wearing_hat');
+    var clothes = $('.wearing_clothes');
+
     var instruction = $('.press');
-var instructionImages = [
-    "setting_game_img/press1.png",
-    "setting_game_img/press2.png"
-];
+    var currentCharacterIndex = 0;
+    var currentHatIndex = 0;
+    var currentClothesIndex = 0;
+    var currentShadowIndex = 1;
 
     instructionInterval = setInterval(function() {
     instruction.attr('src', instructionImages[index]);
     index = (index + 1) % instructionImages.length;
     }, 500);
+
+    //color에 대응되는 index 계산하는 함수
+    function calIndex(color){
+        switch(color){
+            case "pink":
+                return 1;
+            case "green":
+                return 2;
+            case "yellow":
+                return 3;
+            case "blue":
+                return 4;
+        }
+    }
 
     function setHatImages(hatIndex) {
 
@@ -55,6 +118,7 @@ var instructionImages = [
                 break;
             case 3:
                 $('#hat img').attr("src", "clothes/yellow_hat1.png");
+                console.log(currentHatIndex);
                 hat.attr("src", "clothes/yellow_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'yellow';
                 break;
@@ -95,10 +159,16 @@ var instructionImages = [
         }
     }
 
-    var resetHat = true;
-    $('.wearing_hat').hide();
-    var resetClothes = true;
-    $('.wearing_clothes').hide();
+    if(resetHat){
+        $('.wearing_hat').hide();
+    }else{
+        setHatImages(hatIndex);
+    }
+    if(resetClothes){
+        $('.wearing_clothes').hide();
+    }else {
+        setClothesImages(clothesIndex);
+    }
 
     $('#reset_hat img').hover(function(){
         if(resetHat){
@@ -116,6 +186,8 @@ var instructionImages = [
             $(this).attr("src", "setting_game_img/X1.png");
         }
     });
+
+    
 
     $('#reset_hat').click(()=>{
 
@@ -149,9 +221,13 @@ var instructionImages = [
 
         if(!resetClothes){
             resetClothes = true;
+            console.log(resetHat);
+            console.log(resetClothes);
             $('.wearing_clothes').hide();
         } else {
             resetClothes = false;
+            console.log(resetHat);
+            console.log(resetClothes);
             $('.wearing_clothes').show();
         }
         
@@ -232,23 +308,16 @@ $('#back img').hover(function(){
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
-        var url = "index.html?";
+        queryParams.set("resetHat", resetHat.toString());
+        queryParams.set("resetClothes", resetClothes.toString());
+        queryParams.set("hatColor", hatColor);
+        queryParams.set("clothesColor", clothesColor);
+        var url = "index.html?" + queryParams.toString();
         location.href=url;
     });
 
 });
 /////////////////////////////////////////////////////////
-
-    var jumping = false;
-    var character = $('.rhythme');
-    var shadow = $('.shadow');
-    var hat = $('.wearing_hat');
-    var clothes = $('.wearing_clothes');
-
-    var currentCharacterIndex = 0;
-    var currentHatIndex = 0;
-    var currentClothesIndex = 0;
-    var currentShadowIndex = 1;
 
     // 게임 시작 및 점프 이벤트 핸들러
     document.addEventListener("keydown", function(event) {
