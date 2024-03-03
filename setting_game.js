@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    
+    var queryParams = new URLSearchParams(window.location.search);
+
+    console.log("setting_game 진입\n"+queryParams.toString());
 
     var difficulty = 0;    //초기 난이도
     
@@ -27,7 +31,6 @@ $(document).ready(function(){
     });
 
     $('#start').click(()=>{
-        const queryParams = new URLSearchParams();
         queryParams.set("difficulty", difficulty);
         var url = "game.html?" + queryParams.toString();
         location.href=url;
@@ -72,7 +75,7 @@ $(document).ready(function(){
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
-        var url = "index.html?";
+        var url = "index.html?"+queryParams.toString();
         location.href=url;
     });
 

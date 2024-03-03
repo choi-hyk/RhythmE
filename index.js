@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    
+    
+    var queryParams = new URLSearchParams(window.location.search);
+    console.log("index 진입\n"+queryParams.toString());
 
     $('#play img').hover(function(){
         $(this).attr("src", "start_img/start_start_btnhover.png");
@@ -23,11 +27,11 @@ $(document).ready(function(){
    
 
     $('#play').click(()=>{
-        var url = "setting_game.html?";
+        var url = "setting_game.html?" + queryParams.toString();
         location.href=url;
     });
     $('#characters').click(()=>{
-        var url = "characters.html?";
+        var url = "characters.html?" + queryParams.toString();
         location.href=url;
     });
     
