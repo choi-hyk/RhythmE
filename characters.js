@@ -420,8 +420,12 @@ $('#back img').hover(function(){
 
         character.animate({ top: '39%' }, 190, 'linear')
             .animate({ top: '43%' }, 150, 'linear', function() {
-                character.attr('src', characterImages[0]);
+                character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
+
+                hat.attr('src',"clothes/" + hatColor + "_hat5.png");
+                clothes.attr('src',"clothes/" + clothesColor + "5.png");
+               
                 jumping = false;
                 imageInterval = setInterval(function() {
                     currentClothesIndex = (currentClothesIndex + 1) % 4;
