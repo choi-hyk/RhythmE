@@ -71,7 +71,7 @@ $(document).ready(function() {
     });
 
     $('#quit').click(()=>{
-        var url = "start.html?";
+        var url = "index.html?";
         location.href=url;
     });
 
@@ -83,6 +83,10 @@ $(document).ready(function() {
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
+        queryParams.set("resetHat", resetHat.toString());
+        queryParams.set("resetClothes", resetClothes.toString());
+        queryParams.set("hatColor", hatColor);
+        queryParams.set("clothesColor", clothesColor);
         var url = "setting_game.html?" + queryParams.toString();
         location.href=url;
     });

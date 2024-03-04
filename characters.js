@@ -440,7 +440,4 @@ $('#back img').hover(function(){
             });
     }
 
-    setTimeout(() => {
-        JumpAction();
-    },1000);
 });
