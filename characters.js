@@ -12,16 +12,15 @@ const shadowImages = [
     "game_img/shadow4.png",
     "game_img/shadow5.png"
 ];
+
 const instructionImages = [
     "setting_game_img/press1.png",
     "setting_game_img/press2.png"
     ];
 
-
 var instructionInterval;
 
-$(document).ready(function() {  
-    
+$(document).ready(function() {      
     // 현재 URL에서 query string을 가져옴
     var queryParams = new URLSearchParams(window.location.search);
     console.log("character 진입\n"+queryParams.toString());
@@ -71,7 +70,7 @@ $(document).ready(function() {
 
     var index = 0;
 
-     var jumping = false;
+    var jumping = false;
     var character = $('.rhythme');
     var shadow = $('.shadow');
     var hat = $('.wearing_hat');
@@ -82,11 +81,35 @@ $(document).ready(function() {
     var currentHatIndex = 0;
     var currentClothesIndex = 0;
     var currentShadowIndex = 1;
-
+    
     instructionInterval = setInterval(function() {
     instruction.attr('src', instructionImages[index]);
     index = (index + 1) % instructionImages.length;
     }, 500);
+    
+    init();    
+    
+    //페이지 진입 시작 함수
+    function init(){
+
+    setHatImagesInCharacterBox(hatIndex);
+    setHatImagesInItemBox(hatIndex);
+    setClothesImagesInCharacterBox(clothesIndex);
+    setClothesImagesInItemBox(clothesIndex);   
+
+    if (resetHat) {
+        $('#reset_hat img').attr("src", "setting_game_img/X2.png");
+    } else {
+        $('#reset_hat img').attr("src", "setting_game_img/X1.png");
+    }
+
+    if (resetClothes) {
+        $('#reset_clothes img').attr("src", "setting_game_img/X2.png");
+    } else {
+        $('#reset_clothes img').attr("src", "setting_game_img/X1.png");
+    }
+
+    }
 
     //color에 대응되는 index 계산하는 함수
     function calIndex(color){
@@ -101,74 +124,118 @@ $(document).ready(function() {
                 return 4;
         }
     }
-
-    function setHatImages(hatIndex) {
+    
+    //아이템 박스 안에서의 모자 이미지를 설정하는 함수
+    function setHatImagesInItemBox(hatIndex) {
 
         switch (hatIndex) {
             case 1:
                 $('#hat img').attr("src", "clothes/pink_hat1.png");
-                hat.attr("src", "clothes/pink_hat" + (currentHatIndex + 2) + ".png");
                 console.log(currentHatIndex);
                 hatColor = 'pink';
                 break;
             case 2:
                 $('#hat img').attr("src", "clothes/green_hat1.png");
-                hat.attr("src", "clothes/green_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'green';
                 break;
             case 3:
                 $('#hat img').attr("src", "clothes/yellow_hat1.png");
                 console.log(currentHatIndex);
-                hat.attr("src", "clothes/yellow_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'yellow';
                 break;
             case 4:
                 $('#hat img').attr("src", "clothes/blue_hat1.png");
-                hat.attr("src", "clothes/blue_hat" + (currentHatIndex + 2) + ".png");
                 hatColor = 'blue';
                 break;
             default:
                 break;
         }
     }
+    
+    //캐릭터 박스 안에서의 모자 이미지를 설정하는 함수
+    function setHatImagesInCharacterBox(hatIndex) {
 
-    function setClothesImages(clothesIndex) {
+        switch (hatIndex) {
+            case 1:
+                hat.attr("src", "clothes/pink_hat" + (currentHatIndex + 2) + ".png");
+                console.log(currentHatIndex);
+                break;
+            case 2:
+                hat.attr("src", "clothes/green_hat" + (currentHatIndex + 2) + ".png");
+                break;
+            case 3:
+                console.log(currentHatIndex);
+                hat.attr("src", "clothes/yellow_hat" + (currentHatIndex + 2) + ".png");
+                break;
+            case 4:
+                hat.attr("src", "clothes/blue_hat" + (currentHatIndex + 2) + ".png");
+                break;
+            default:
+                break;
+        }
+    }
+    
+    //아이템 박스 안에서의 옷 이미지를 설정하는 함수
+    function setClothesImagesInItemBox(clothesIndex) {
         switch (clothesIndex) {
             case 1:
                 $('#clothes img').attr("src", "clothes/pink1.png");
-                clothes.attr("src", "clothes/pink" + (currentClothesIndex + 2) + ".png");
                 clothesColor = 'pink';
                 break;
             case 2:
                 $('#clothes img').attr("src", "clothes/green1.png");
-                clothes.attr("src", "clothes/green" + (currentClothesIndex + 2) + ".png");
                 clothesColor = 'green';
                 break;
             case 3:
                 $('#clothes img').attr("src", "clothes/yellow1.png");
-                clothes.attr("src", "clothes/yellow" + (currentClothesIndex + 2) + ".png");
                 clothesColor = 'yellow';
                 break;
             case 4:
                 $('#clothes img').attr("src", "clothes/blue1.png");
-                clothes.attr("src", "clothes/blue" + (currentClothesIndex + 2) +  ".png");
                 clothesColor = 'blue';
                 break;
             default:
                 break;
         }
     }
+    
+    //캐릭터 박스 안에서의 옷 이미지를 설정하는 함수
+    function setClothesImagesInCharacterBox(clothesIndex) {
+        switch (clothesIndex) {
+            case 1:
+                clothes.attr("src", "clothes/pink" + (currentClothesIndex + 2) + ".png");
+                break;
+            case 2:
+                clothes.attr("src", "clothes/green" + (currentClothesIndex + 2) + ".png");
+                break;
+            case 3:
+                clothes.attr("src", "clothes/yellow" + (currentClothesIndex + 2) + ".png");
+                break;
+            case 4:
+                clothes.attr("src", "clothes/blue" + (currentClothesIndex + 2) +  ".png");
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    
 
     if(resetHat){
         $('.wearing_hat').hide();
     }else{
-        setHatImages(hatIndex);
+        setHatImagesInItemBox(hatIndex);
+        setHatImagesInCharacterBox(hatIndex);
     }
     if(resetClothes){
         $('.wearing_clothes').hide();
     }else {
-        setClothesImages(clothesIndex);
+        setClothesImagesInItemBox(clothesIndex);
+        setClothesImagesInCharacterBox(clothesIndex);
     }
+
+
 
     $('#reset_hat img').hover(function(){
         if(resetHat){
@@ -185,9 +252,7 @@ $(document).ready(function() {
         else{
             $(this).attr("src", "setting_game_img/X1.png");
         }
-    });
-
-    
+    });    
 
     $('#reset_hat').click(()=>{
 
@@ -244,7 +309,8 @@ $(document).ready(function() {
         if (hatIndex > 1) {
             hatIndex -= 1;
         }
-        setHatImages(hatIndex);
+        setHatImagesInItemBox(hatIndex);
+        setHatImagesInCharacterBox(hatIndex);
         console.log("Current hat: " + hatColor);
         
     });
@@ -260,7 +326,8 @@ $(document).ready(function() {
         if (hatIndex < 4) {
             hatIndex += 1;
         }
-        setHatImages(hatIndex);
+        setHatImagesInItemBox(hatIndex);
+        setHatImagesInCharacterBox(hatIndex);
         console.log("Current hat: " + hatColor);
     });
 
@@ -277,7 +344,8 @@ $(document).ready(function() {
         if (clothesIndex > 1) {
             clothesIndex -= 1;
         }
-        setClothesImages(clothesIndex);
+        setClothesImagesInItemBox(clothesIndex);
+        setClothesImagesInCharacterBox(clothesIndex);
         console.log("Current Difficulty: " + clothesColor);
         
     });
@@ -293,12 +361,11 @@ $(document).ready(function() {
         if (clothesIndex < 4) {
             clothesIndex += 1;
         }
-        setClothesImages(clothesIndex);
+        setClothesImagesInItemBox(clothesIndex);
+        setClothesImagesInCharacterBox(clothesIndex);
         console.log("Current Difficulty: " + clothesColor);
     });
     
-/////////////////////////////////////////////////////
-
 $('#back img').hover(function(){
 
     $('#back img').hover(function(){
@@ -317,7 +384,6 @@ $('#back img').hover(function(){
     });
 
 });
-/////////////////////////////////////////////////////////
 
     // 게임 시작 및 점프 이벤트 핸들러
     document.addEventListener("keydown", function(event) {
@@ -327,9 +393,7 @@ $('#back img').hover(function(){
         }
     });
 
-
     var imageInterval;
-   
 
     function JumpAction() {
         
