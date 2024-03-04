@@ -1,5 +1,5 @@
 # RhythmE 
 
-green = 's' & 'k'
-yellow = 's'
+green = 's' & 'k' \n
+yellow = 's'\n
 blue = 'k'
