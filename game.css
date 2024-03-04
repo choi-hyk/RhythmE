@@ -27,6 +27,30 @@ body {
     z-index: 6; 
 }
 
+.hat{
+
+    position: fixed;
+    top: 75%;
+    left: 30%; 
+    width: 95px;
+    height: 95px;
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+
+}
+
+.clothes{
+
+    position: fixed;
+    top: 75%;
+    left: 30%; 
+    width: 95px;
+    height: 95px;
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+
+}
+
 .shadow {
     position: fixed;
     width: 60px;
@@ -192,3 +216,4 @@ button {
     transform: translate(-50%, -50%); 
     z-index: 7; 
 }
+

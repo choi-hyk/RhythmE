@@ -2,40 +2,54 @@ $(document).ready(function() {
     
     // 현재 URL에서 query string을 가져옴
     var queryParams = new URLSearchParams(window.location.search);
+
+    var hatParameter = false;
+    var clothesParameter = false;
+
     console.log("game 진입\n"+queryParams.toString());
 
     if (queryParams.has("difficulty")) {
 
     const difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
     console.log("난이도: " + difficulty);
-
+ 
     } else {
         // "difficulty" 파라미터가 없는 경우의 처리
         console.log("난이도 파라미터가 없습니다.");
     }
+    
 
     if(queryParams.has("resetHat")){
-
-        const resetHat = JSON.parse(queryParams.get("resetHat")); //resetHat : 모자 미사용여부
+        
+        hatParameter = true;
+        var resetHat = JSON.parse(queryParams.get("resetHat")); //resetHat : 모자 미사용여부
         console.log("모자 미사용여부: "+ resetHat);
+
+        //모자를 입고있는 경우우
         if(!resetHat){
-            const hatColor = queryParams.get("hatColor"); //hatColor : 모자 색
+            var hatColor = queryParams.get("hatColor"); //hatColor : 모자 색
             console.log("모자 색: "+ hatColor);
         }
     } else {
         console.log("모자 미사용여부 파라미터가 없습니다.");
     }
-    if(queryParams.has("resetClothes")){
 
-        const resetClothes = JSON.parse(queryParams.get("resetClothes")); //resetClothes : 옷 미사용여부
+    if(queryParams.has("resetClothes")){
+        
+        clothesParameter = true;
+        var resetClothes = JSON.parse(queryParams.get("resetClothes")); //resetClothes : 옷 미사용여부
         console.log("옷 미사용여부: "+ resetClothes);
+
+        //옷을 입고있는 경우
         if(!resetClothes){
-            const clothesColor = queryParams.get("clothesColor");   //clothesColor : 옷 색
-            console.log("모자 색: "+ clothesColor);
+            var clothesColor = queryParams.get("clothesColor");   //clothesColor : 옷 색
+            console.log("옷 색: "+ clothesColor);
         }
     } else {
         console.log("옷 미사용여부 파라미터가 없습니다.");
     }
+
+    
 
     //게임오버 버튼 구현
     $('#reStart img').hover(function(){
@@ -53,8 +67,7 @@ $(document).ready(function() {
     });
 
     $('#reStart').click(()=>{
-        var url = "game.html?";
-        location.href=url;
+        location.reload();
     });
 
     $('#quit').click(()=>{
@@ -76,9 +89,11 @@ $(document).ready(function() {
 
     let score = 1000;
 
-    // 캐릭터 선택
+    // 점프 액션 이미지
     var character = $('.rhythme');
     var shadow = $('.shadow');
+    var hatImg = $('.hat');
+    var clothesImg = $('.clothes');
 
     var characterImages = [
         "characters_img/rhythme1.png",
@@ -127,13 +142,18 @@ $(document).ready(function() {
 
     // 게임 시작 및 점프 이벤트 핸들러
     document.addEventListener("keydown", function(event) {
+
         if (!start_check && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
+
             startGame();
+
             hideInstructionImage();
         }
         
         if (!isGameOver && !jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
+
             JumpAction();
+            
         }
     });
 
@@ -145,18 +165,50 @@ $(document).ready(function() {
 
     // 초기 점프 구현
     function JumpAction() {
+
         jumping = true;
+
         clearInterval(imageInterval);
-        character.attr('src', characterImages[0]);
+
+        character.attr('src', characterImages[0]); 
+
         shadow.attr('src', shadowImages[4]);
+
+        hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
+        
+        clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
+
+        hatImg.animate({ top: '65%' }, 190, 'linear')
+        .animate({ top: '75%' }, 150, 'linear', function() {
+            hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
+            jumping = false;
+            
+        });
+
+        clothesImg.animate({ top: '65%' }, 190, 'linear')
+        .animate({ top: '75%' }, 150, 'linear', function() {
+            clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
+            jumping = false;
+           
+        });
+
         character.animate({ top: '65%' }, 190, 'linear')
             .animate({ top: '75%' }, 150, 'linear', function() {
                 character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
+
+                hatImg.attr('src',"clothes/" + hatColor + "_hat5.png");
+                clothesImg.attr('src',"clothes/" + clothesColor + "5.png");
+               
+                         
                 jumping = false;
-                imageInterval = setInterval(function() {
+                imageInterval = setInterval(function() {                 
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                     currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
+                    clothesImg.attr('src',"clothes/" + clothesColor + (currentCharacterIndex + 2) + ".png");  
+                    hatImg.attr('src',"clothes/" + hatColor + "_hat" + (currentCharacterIndex + 2) + ".png");
+                    hatImg.css('top','75%');
+                    clothesImg.css('top','75%');
                     if(!sadCheck){
                         character.attr('src', characterImages[currentCharacterIndex]);
                     }else{
@@ -167,6 +219,7 @@ $(document).ready(function() {
                 }, 100);
             });
     }
+
      //block을 생성하는 함수
      function createBlock(block){
         const block_img = document.createElement('img');
@@ -189,8 +242,10 @@ $(document).ready(function() {
             }
         }, block.speed);
     }
+    
     // 게임 시작
     function startGame() {
+
         $('.score_img').show();
         start_check = true;
         bgm.play();
@@ -210,21 +265,49 @@ $(document).ready(function() {
 
     // 초기화면
     function init() {
+
         start_check = false;
+
         $('.score_img').hide();
+
         bgm.pause();
+
         $('#image').css('animation-play-state', 'paused');
+
         jumping = false;
+
         clearInterval(imageInterval);
         clearInterval(gamingInterval);
+
         character.attr('src', 'game_img/start_character.png');
 
         var index = 0;
+
         instructionInterval = setInterval(function() {
             instruction.attr('src', instructionImages[index]);
             index = (index + 1) % instructionImages.length;
-        }, 500);
-      
+        }, 500);     
+
+        if(resetHat||!hatParameter){
+        
+            hatImg.hide();
+            
+        }else{
+            
+            hatImg.attr("src", "clothes/" + hatColor + "_hat1.png");
+
+        }
+
+        if(resetClothes||!clothesParameter){
+
+            clothesImg.hide();
+            
+        }else{
+            
+            clothesImg.attr("src", "clothes/" + clothesColor + "1.png")
+
+        }       
+        
     }
 
     // 인스트럭션 숨기기
@@ -234,12 +317,14 @@ $(document).ready(function() {
 
    
     class Block {
+
         constructor(time, color, speed, movePx){
             this.color = color;
             this.time = time;
             this.speed = speed;
             this.movePx = movePx;
         }
+
     }
     
     
@@ -660,6 +745,9 @@ $(document).ready(function() {
                 $("#image").css("filter", "blur(5px)");
                 $(".rhythme").css("filter", "blur(5px)");
                 $(".shadow").css("filter", "blur(5px)");
+                $(".hat").css("filter", "blur(5px)");
+                $(".clothes").css("filter", "blur(5px)");
+
                 document.getElementById("gameOverScreen").style.display = "flex";
                 document.getElementById("reStart").style.display = "flex";
                 document.getElementById("quit").style.display = "flex";
