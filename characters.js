@@ -439,5 +439,7 @@ $('#back img').hover(function(){
                 }, 100);
             });
     }
-
+    setTimeout(() => {
+        JumpAction();
+    },100);
 });
