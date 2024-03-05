@@ -103,3 +103,14 @@ body {
 }
 
 
+.instruction {
+    position: fixed;
+    width: 380px;
+    height: 38px;
+    top: 55%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+}
+
+

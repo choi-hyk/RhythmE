@@ -94,11 +94,22 @@ $(document).ready(function() {
     var currentCharacterIndex = 0;
     var currentShadowIndex = 1;
 
+    const instructionImages = [
+        "game_img/game_instruction1.png",
+        "game_img/game_instruction2.png"
+    ];
+    
+    var instruction = $('.instruction');
+
+    var instructionInterval;  
+
     function init() {
 
         start_check = false;
 
         jumping = false;
+
+        var  index = 0;
 
         clearInterval(imageInterval);
         clearInterval(gamingInterval);
@@ -125,20 +136,29 @@ $(document).ready(function() {
 
         }
         
-        setTimeout(() => {
-            JumpAction();
-        },100);
+        instructionInterval = setInterval(function() {
+            instruction.attr('src', instructionImages[index]);
+            index = (index + 1) % instructionImages.length;
+        }, 500);     
+
         
     }
 
     init();
+
+    function hideInstructionImage() {
+        instruction.hide();
+    }
 
     document.addEventListener("keydown", function(event) {
 
         if (!start_check && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
 
             start_check = true;
+            
             moveBlock();
+
+            hideInstructionImage();
        
         }
         
@@ -221,7 +241,10 @@ $(document).ready(function() {
 
     }
 
-    const totorialBlocks = [new Block('yellow', 13, 5), new Block('blue', 13, 5), new Block('green', 13, 5)];
+    const totorialBlocks = [
+        new Block(1000, 'yellow', 13, 5),
+        new Block(2000, 'blue', 13, 5),
+        new Block(3000, 'green', 13, 5)];
 
     var currentTime;
     var blocks = [];
@@ -233,6 +256,7 @@ $(document).ready(function() {
         blocks.forEach(block => {
             setTimeout(() => {
                 createBlock(block);
+
                 var cal_speed = 0;
                 //1초에 블록이 움직이는 거리 계산
                 if(block.speed < 10){
@@ -272,8 +296,13 @@ $(document).ready(function() {
         var d = new Date();
                 currentTime = d.getMilliseconds();
         block_color = blockColor;
+
+        clearInterval(imageInterval);
+        
         document.addEventListener("keydown", handleKeyPress);
         document.addEventListener("keydown", handleSameKeyPress);
+        
+        
     }
 
     function createBlock(block){
@@ -303,13 +332,13 @@ $(document).ready(function() {
                 green_sCheck = true;   //s 눌렀다고 표시
             } else{     //k를 이미 누르고 s를 누른 상황
                 if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
-                    greatScore();
+                    showAchievement(1);
                 }
                 else if(timegap <50 || timegap > 250){
-                    increaseScore();
+                    showAchievement(0);
                 }
                else{
-                    perfectScore();
+                showAchievement(2);
                }
                 green_kCheck = false;
                 correct_key = true;
@@ -320,13 +349,13 @@ $(document).ready(function() {
         else if (block_color === 'blue' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
             if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
-                greatScore();
+                showAchievement(1);
             }
             else if(timegap <50 || timegap > 250){
-                increaseScore();
+                showAchievement(0);
             }
            else{
-                perfectScore();
+            showAchievement(2);
            }
             document.removeEventListener("keydown", handleSameKeyPress);
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
@@ -335,13 +364,13 @@ $(document).ready(function() {
         else if (block_color === 'yellow' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
             if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
-                greatScore();
+                showAchievement(1);
             }
             else if(timegap <50 || timegap > 250){
-                increaseScore();
+                showAchievement(0);
             }
            else{
-                perfectScore();
+            showAchievement(2);
            }
             document.removeEventListener("keydown", handleSameKeyPress);
             document.removeEventListener("keydown", handleKeyPress); // 이벤트 리스너 삭제
@@ -355,14 +384,14 @@ $(document).ready(function() {
         var timegap = date.getMilliseconds() - currentTime;
         if (block_color === 'blue' && (event.key === 's' || event.key === 'S')) {
             correct_key = true;
-            failChangeScore();
+            showAchievement(3);
             console.log('점수감소');
             document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
             document.removeEventListener("keydown", handleKeyPress);
         }
         else if (block_color === 'yellow' && (event.key === 'k' || event.key === 'K')) {
             correct_key = true;
-            failChangeScore();
+            showAchievement(3);
             console.log('점수감소');
             document.removeEventListener("keydown", handleSameKeyPress); // 이벤트 리스너 삭제
             document.removeEventListener("keydown", handleKeyPress);
@@ -370,13 +399,13 @@ $(document).ready(function() {
         if (block_color === 'green' && (event.key === 'k' || event.key === 'K')) {
             if(green_sCheck == true){ //s를 누르고 k를 누른 상황
                 if((timegap < 100 && timegap >= 50) || (timegap > 200 && timegap <= 250)){
-                    greatScore();
+                    showAchievement(1);
                 }
                 else if(timegap <50 || timegap > 250){
-                    increaseScore();
+                    showAchievement(0);
                 }
                else{
-                    perfectScore();
+                showAchievement(2);
                }
                 green_sCheck=false;
                 correct_key = true;
@@ -407,6 +436,7 @@ $(document).ready(function() {
             });
         });
     }
+
 
 
 });
