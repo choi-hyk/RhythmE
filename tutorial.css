@@ -1,0 +1,105 @@
+*{margin: 0; padding: 0; overflow: hidden; border: none;}
+
+body {
+    overflow: hidden; 
+}
+
+#image {
+    position: relative;
+    width: 500vw; 
+    height: 100vh;  
+    overflow: hidden; 
+    animation: moveBackground 25s linear infinite;
+}
+
+
+#back {
+    position: absolute;
+    top: 9vh; 
+    left: 9vw; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+.back_img{
+    width: 7vw    
+}
+
+
+.rhythme {
+
+    position: fixed;
+    width: 95px;
+    height: 95px;
+    top: 75%;
+    left: 30%; 
+    transform: translate(-50%, -50%); 
+    z-index: 6; 
+
+}
+
+
+.hat{
+
+    position: fixed;
+    top: 75%;
+    left: 30%; 
+    width: 95px;
+    height: 95px;
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+
+}
+
+.clothes{
+
+    position: fixed;
+    top: 75%;
+    left: 30%; 
+    width: 95px;
+    height: 95px;
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+
+}
+
+.shadow {
+    position: fixed;
+    width: 60px;
+    top: 79.9%;
+    left: 30.4%; 
+    opacity: 0.5;
+    transform: translate(-50%, -50%); 
+    z-index: 5; 
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-duration: 10s;
+}
+
+.block {
+    position:absolute;
+    height: 30px;
+    width: 60px;
+    top: 78.5%;
+}
+
+
+.achievement {
+    position: fixed;
+    display: none;
+    width: 150px;
+    height: 30px;
+    top: 65%;
+    left: 20%; 
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+}
+
+

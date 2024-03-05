@@ -144,6 +144,17 @@ $(document).ready(function(){
         location.href=url;
     });
 
+    $('#tutorial img').hover(function(){
+        $(this).attr("src", "setting_game_img/tutorial_btn2.png");
+        $(this).css('width','22vw');
+    }, function() {
+        $(this).attr("src", "setting_game_img/tutorial_btn1.png");
+    });
+    $('#tutorial').click(()=>{
+        var url = "tutorial.html?"+queryParams.toString();
+        location.href=url;
+    });
+
     $('#characters img').hover(function(){
         $(this).attr("src", "start_img/start_characters_btnhover.png");
         $(this).css('width','22vw');
