@@ -128,7 +128,7 @@ body {
 
 #back {
     position: absolute;
-    top: 3.5vh; 
+     top: 3.5vh; 
     left: 3.6vw; 
     transform: translate(-50%, -50%);        
     background-color: transparent;
@@ -140,27 +140,26 @@ body {
 
 #score_board {
     position : fixed;
-    top: 7vh;
-    left : 80%;
+    top: 0vh;
+    left : 75%;
     overflow: hidden;
     width: 44vw;
 }
 
 .score_img{
-    width: 8vw;
+    width: 25vw;
     float: left;
-    height: 2.2vw;
 }
 
 .score{
-    width: 8vw;
-    height: 2.5vw;
-    line-height: 2.5vw;
-    float: left;   
-    font-size: 2.5vw;
+    width: 20vw;
+    height: 40vh;
     color: #d77bba;
-    text-align: center;
+    font-size: 3vw;
     font-family: 'GalacticaGrid', sans-serif;
+    position: fixed;
+    top: 1.5vh; 
+    left: 90%; 
 }
 
 /* 게임오버 스크린 */
