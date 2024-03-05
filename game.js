@@ -48,62 +48,62 @@ const easy_blocks = [
     new Block(6000, 'blue', 13, 5),
     new Block(7000, 'yellow', 13, 5),
     new Block(7000, 'blue', 13, 5),
-    new Block(7500, 'green', 13, 5),
+    
     new Block(8000, 'blue', 13, 5),
-    new Block(8500, 'yellow', 13, 5),
+    
     new Block(9000, 'yellow', 13, 5),
-    new Block(9500, 'green', 13, 5),
+    
     new Block(10000, 'blue', 13, 5),
-    new Block(10500, 'green', 13, 5),
+    
     new Block(11000, 'blue', 13, 5),
-    new Block(11500, 'blue', 13, 5),
+    
     new Block(12000, 'green', 13, 5),
-    new Block(12500, 'green', 13, 5),
+   
     new Block(13000, 'green', 13, 5),
-    new Block(13500, 'yellow', 13, 5),
+    
     new Block(14000, 'blue', 13, 5),
-    new Block(14500, 'blue', 13, 5),
+    
     new Block(15000, 'yellow', 13, 5),
-    new Block(15500, 'blue', 13, 5),
+   
     new Block(16000, 'yellow', 13, 5),
-    new Block(16500, 'yellow', 13, 5),
+    
     new Block(17000, 'green', 13, 5),
-    new Block(17500, 'blue', 13, 5),
+    
     new Block(18000, 'blue', 13, 5),
-    new Block(18500, 'green', 13, 5),
+    
     new Block(19000, 'yellow', 13, 5),
-    new Block(19500, 'yellow', 13, 5),
+    
     new Block(20000, 'green', 13, 5),
-    new Block(20500, 'blue', 13, 5),
+    
     new Block(21000, 'blue', 13, 5),
-    new Block(21500, 'yellow', 13, 5),
+    
     new Block(22000, 'green', 13, 5),
-    new Block(22500, 'blue', 13, 5),
+    
     new Block(23000, 'yellow', 13, 5), /////////////40000부터 bpm up
-    new Block(23500, 'green', 13, 5),
+    
     new Block(24000, 'green', 13, 5),
-    new Block(24500, 'green', 13, 5),
+    
     new Block(25000, 'green', 13, 5),
-    new Block(25500, 'green', 13, 5),
+    
     new Block(26000, 'green', 13, 5),
-    new Block(26500, 'green', 13, 5),
+
     new Block(27000, 'green', 13, 5),
     new Block(28000, 'green', 13, 5),
     new Block(29000, 'green', 13, 5),
-    new Block(29500, 'green', 13, 5),
+   
     new Block(30500, 'green', 13, 5),
     new Block(31000, 'blue', 13, 5),
     new Block(32000, 'yellow', 13, 5),
-    new Block(32500, 'yellow', 13, 5),
+    
     new Block(33000, 'blue', 13, 5),
-    new Block(33500, 'yellow', 13, 5),
+    
     new Block(34000, 'green', 13, 5),
-    new Block(34500, 'blue', 13, 5),
+    
     new Block(35000, 'green', 13, 5),
     new Block(35500, 'green', 13, 5),
     new Block(36000, 'blue', 13, 5),
     new Block(36500, 'green', 13, 5),
-    new Block(37000, 'yellow', 13, 5),
+    
     new Block(37500, 'blue', 13, 5),
     new Block(38000, 'yellow', 13, 5),
     new Block(38500, 'blue', 13, 5),
@@ -432,41 +432,48 @@ $(document).ready(function() {
 
         shadow.attr('src', shadowImages[4]);
 
-        hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
-        
-        clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
-
-        hatImg.animate({ top: '65%' }, 190, 'linear')
-        .animate({ top: '75%' }, 150, 'linear', function() {
+        if(hatParameter){
             hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
-            jumping = false;
-            
-        });
-
-        clothesImg.animate({ top: '65%' }, 190, 'linear')
-        .animate({ top: '75%' }, 150, 'linear', function() {
+            hatImg.animate({ top: '65%' }, 190, 'linear')
+            .animate({ top: '75%' }, 150, 'linear', function() {
+                hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
+                jumping = false;
+                
+            });
+            console.log(1);
+        }
+        if(clothesParameter){
             clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
-            jumping = false;
-           
-        });
-
+            clothesImg.animate({ top: '65%' }, 190, 'linear')
+            .animate({ top: '75%' }, 150, 'linear', function() {
+                clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
+                jumping = false;
+            
+            }); 
+        }
         character.animate({ top: '65%' }, 190, 'linear')
             .animate({ top: '75%' }, 150, 'linear', function() {
                 character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
-
-                hatImg.attr('src',"clothes/" + hatColor + "_hat5.png");
-                clothesImg.attr('src',"clothes/" + clothesColor + "5.png");
-               
+                if(hatParameter){
+                    hatImg.attr('src',"clothes/" + hatColor + "_hat5.png");
+                }
+                if(clothesParameter){
+                    clothesImg.attr('src',"clothes/" + clothesColor + "5.png");
+                }
                          
                 jumping = false;
                 imageInterval = setInterval(function() {                 
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                     currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
-                    clothesImg.attr('src',"clothes/" + clothesColor + (currentCharacterIndex + 2) + ".png");  
-                    hatImg.attr('src',"clothes/" + hatColor + "_hat" + (currentCharacterIndex + 2) + ".png");
-                    hatImg.css('top','75%');
-                    clothesImg.css('top','75%');
+                    if(clothesParameter){
+                        clothesImg.attr('src',"clothes/" + clothesColor + (currentCharacterIndex + 2) + ".png");  
+                        clothesImg.css('top','75%');
+                    }
+                    if(hatParameter){
+                        hatImg.attr('src',"clothes/" + hatColor + "_hat" + (currentCharacterIndex + 2) + ".png");
+                        hatImg.css('top','75%');
+                    }
                     if(!sadCheck){
                         character.attr('src', characterImages[currentCharacterIndex]);
                     }else{
