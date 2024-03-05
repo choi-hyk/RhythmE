@@ -6,13 +6,15 @@ $(document).ready(function(){
     var clothesParameter = false;
     var hatImg = $('.wearing_hat');
     var clothesImg = $('.wearing_clothes');
+    var difficulty = 0;    //초기 난이도
 
     console.log("setting_game 진입\n"+queryParams.toString());
     
     if (queryParams.has("difficulty")) {
 
-        const difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
+        difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
         console.log("난이도: " + difficulty);
+        console.log("난이도");
      
         } else {
             // "difficulty" 파라미터가 없는 경우의 처리
@@ -69,7 +71,7 @@ $(document).ready(function(){
     
 
 
-    var difficulty = 0;    //초기 난이도
+    setButtonImages(difficulty);
     
     //난이도 조절 버튼 함수
     function setButtonImages(difficulty) {
@@ -140,6 +142,7 @@ $(document).ready(function(){
         $(this).attr("src", "setting_game_img/back_btn2.png");
     });
     $('#back').click(()=>{
+        queryParams.set("difficulty",0);
         var url = "index.html?"+queryParams.toString();
         location.href=url;
     });

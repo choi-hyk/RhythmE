@@ -1,5 +1,286 @@
-$(document).ready(function() {
+const characterImages = [
+    "characters_img/rhythme1.png",
+    "characters_img/rhythme2.png",
+    "characters_img/rhythme3.png",
+    "characters_img/rhythme4.png"
+];
+
+const sadCharacterImages = [
+    "characters_img/sad1.png",
+    "characters_img/sad2.png",
+    "characters_img/sad3.png",
+    "characters_img/sad4.png"
+];
+
+const shadowImages = [
+    "game_img/shadow.png",
+    "game_img/shadow2.png",
+    "game_img/shadow3.png",
+    "game_img/shadow4.png",
+    "game_img/shadow5.png"
+]
+
+const instructionImages = [
+    "game_img/game_instruction1.png",
+    "game_img/game_instruction2.png"
+];
+
+class Block {
+
+    constructor(time, color, speed, movePx){
+        this.color = color;
+        this.time = time;
+        this.speed = speed;
+        this.movePx = movePx;
+    }
+
+}
+
+//easy 난이도 block모음
+const easy_blocks = [
+    new Block(1000, 'blue', 13, 5),
+    new Block(2000, 'green',13, 5),
     
+    new Block(3000, 'yellow',13, 5),
+    new Block(4000, 'yellow',13, 5),
+    new Block(5000, 'blue', 13, 5),
+    
+    new Block(6000, 'blue', 13, 5),
+    new Block(7000, 'yellow', 13, 5),
+    new Block(7000, 'blue', 13, 5),
+    new Block(7500, 'green', 13, 5),
+    new Block(8000, 'blue', 13, 5),
+    new Block(8500, 'yellow', 13, 5),
+    new Block(9000, 'yellow', 13, 5),
+    new Block(9500, 'green', 13, 5),
+    new Block(10000, 'blue', 13, 5),
+    new Block(10500, 'green', 13, 5),
+    new Block(11000, 'blue', 13, 5),
+    new Block(11500, 'blue', 13, 5),
+    new Block(12000, 'green', 13, 5),
+    new Block(12500, 'green', 13, 5),
+    new Block(13000, 'green', 13, 5),
+    new Block(13500, 'yellow', 13, 5),
+    new Block(14000, 'blue', 13, 5),
+    new Block(14500, 'blue', 13, 5),
+    new Block(15000, 'yellow', 13, 5),
+    new Block(15500, 'blue', 13, 5),
+    new Block(16000, 'yellow', 13, 5),
+    new Block(16500, 'yellow', 13, 5),
+    new Block(17000, 'green', 13, 5),
+    new Block(17500, 'blue', 13, 5),
+    new Block(18000, 'blue', 13, 5),
+    new Block(18500, 'green', 13, 5),
+    new Block(19000, 'yellow', 13, 5),
+    new Block(19500, 'yellow', 13, 5),
+    new Block(20000, 'green', 13, 5),
+    new Block(20500, 'blue', 13, 5),
+    new Block(21000, 'blue', 13, 5),
+    new Block(21500, 'yellow', 13, 5),
+    new Block(22000, 'green', 13, 5),
+    new Block(22500, 'blue', 13, 5),
+    new Block(23000, 'yellow', 13, 5), /////////////40000부터 bpm up
+    new Block(23500, 'green', 13, 5),
+    new Block(24000, 'green', 13, 5),
+    new Block(24500, 'green', 13, 5),
+    new Block(25000, 'green', 13, 5),
+    new Block(25500, 'green', 13, 5),
+    new Block(26000, 'green', 13, 5),
+    new Block(26500, 'green', 13, 5),
+    new Block(27000, 'green', 13, 5),
+    new Block(28000, 'green', 13, 5),
+    new Block(29000, 'green', 13, 5),
+    new Block(29500, 'green', 13, 5),
+    new Block(30500, 'green', 13, 5),
+    new Block(31000, 'blue', 13, 5),
+    new Block(32000, 'yellow', 13, 5),
+    new Block(32500, 'yellow', 13, 5),
+    new Block(33000, 'blue', 13, 5),
+    new Block(33500, 'yellow', 13, 5),
+    new Block(34000, 'green', 13, 5),
+    new Block(34500, 'blue', 13, 5),
+    new Block(35000, 'green', 13, 5),
+    new Block(35500, 'green', 13, 5),
+    new Block(36000, 'blue', 13, 5),
+    new Block(36500, 'green', 13, 5),
+    new Block(37000, 'yellow', 13, 5),
+    new Block(37500, 'blue', 13, 5),
+    new Block(38000, 'yellow', 13, 5),
+    new Block(38500, 'blue', 13, 5),
+    new Block(39000, 'yellow', 13, 5),
+    new Block(39500, 'blue', 13, 5),
+    new Block(40000, 'green', 13, 5),
+    new Block(44000, 'green', 7, 5),
+    new Block(44500, 'yellow', 7, 5),
+    new Block(45000, 'blue', 7, 5),
+    new Block(46000, 'yellow', 7, 5),
+    new Block(47000, 'blue', 7, 5),
+    new Block(47500, 'green', 7, 5),
+    new Block(48000, 'green', 7, 5),
+    new Block(48500, 'yellow', 7, 5),
+    new Block(49000, 'yellow', 7, 5),
+    new Block(50000, 'green', 7, 5),
+    new Block(50500, 'green', 7, 5),
+    new Block(51000, 'blue', 7, 5),
+    new Block(52000, 'blue', 7, 5),
+    new Block(52500, 'blue', 7, 5),
+    new Block(53000, 'yellow', 7, 5),
+    new Block(53500, 'green', 7, 5),
+    new Block(54000, 'green', 7, 5),
+    new Block(54500, 'green', 7, 5),
+    new Block(55000, 'green', 7, 5),
+    new Block(55500, 'yellow', 7, 5),
+    new Block(56000, 'blue', 7, 5),
+    new Block(56500, 'green', 7, 5),
+    new Block(57000, 'yellow', 7, 5),
+    new Block(57500, 'blue', 7, 5),
+    new Block(58000, 'green', 7, 5),
+    new Block(58500, 'green', 7, 5),
+    new Block(59000, 'green', 7, 5),
+    new Block(59500, 'blue', 7, 5),
+    new Block(60000, 'blue', 7, 5),
+    new Block(60500, 'blue', 7, 5),
+    new Block(61000, 'yellow', 7, 5),
+    new Block(62000, 'yellow', 7, 5),
+    new Block(63000, 'green', 7, 5),
+    new Block(63500, 'green', 7, 5),
+    new Block(64000, 'yellow', 7, 5),
+    new Block(64500, 'yellow', 7, 5),
+    new Block(65000, 'blue', 7, 5),
+    new Block(65500, 'green', 7, 5),
+    new Block(66000, 'yellow', 7, 5),
+    new Block(66500, 'green', 7, 5),
+    new Block(67000, 'blue', 7, 5),
+    new Block(67500, 'green', 7, 5),
+    new Block(68000, 'green', 7, 5)
+    
+    
+];
+
+//normal 난이도 block모음
+const normal_blocks = [
+    new Block(1000, 'blue', 13, 5),
+    new Block(1500, 'green',13, 5),
+    new Block(2000, 'green',13, 5),
+    new Block(2500, 'green',13, 5),
+    new Block(3000, 'yellow',13, 5),
+    new Block(3500, 'yellow',13, 5),
+    new Block(5000, 'blue', 13, 5),
+    new Block(5500, 'blue', 13, 5),
+    new Block(6000, 'blue', 13, 5),
+    new Block(6500, 'yellow', 13, 5),
+    new Block(7000, 'blue', 13, 5),
+    new Block(7500, 'green', 13, 5),
+    new Block(8000, 'blue', 13, 5),
+    new Block(8500, 'yellow', 13, 5),
+    new Block(9000, 'yellow', 13, 5),
+    new Block(9500, 'green', 13, 5),
+    new Block(10000, 'blue', 13, 5),
+    new Block(10500, 'green', 13, 5),
+    new Block(11000, 'blue', 13, 5),
+    new Block(11500, 'blue', 13, 5),
+    new Block(12000, 'green', 13, 5),
+    new Block(12500, 'green', 13, 5),
+    new Block(13000, 'green', 13, 5),
+    new Block(13500, 'yellow', 13, 5),
+    new Block(14000, 'blue', 13, 5),
+    new Block(14500, 'blue', 13, 5),
+    new Block(15000, 'yellow', 13, 5),
+    new Block(15500, 'blue', 13, 5),
+    new Block(16000, 'yellow', 13, 5),
+    new Block(16500, 'yellow', 13, 5),
+    new Block(17000, 'green', 13, 5),
+    new Block(17500, 'blue', 13, 5),
+    new Block(18000, 'blue', 13, 5),
+    new Block(18500, 'green', 13, 5),
+    new Block(19000, 'yellow', 13, 5),
+    new Block(19500, 'yellow', 13, 5),
+    new Block(20000, 'green', 13, 5),
+    new Block(20500, 'blue', 13, 5),
+    new Block(21000, 'blue', 13, 5),
+    new Block(21500, 'yellow', 13, 5),
+    new Block(22000, 'green', 13, 5),
+    new Block(22500, 'blue', 13, 5),
+    new Block(23000, 'yellow', 13, 5), /////////////40000부터 bpm up
+    new Block(23500, 'green', 13, 5),
+    new Block(24000, 'green', 13, 5),
+    new Block(24500, 'green', 13, 5),
+    new Block(25000, 'green', 13, 5),
+    new Block(25500, 'green', 13, 5),
+    new Block(26000, 'green', 13, 5),
+    new Block(26500, 'green', 13, 5),
+    new Block(27000, 'green', 13, 5),
+    new Block(28000, 'green', 13, 5),
+    new Block(29000, 'green', 13, 5),
+    new Block(29500, 'green', 13, 5),
+    new Block(30500, 'green', 13, 5),
+    new Block(31000, 'blue', 13, 5),
+    new Block(32000, 'yellow', 13, 5),
+    new Block(32500, 'yellow', 13, 5),
+    new Block(33000, 'blue', 13, 5),
+    new Block(33500, 'yellow', 13, 5),
+    new Block(34000, 'green', 13, 5),
+    new Block(34500, 'blue', 13, 5),
+    new Block(35000, 'green', 13, 5),
+    new Block(35500, 'green', 13, 5),
+    new Block(36000, 'blue', 13, 5),
+    new Block(36500, 'green', 13, 5),
+    new Block(37000, 'yellow', 13, 5),
+    new Block(37500, 'blue', 13, 5),
+    new Block(38000, 'yellow', 13, 5),
+    new Block(38500, 'blue', 13, 5),
+    new Block(39000, 'yellow', 13, 5),
+    new Block(39500, 'blue', 13, 5),
+    new Block(40000, 'green', 13, 5),
+    new Block(44000, 'green', 7, 5),
+    new Block(44500, 'yellow', 7, 5),
+    new Block(45000, 'blue', 7, 5),
+    new Block(46000, 'yellow', 7, 5),
+    new Block(47000, 'blue', 7, 5),
+    new Block(47500, 'green', 7, 5),
+    new Block(48000, 'green', 7, 5),
+    new Block(48500, 'yellow', 7, 5),
+    new Block(49000, 'yellow', 7, 5),
+    new Block(50000, 'green', 7, 5),
+    new Block(50500, 'green', 7, 5),
+    new Block(51000, 'blue', 7, 5),
+    new Block(52000, 'blue', 7, 5),
+    new Block(52500, 'blue', 7, 5),
+    new Block(53000, 'yellow', 7, 5),
+    new Block(53500, 'green', 7, 5),
+    new Block(54000, 'green', 7, 5),
+    new Block(54500, 'green', 7, 5),
+    new Block(55000, 'green', 7, 5),
+    new Block(55500, 'yellow', 7, 5),
+    new Block(56000, 'blue', 7, 5),
+    new Block(56500, 'green', 7, 5),
+    new Block(57000, 'yellow', 7, 5),
+    new Block(57500, 'blue', 7, 5),
+    new Block(58000, 'green', 7, 5),
+    new Block(58500, 'green', 7, 5),
+    new Block(59000, 'green', 7, 5),
+    new Block(59500, 'blue', 7, 5),
+    new Block(60000, 'blue', 7, 5),
+    new Block(60500, 'blue', 7, 5),
+    new Block(61000, 'yellow', 7, 5),
+    new Block(62000, 'yellow', 7, 5),
+    new Block(63000, 'green', 7, 5),
+    new Block(63500, 'green', 7, 5),
+    new Block(64000, 'yellow', 7, 5),
+    new Block(64500, 'yellow', 7, 5),
+    new Block(65000, 'blue', 7, 5),
+    new Block(65500, 'green', 7, 5),
+    new Block(66000, 'yellow', 7, 5),
+    new Block(66500, 'green', 7, 5),
+    new Block(67000, 'blue', 7, 5),
+    new Block(67500, 'green', 7, 5),
+    new Block(68000, 'green', 7, 5)
+    
+    
+];
+
+$(document).ready(function() {
+    var difficulty = 0;
     // 현재 URL에서 query string을 가져옴
     var queryParams = new URLSearchParams(window.location.search);
 
@@ -10,7 +291,7 @@ $(document).ready(function() {
 
     if (queryParams.has("difficulty")) {
 
-    const difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
+    difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
     console.log("난이도: " + difficulty);
  
     } else {
@@ -95,37 +376,14 @@ $(document).ready(function() {
     var hatImg = $('.hat');
     var clothesImg = $('.clothes');
 
-    var characterImages = [
-        "characters_img/rhythme1.png",
-        "characters_img/rhythme2.png",
-        "characters_img/rhythme3.png",
-        "characters_img/rhythme4.png"
-    ];
-
-    var sadCharacterImages = [
-        "characters_img/sad1.png",
-        "characters_img/sad2.png",
-        "characters_img/sad3.png",
-        "characters_img/sad4.png"
-    ];
-
-    var shadowImages = [
-        "game_img/shadow.png",
-        "game_img/shadow2.png",
-        "game_img/shadow3.png",
-        "game_img/shadow4.png",
-        "game_img/shadow5.png"
-    ]
+ 
 
     var currentCharacterIndex = 0;
     var currentShadowIndex = 1;
 
     // 인스트럭션
     var instruction = $('.instruction');
-    var instructionImages = [
-        "game_img/game_instruction1.png",
-        "game_img/game_instruction2.png"
-    ];
+    
     
     var instructionInterval;
 
@@ -316,141 +574,22 @@ $(document).ready(function() {
     }
 
    
-    class Block {
-
-        constructor(time, color, speed, movePx){
-            this.color = color;
-            this.time = time;
-            this.speed = speed;
-            this.movePx = movePx;
-        }
-
-    }
+   
     
     
     var currentTime;
-
+    var blocks = [];
     function moveBlock() {
-        const blocks = [
-            new Block(1000, 'blue', 13, 5),
-            new Block(1500, 'green',13, 5),
-            new Block(2000, 'green',13, 5),
-            new Block(2500, 'green',13, 5),
-            new Block(3000, 'yellow',13, 5),
-            new Block(3500, 'yellow',13, 5),
-            new Block(5000, 'blue', 13, 5),
-            new Block(5500, 'blue', 13, 5),
-            new Block(6000, 'blue', 13, 5),
-            new Block(6500, 'yellow', 13, 5),
-            new Block(7000, 'blue', 13, 5),
-            new Block(7500, 'green', 13, 5),
-            new Block(8000, 'blue', 13, 5),
-            new Block(8500, 'yellow', 13, 5),
-            new Block(9000, 'yellow', 13, 5),
-            new Block(9500, 'green', 13, 5),
-            new Block(10000, 'blue', 13, 5),
-            new Block(10500, 'green', 13, 5),
-            new Block(11000, 'blue', 13, 5),
-            new Block(11500, 'blue', 13, 5),
-            new Block(12000, 'green', 13, 5),
-            new Block(12500, 'green', 13, 5),
-            new Block(13000, 'green', 13, 5),
-            new Block(13500, 'yellow', 13, 5),
-            new Block(14000, 'blue', 13, 5),
-            new Block(14500, 'blue', 13, 5),
-            new Block(15000, 'yellow', 13, 5),
-            new Block(15500, 'blue', 13, 5),
-            new Block(16000, 'yellow', 13, 5),
-            new Block(16500, 'yellow', 13, 5),
-            new Block(17000, 'green', 13, 5),
-            new Block(17500, 'blue', 13, 5),
-            new Block(18000, 'blue', 13, 5),
-            new Block(18500, 'green', 13, 5),
-            new Block(19000, 'yellow', 13, 5),
-            new Block(19500, 'yellow', 13, 5),
-            new Block(20000, 'green', 13, 5),
-            new Block(20500, 'blue', 13, 5),
-            new Block(21000, 'blue', 13, 5),
-            new Block(21500, 'yellow', 13, 5),
-            new Block(22000, 'green', 13, 5),
-            new Block(22500, 'blue', 13, 5),
-            new Block(23000, 'yellow', 13, 5), /////////////40000부터 bpm up
-            new Block(23500, 'green', 13, 5),
-            new Block(24000, 'green', 13, 5),
-            new Block(24500, 'green', 13, 5),
-            new Block(25000, 'green', 13, 5),
-            new Block(25500, 'green', 13, 5),
-            new Block(26000, 'green', 13, 5),
-            new Block(26500, 'green', 13, 5),
-            new Block(27000, 'green', 13, 5),
-            new Block(28000, 'green', 13, 5),
-            new Block(29000, 'green', 13, 5),
-            new Block(29500, 'green', 13, 5),
-            new Block(30500, 'green', 13, 5),
-            new Block(31000, 'blue', 13, 5),
-            new Block(32000, 'yellow', 13, 5),
-            new Block(32500, 'yellow', 13, 5),
-            new Block(33000, 'blue', 13, 5),
-            new Block(33500, 'yellow', 13, 5),
-            new Block(34000, 'green', 13, 5),
-            new Block(34500, 'blue', 13, 5),
-            new Block(35000, 'green', 13, 5),
-            new Block(35500, 'green', 13, 5),
-            new Block(36000, 'blue', 13, 5),
-            new Block(36500, 'green', 13, 5),
-            new Block(37000, 'yellow', 13, 5),
-            new Block(37500, 'blue', 13, 5),
-            new Block(38000, 'yellow', 13, 5),
-            new Block(38500, 'blue', 13, 5),
-            new Block(39000, 'yellow', 13, 5),
-            new Block(39500, 'blue', 13, 5),
-            new Block(40000, 'green', 13, 5),
-            new Block(44000, 'green', 7, 5),
-            new Block(44500, 'yellow', 7, 5),
-            new Block(45000, 'blue', 7, 5),
-            new Block(46000, 'yellow', 7, 5),
-            new Block(47000, 'blue', 7, 5),
-            new Block(47500, 'green', 7, 5),
-            new Block(48000, 'green', 7, 5),
-            new Block(48500, 'yellow', 7, 5),
-            new Block(49000, 'yellow', 7, 5),
-            new Block(50000, 'green', 7, 5),
-            new Block(50500, 'green', 7, 5),
-            new Block(51000, 'blue', 7, 5),
-            new Block(52000, 'blue', 7, 5),
-            new Block(52500, 'blue', 7, 5),
-            new Block(53000, 'yellow', 7, 5),
-            new Block(53500, 'green', 7, 5),
-            new Block(54000, 'green', 7, 5),
-            new Block(54500, 'green', 7, 5),
-            new Block(55000, 'green', 7, 5),
-            new Block(55500, 'yellow', 7, 5),
-            new Block(56000, 'blue', 7, 5),
-            new Block(56500, 'green', 7, 5),
-            new Block(57000, 'yellow', 7, 5),
-            new Block(57500, 'blue', 7, 5),
-            new Block(58000, 'green', 7, 5),
-            new Block(58500, 'green', 7, 5),
-            new Block(59000, 'green', 7, 5),
-            new Block(59500, 'blue', 7, 5),
-            new Block(60000, 'blue', 7, 5),
-            new Block(60500, 'blue', 7, 5),
-            new Block(61000, 'yellow', 7, 5),
-            new Block(62000, 'yellow', 7, 5),
-            new Block(63000, 'green', 7, 5),
-            new Block(63500, 'green', 7, 5),
-            new Block(64000, 'yellow', 7, 5),
-            new Block(64500, 'yellow', 7, 5),
-            new Block(65000, 'blue', 7, 5),
-            new Block(65500, 'green', 7, 5),
-            new Block(66000, 'yellow', 7, 5),
-            new Block(66500, 'green', 7, 5),
-            new Block(67000, 'blue', 7, 5),
-            new Block(67500, 'green', 7, 5),
-            new Block(68000, 'green', 7, 5)
-            
-            
-        ];
+        switch(difficulty){
+            case 0:
+                blocks = easy_blocks;
+                break;
+            case 1:
+                blocks = normal_blocks;
+                break;
+
+
+        }
         blocks.forEach(block => {
             setTimeout(() => {
                 createBlock(block);
