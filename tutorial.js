@@ -123,7 +123,11 @@ $(document).ready(function() {
             
             clothesImg.attr("src", "clothes/" + clothesColor + "1.png")
 
-        }       
+        }
+        
+        setTimeout(() => {
+            JumpAction();
+        },100);
         
     }
 
@@ -133,8 +137,9 @@ $(document).ready(function() {
 
         if (!start_check && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
 
-            startGame();
-
+            start_check = true;
+            moveBlock();
+       
         }
         
         if (!jumping && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
@@ -142,14 +147,7 @@ $(document).ready(function() {
             JumpAction();
             
         }
-    });
-
-    function startGame() {
-
-        start_check = true;
-
-    }
-
+    });  
 
     var jumping = false;
     var imageInterval;
@@ -223,12 +221,15 @@ $(document).ready(function() {
 
     }
 
+    const totorialBlocks = [new Block('yellow', 13, 5), new Block('blue', 13, 5), new Block('green', 13, 5)];
+
     var currentTime;
+    var blocks = [];
 
     function moveBlock() {
-        const blocks = [
-            new Block(1000, 'blue', 13, 5),            
-        ];
+
+      blocks = totorialBlocks;
+
         blocks.forEach(block => {
             setTimeout(() => {
                 createBlock(block);
@@ -253,9 +254,7 @@ $(document).ready(function() {
                 setTimeout(() => {
                     document.removeEventListener("keydown", handleKeyPress);
                     document.removeEventListener("keydown", handleSameKeyPress);
-                    if(!correct_key){
-                        decreaseScore();
-                    }
+                  
                 }, ((window.innerWidth * 0.7 / cal_speed) *1000)+300)
             },block.time);
         });
