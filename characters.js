@@ -14,8 +14,8 @@ const shadowImages = [
 ];
 
 const instructionImages = [
-    "setting_game_img/press1.png",
-    "setting_game_img/press2.png"
+    "setting_game_img/pressSorK_text3.png",
+    "setting_game_img/pressSorK_text4.png"
     ];
 
 var instructionInterval;
@@ -299,10 +299,10 @@ $(document).ready(function() {
     });
 
     $('#lower_arrow1 img').hover(function(){
-        $(this).attr("src", "setting_game_img/difficulty_arrow_lefthover.png");
+        $(this).attr("src", "setting_game_img/left_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/difficulty_arrow_left.png");
+        $(this).attr("src", "setting_game_img/left_arrow_btn1.png");
     });
 
     $('#lower_arrow1').click(()=>{
@@ -316,10 +316,10 @@ $(document).ready(function() {
     });
 
     $('#raise_arrow1 img').hover(function(){
-        $(this).attr("src", "setting_game_img/difficulty_arrow_righthover.png");
+        $(this).attr("src", "setting_game_img/right_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/difficulty_arrow_right.png");
+        $(this).attr("src", "setting_game_img/right_arrow_btn1.png");
     });
 
     $('#raise_arrow1').click(()=>{
@@ -334,10 +334,10 @@ $(document).ready(function() {
     ///////////////////////////////
 
     $('#lower_arrow2 img').hover(function(){
-        $(this).attr("src", "setting_game_img/difficulty_arrow_lefthover.png");
+        $(this).attr("src", "setting_game_img/left_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/difficulty_arrow_left.png");
+        $(this).attr("src", "setting_game_img/left_arrow_btn1.png");
     });
 
     $('#lower_arrow2').click(()=>{
@@ -351,10 +351,10 @@ $(document).ready(function() {
     });
 
     $('#raise_arrow2 img').hover(function(){
-        $(this).attr("src", "setting_game_img/difficulty_arrow_righthover.png");
+        $(this).attr("src", "setting_game_img/right_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/difficulty_arrow_right.png");
+        $(this).attr("src", "setting_game_img/right_arrow_btn1.png");
     });
 
     $('#raise_arrow2').click(()=>{

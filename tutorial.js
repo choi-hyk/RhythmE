@@ -95,8 +95,8 @@ $(document).ready(function() {
     var currentShadowIndex = 1;
 
     const instructionImages = [
-        "game_img/game_instruction1.png",
-        "game_img/game_instruction2.png"
+        "game_img/pressSorK_text1.png",
+        "game_img/pressSorK_text2.png"
     ];
     
     var instruction = $('.instruction');
@@ -110,6 +110,9 @@ $(document).ready(function() {
         jumping = false;
 
         var  index = 0;
+
+        $('#image').css('animation-play-state', 'paused');
+
 
         clearInterval(imageInterval);
         clearInterval(gamingInterval);
@@ -159,6 +162,9 @@ $(document).ready(function() {
             moveBlock();
 
             hideInstructionImage();
+
+        $('#image').css('animation-play-state', 'running');
+
        
         }
         
