@@ -1,9 +1,67 @@
 *{margin: 0; padding: 0; overflow: hidden;}
 
-#background {
+#image {
     position: relative;
+    width: 400vw; 
+    height: 100vh;  
+    overflow: hidden; 
+    animation: moveBackground 25s linear infinite;
+}
+
+.background {
+    position: absolute;
+    top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background:nth-child(1) {
+    background-image: url('game_img/game_background1.png'); 
+    left: 0; 
+    z-index: 5; 
+}
+
+.background:nth-child(2) {
+    background-image: url('game_img/game_background2.png');
+    left: 100vw; 
+    z-index: 4; 
+}
+.background:nth-child(3) {
+    background-image: url('game_img/game_background3.png'); 
+    left: 200vw; 
+    z-index: 3;
+}
+
+.background:nth-child(4) {
+    background-image: url('game_img/game_background1.png'); 
+    left: 300vw; 
+    z-index: 2; 
+}
+
+
+
+.title{
+
+    position: fixed;
+    width: 485px;
+    height: 92px;
+    top: 35%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 7;
+
+    
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-300vw); 
+    }
 }
 
 button {

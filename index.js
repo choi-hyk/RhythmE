@@ -45,24 +45,24 @@ $(document).ready(function(){
         }
 
     $('#play img').hover(function(){
-        $(this).attr("src", "start_img/start_start_btnhover.png");
+        $(this).attr("src", "start_img/start_btn2.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "start_img/start_start_btn.png");
+        $(this).attr("src", "start_img/start_btn1.png");
     });
     
     $('#characters img').hover(function(){
-        $(this).attr("src", "start_img/start_characters_btnhover.png");
+        $(this).attr("src", "start_img/characters_btn2.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "start_img/start_characters_btn.png");
+        $(this).attr("src", "start_img/characters_btn1.png");
     });
     
     $('#exit img').hover(function(){
-        $(this).attr("src", "start_img/start_exit_btnhover.png");
+        $(this).attr("src", "start_img/exit_btn2.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "start_img/start_exit_btn.png");
+        $(this).attr("src", "start_img/exit_btn1.png");
     });  
    
 

@@ -91,10 +91,10 @@ $(document).ready(function(){
     }
 
     $('#start img').hover(function(){
-        $(this).attr("src", "setting_game_img/start_btnhover.png");
+        $(this).attr("src", "setting_game_img/start_btn2.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/start_btn.png");
+        $(this).attr("src", "setting_game_img/start_btn1.png");
     });
 
     $('#start').click(()=>{
@@ -104,10 +104,10 @@ $(document).ready(function(){
     });
 
     $('#lower_arrow img').hover(function(){
-        $(this).attr("src", "setting_game_img/difficulty_arrow_lefthover.png");
+        $(this).attr("src", "setting_game_img/left_arrow_btn2.png");
         $(this).css('width','5vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/difficulty_arrow_left.png");
+        $(this).attr("src", "setting_game_img/left_arrow_btn1.png");
     });
 
     $('#lower_arrow').click(()=>{
@@ -120,10 +120,10 @@ $(document).ready(function(){
     });
 
     $('#raise_arrow img').hover(function(){
-        $(this).attr("src", "setting_game_img/difficulty_arrow_righthover.png");
+        $(this).attr("src", "setting_game_img/right_arrow_btn2.png");
         $(this).css('width','5vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/difficulty_arrow_right.png");
+        $(this).attr("src", "setting_game_img/right_arrow_btn1.png");
     });
 
     $('#raise_arrow').click(()=>{
@@ -159,10 +159,10 @@ $(document).ready(function(){
     });
 
     $('#characters img').hover(function(){
-        $(this).attr("src", "start_img/start_characters_btnhover.png");
+        $(this).attr("src", "setting_game_img/characters_btn4.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "start_img/start_characters_btn.png");
+        $(this).attr("src", "setting_game_img/characters_btn3.png");
     });
 
     $('#characters').click(()=>{
