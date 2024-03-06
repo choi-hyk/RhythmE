@@ -192,7 +192,7 @@ $(document).ready(function() {
 
         hatImg.attr('src',"clothes_img/" + hatColor + "_hat2.png");
         
-        clothesImg.attr('src',"clothes_img/" + clothesColor + "__clothes2.png");
+        clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
 
         hatImg.animate({ top: '65%' }, 190, 'linear')
         .animate({ top: '75%' }, 150, 'linear', function() {
@@ -213,7 +213,7 @@ $(document).ready(function() {
                 character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
 
-                hatImg.attr('src',"clothes/" + hatColor + "_hat5.png");
+                hatImg.attr('src',"clothes_img/" + hatColor + "_hat5.png");
                 clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes5.png");
                
                          
@@ -427,7 +427,7 @@ $(document).ready(function() {
 
     function showAchievement(index) {
         const achievementElement = $('.achievement').eq(index);
-        achievementElement.attr('src', 'game_img/' + scoreImages[index]);
+        achievementElement.attr('src', 'text_img/' + scoreImages[index]);
         
         
         achievementElement.fadeIn(100, function() {
