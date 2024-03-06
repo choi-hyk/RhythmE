@@ -6,7 +6,7 @@ $(document).ready(function(){
     var clothesParameter = false;
     var hatImg = $('.wearing_hat');
     var clothesImg = $('.wearing_clothes');
-    var difficulty = 0;    //초기 난이도
+    var difficulty = 0;    //초기 난이도    
 
     console.log("setting_game 진입\n"+queryParams.toString());
     
@@ -31,7 +31,7 @@ $(document).ready(function(){
             //모자를 입고있는 경우우
             if(!resetHat){
                 var hatColor = queryParams.get("hatColor"); //hatColor : 모자 색
-                hatImg.attr("src", "clothes/" + hatColor + "_hat1.png");    
+                hatImg.attr("src", "clothes_img/" + hatColor + "_hat1.png");    
                 console.log("모자 색: "+ hatColor);
 
             }else{
@@ -53,7 +53,7 @@ $(document).ready(function(){
             //옷을 입고있는 경우
             if(!resetClothes){
                 var clothesColor = queryParams.get("clothesColor");   //clothesColor : 옷 색
-                clothesImg.attr("src", "clothes/" + clothesColor + "1.png");
+                clothesImg.attr("src", "clothes_img/" + clothesColor + "_clothes1.png");
                 console.log("옷 색: "+ clothesColor);
 
             }
@@ -77,13 +77,13 @@ $(document).ready(function(){
     function setButtonImages(difficulty) {
         switch (difficulty) {
             case 0:
-                $('#difficulty img').attr("src", "setting_game_img/easy_btn.png");
+                $('#difficulty img').attr("src", "buttons_img/easy_btn.png");
                 break;
             case 1:
-                $('#difficulty img').attr("src", "setting_game_img/normal_btn.png");
+                $('#difficulty img').attr("src", "buttons_img/normal_btn.png");
                 break;
             case 2:
-                $('#difficulty img').attr("src", "setting_game_img/hard_btn.png");
+                $('#difficulty img').attr("src", "buttons_img/hard_btn.png");
                 break;
             default:
                 break;
@@ -91,10 +91,10 @@ $(document).ready(function(){
     }
 
     $('#start img').hover(function(){
-        $(this).attr("src", "setting_game_img/start_btn2.png");
+        $(this).attr("src", "buttons_img/start_btn2.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/start_btn1.png");
+        $(this).attr("src", "buttons_img/start_btn1.png");
     });
 
     $('#start').click(()=>{
@@ -104,10 +104,10 @@ $(document).ready(function(){
     });
 
     $('#lower_arrow img').hover(function(){
-        $(this).attr("src", "setting_game_img/left_arrow_btn2.png");
+        $(this).attr("src", "buttons_img/left_arrow_btn2.png");
         $(this).css('width','5vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/left_arrow_btn1.png");
+        $(this).attr("src", "buttons_img/left_arrow_btn1.png");
     });
 
     $('#lower_arrow').click(()=>{
@@ -120,10 +120,10 @@ $(document).ready(function(){
     });
 
     $('#raise_arrow img').hover(function(){
-        $(this).attr("src", "setting_game_img/right_arrow_btn2.png");
+        $(this).attr("src", "buttons_img/right_arrow_btn2.png");
         $(this).css('width','5vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/right_arrow_btn1.png");
+        $(this).attr("src", "buttons_img/right_arrow_btn1.png");
     });
 
     $('#raise_arrow').click(()=>{
@@ -136,10 +136,10 @@ $(document).ready(function(){
 
     //뒤로가기 함수
     $('#back img').hover(function(){
-        $(this).attr("src", "setting_game_img/back_btn1.png");
+        $(this).attr("src", "buttons_img/back_btn1.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/back_btn2.png");
+        $(this).attr("src", "buttons_img/back_btn2.png");
     });
     $('#back').click(()=>{
         queryParams.set("difficulty",0);
@@ -148,10 +148,10 @@ $(document).ready(function(){
     });
 
     $('#tutorial img').hover(function(){
-        $(this).attr("src", "setting_game_img/tutorial_btn2.png");
+        $(this).attr("src", "buttons_img/tutorial_btn2.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/tutorial_btn1.png");
+        $(this).attr("src", "buttons_img/tutorial_btn1.png");
     });
     $('#tutorial').click(()=>{
         var url = "tutorial.html?"+queryParams.toString();
@@ -159,10 +159,10 @@ $(document).ready(function(){
     });
 
     $('#characters img').hover(function(){
-        $(this).attr("src", "setting_game_img/characters_btn4.png");
+        $(this).attr("src", "buttons_img/characters_btn4.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/characters_btn3.png");
+        $(this).attr("src", "buttons_img/characters_btn3.png");
     });
 
     $('#characters').click(()=>{

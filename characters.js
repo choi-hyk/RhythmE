@@ -6,16 +6,16 @@ const characterImages = [
 ];
 
 const shadowImages = [
-    "game_img/shadow.png",
-    "game_img/shadow2.png",
-    "game_img/shadow3.png",
-    "game_img/shadow4.png",
-    "game_img/shadow5.png"
+    "shadow_img/shadow1.png",
+    "shadow_img/shadow2.png",
+    "shadow_img/shadow3.png",
+    "shadow_img/shadow4.png",
+    "shadow_img/shadow5.png"
 ];
 
 const instructionImages = [
-    "setting_game_img/pressSorK_text3.png",
-    "setting_game_img/pressSorK_text4.png"
+    "text_img/pressSorK_text3.png",
+    "text_img/pressSorK_text4.png"
     ];
 
 var instructionInterval;
@@ -98,15 +98,15 @@ $(document).ready(function() {
     setClothesImagesInItemBox(clothesIndex);   
 
     if (resetHat) {
-        $('#reset_hat img').attr("src", "setting_game_img/X2.png");
+        $('#reset_hat img').attr("src", "buttons_img/reset_btn2.png");
     } else {
-        $('#reset_hat img').attr("src", "setting_game_img/X1.png");
+        $('#reset_hat img').attr("src", "buttons_img/reset_btn1.png");
     }
 
     if (resetClothes) {
-        $('#reset_clothes img').attr("src", "setting_game_img/X2.png");
+        $('#reset_clothes img').attr("src", "buttons_img/reset_btn2.png");
     } else {
-        $('#reset_clothes img').attr("src", "setting_game_img/X1.png");
+        $('#reset_clothes img').attr("src", "buttons_img/reset_btn1.png");
     }
 
     }
@@ -130,21 +130,21 @@ $(document).ready(function() {
 
         switch (hatIndex) {
             case 1:
-                $('#hat img').attr("src", "clothes/pink_hat1.png");
+                $('#hat img').attr("src", "clothes_img/pink_hat1.png");
                 console.log(currentHatIndex);
                 hatColor = 'pink';
                 break;
             case 2:
-                $('#hat img').attr("src", "clothes/green_hat1.png");
+                $('#hat img').attr("src", "clothes_img/green_hat1.png");
                 hatColor = 'green';
                 break;
             case 3:
-                $('#hat img').attr("src", "clothes/yellow_hat1.png");
+                $('#hat img').attr("src", "clothes_img/yellow_hat1.png");
                 console.log(currentHatIndex);
                 hatColor = 'yellow';
                 break;
             case 4:
-                $('#hat img').attr("src", "clothes/blue_hat1.png");
+                $('#hat img').attr("src", "clothes_img/blue_hat1.png");
                 hatColor = 'blue';
                 break;
             default:
@@ -157,18 +157,18 @@ $(document).ready(function() {
 
         switch (hatIndex) {
             case 1:
-                hat.attr("src", "clothes/pink_hat" + (currentHatIndex + 2) + ".png");
+                hat.attr("src", "clothes_img/pink_hat" + (currentHatIndex + 2) + ".png");
                 console.log(currentHatIndex);
                 break;
             case 2:
-                hat.attr("src", "clothes/green_hat" + (currentHatIndex + 2) + ".png");
+                hat.attr("src", "clothes_img/green_hat" + (currentHatIndex + 2) + ".png");
                 break;
             case 3:
                 console.log(currentHatIndex);
-                hat.attr("src", "clothes/yellow_hat" + (currentHatIndex + 2) + ".png");
+                hat.attr("src", "clothes_img/yellow_hat" + (currentHatIndex + 2) + ".png");
                 break;
             case 4:
-                hat.attr("src", "clothes/blue_hat" + (currentHatIndex + 2) + ".png");
+                hat.attr("src", "clothes_img/blue_hat" + (currentHatIndex + 2) + ".png");
                 break;
             default:
                 break;
@@ -179,19 +179,19 @@ $(document).ready(function() {
     function setClothesImagesInItemBox(clothesIndex) {
         switch (clothesIndex) {
             case 1:
-                $('#clothes img').attr("src", "clothes/pink1.png");
+                $('#clothes img').attr("src", "clothes_img/pink_clothes1.png");
                 clothesColor = 'pink';
                 break;
             case 2:
-                $('#clothes img').attr("src", "clothes/green1.png");
+                $('#clothes img').attr("src", "clothes_img/green_clothes1.png");
                 clothesColor = 'green';
                 break;
             case 3:
-                $('#clothes img').attr("src", "clothes/yellow1.png");
+                $('#clothes img').attr("src", "clothes_img/yellow_clothes1.png");
                 clothesColor = 'yellow';
                 break;
             case 4:
-                $('#clothes img').attr("src", "clothes/blue1.png");
+                $('#clothes img').attr("src", "clothes_img/blue_clothes1.png");
                 clothesColor = 'blue';
                 break;
             default:
@@ -203,16 +203,16 @@ $(document).ready(function() {
     function setClothesImagesInCharacterBox(clothesIndex) {
         switch (clothesIndex) {
             case 1:
-                clothes.attr("src", "clothes/pink" + (currentClothesIndex + 2) + ".png");
+                clothes.attr("src", "clothes_img/pink_clothes" + (currentClothesIndex + 2) + ".png");
                 break;
             case 2:
-                clothes.attr("src", "clothes/green" + (currentClothesIndex + 2) + ".png");
+                clothes.attr("src", "clothes_img/green_clothes" + (currentClothesIndex + 2) + ".png");
                 break;
             case 3:
-                clothes.attr("src", "clothes/yellow" + (currentClothesIndex + 2) + ".png");
+                clothes.attr("src", "clothes_img/yellow_clothes" + (currentClothesIndex + 2) + ".png");
                 break;
             case 4:
-                clothes.attr("src", "clothes/blue" + (currentClothesIndex + 2) +  ".png");
+                clothes.attr("src", "clothes_img/blue_clothes" + (currentClothesIndex + 2) +  ".png");
                 break;
             default:
                 break;
@@ -239,18 +239,18 @@ $(document).ready(function() {
 
     $('#reset_hat img').hover(function(){
         if(resetHat){
-            $(this).attr("src", "setting_game_img/X1.png");
+            $(this).attr("src", "buttons_img/reset_btn1.png");
         }
         else{
-            $(this).attr("src", "setting_game_img/X2.png");
+            $(this).attr("src", "buttons_img/reset_btn2.png");
         }
         $(this).css('width','5vw');
     }, function() {
         if(resetHat){
-            $(this).attr("src", "setting_game_img/X2.png");
+            $(this).attr("src", "buttons_img/reset_btn2.png");
         }
         else{
-            $(this).attr("src", "setting_game_img/X1.png");
+            $(this).attr("src", "buttons_img/reset_btn1.png");
         }
     });    
 
@@ -267,18 +267,18 @@ $(document).ready(function() {
 
     $('#reset_clothes img').hover(function(){
         if(resetClothes){
-            $(this).attr("src", "setting_game_img/X1.png");
+            $(this).attr("src", "buttons_img/reset_btn1.png");
         }
         else{
-            $(this).attr("src", "setting_game_img/X2.png");
+            $(this).attr("src", "buttons_img/reset_btn2.png");
         }
         $(this).css('width','5vw');
     }, function() {
         if(resetClothes){
-            $(this).attr("src", "setting_game_img/X2.png");
+            $(this).attr("src", "buttons_img/reset_btn2.png");
         }
         else{
-            $(this).attr("src", "setting_game_img/X1.png");
+            $(this).attr("src", "buttons_img/reset_btn1.png");
         }
     });
 
@@ -299,10 +299,10 @@ $(document).ready(function() {
     });
 
     $('#lower_arrow1 img').hover(function(){
-        $(this).attr("src", "setting_game_img/left_arrow_btn2.png");
+        $(this).attr("src", "buttons_img/left_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/left_arrow_btn1.png");
+        $(this).attr("src", "buttons_img/left_arrow_btn1.png");
     });
 
     $('#lower_arrow1').click(()=>{
@@ -316,10 +316,10 @@ $(document).ready(function() {
     });
 
     $('#raise_arrow1 img').hover(function(){
-        $(this).attr("src", "setting_game_img/right_arrow_btn2.png");
+        $(this).attr("src", "buttons_img/right_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/right_arrow_btn1.png");
+        $(this).attr("src", "buttons_img/right_arrow_btn1.png");
     });
 
     $('#raise_arrow1').click(()=>{
@@ -334,10 +334,10 @@ $(document).ready(function() {
     ///////////////////////////////
 
     $('#lower_arrow2 img').hover(function(){
-        $(this).attr("src", "setting_game_img/left_arrow_btn2.png");
+        $(this).attr("src", "buttons_img/left_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/left_arrow_btn1.png");
+        $(this).attr("src", "buttons_img/left_arrow_btn1.png");
     });
 
     $('#lower_arrow2').click(()=>{
@@ -351,10 +351,10 @@ $(document).ready(function() {
     });
 
     $('#raise_arrow2 img').hover(function(){
-        $(this).attr("src", "setting_game_img/right_arrow_btn2.png");
+        $(this).attr("src", "buttons_img/right_arrow_btn2.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/right_arrow_btn1.png");
+        $(this).attr("src", "buttons_img/right_arrow_btn1.png");
     });
 
     $('#raise_arrow2').click(()=>{
@@ -369,10 +369,10 @@ $(document).ready(function() {
 $('#back img').hover(function(){
 
     $('#back img').hover(function(){
-        $(this).attr("src", "setting_game_img/back_btn1.png");
+        $(this).attr("src", "buttons_img/back_btn1.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/back_btn2.png");
+        $(this).attr("src", "buttons_img/back_btn2.png");
     });
     $('#back').click(()=>{
         queryParams.set("resetHat", resetHat.toString());
@@ -403,18 +403,18 @@ $('#back img').hover(function(){
 
         character.attr('src', characterImages[0]);
         shadow.attr('src', shadowImages[4]);
-        hat.attr('src',"clothes/" + hatColor + "_hat2.png");
-        clothes.attr('src',"clothes/" + clothesColor + "2.png");
+        hat.attr('src',"clothes_img/" + hatColor + "_hat2.png");
+        clothes.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
 
         hat.animate({ top: '39.1%' }, 190, 'linear')
         .animate({ top: '43.1%' }, 150, 'linear', function() {
-            hat.attr('src',"clothes/" + hatColor + "_hat2.png");
+            hat.attr('src',"clothes_img/" + hatColor + "_hat2.png");
             jumping = false;
         });
 
         clothes.animate({ top: '38.8%' }, 190, 'linear')
         .animate({ top: '42.8%' }, 150, 'linear', function() {
-            clothes.attr('src',"clothes/" + clothesColor + "2.png");
+            clothes.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
             jumping = false;
         });
 
@@ -423,15 +423,15 @@ $('#back img').hover(function(){
                 character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
 
-                hat.attr('src',"clothes/" + hatColor + "_hat5.png");
-                clothes.attr('src',"clothes/" + clothesColor + "5.png");
+                hat.attr('src',"clothes_img/" + hatColor + "_hat5.png");
+                clothes.attr('src',"clothes_img/" + clothesColor + "_clothes5.png");
                
                 jumping = false;
                 imageInterval = setInterval(function() {
                     currentClothesIndex = (currentClothesIndex + 1) % 4;
-                    clothes.attr('src',"clothes/" + clothesColor + (currentClothesIndex + 2) + ".png");  
+                    clothes.attr('src',"clothes_img/" + clothesColor + "_clothes" + (currentClothesIndex + 2) + ".png");  
                     currentHatIndex = (currentHatIndex + 1) % 4;
-                    hat.attr('src',"clothes/" + hatColor + "_hat" + (currentHatIndex + 2) + ".png");
+                    hat.attr('src',"clothes_img/" + hatColor + "_hat" + (currentHatIndex + 2) + ".png");
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                     currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
                     character.attr('src', characterImages[currentCharacterIndex]);

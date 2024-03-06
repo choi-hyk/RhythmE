@@ -6,23 +6,23 @@ const characterImages = [
 ];
 
 const sadCharacterImages = [
-    "characters_img/sad1.png",
-    "characters_img/sad2.png",
-    "characters_img/sad3.png",
-    "characters_img/sad4.png"
+    "characters_img/sad_rhythme1.png",
+    "characters_img/sad_rhythme2.png",
+    "characters_img/sad_rhythme3.png",
+    "characters_img/sad_rhythme4.png"
 ];
 
 const shadowImages = [
-    "game_img/shadow.png",
-    "game_img/shadow2.png",
-    "game_img/shadow3.png",
-    "game_img/shadow4.png",
-    "game_img/shadow5.png"
+    "shadow_img/shadow1.png",
+    "shadow_img/shadow2.png",
+    "shadow_img/shadow3.png",
+    "shadow_img/shadow4.png",
+    "shadow_img/shadow5.png"
 ]
 
 const instructionImages = [
-    "game_img/pressSorK_text1.png",
-    "game_img/pressSorK_text2.png"
+    "text_img/pressSorK_text1.png",
+    "text_img/pressSorK_text2.png"
 ];
 
 class Block {
@@ -334,17 +334,17 @@ $(document).ready(function() {
 
     //게임오버 버튼 구현
     $('#reStart img').hover(function(){
-        $(this).attr("src", "game_img/restart_btn1.png");
+        $(this).attr("src", "buttons_img/restart_btn1.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "game_img/restart_btn2.png");
+        $(this).attr("src", "buttons_img/restart_btn2.png");
     });
     
     $('#quit img').hover(function(){
-        $(this).attr("src", "game_img/quit_btn1.png");
+        $(this).attr("src", "buttons_img/quit_btn1.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "game_img/quit_btn2.png");
+        $(this).attr("src", "buttons_img/quit_btn2.png");
     });
 
     $('#reStart').click(()=>{
@@ -358,10 +358,10 @@ $(document).ready(function() {
 
     //뒤로가기 함수
     $('#back img').hover(function(){
-        $(this).attr("src", "setting_game_img/back_btn1.png");
+        $(this).attr("src", "buttons_img/back_btn1.png");
         $(this).css('width','7vw');
     }, function() {
-        $(this).attr("src", "setting_game_img/back_btn2.png");
+        $(this).attr("src", "buttons_img/back_btn2.png");
     });
     $('#back').click(()=>{
         var url = "setting_game.html?" + queryParams.toString();
@@ -433,20 +433,20 @@ $(document).ready(function() {
         shadow.attr('src', shadowImages[4]);
 
         if(hatParameter){
-            hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
+            hatImg.attr('src',"clothes_img/" + hatColor + "_hat2.png");
             hatImg.animate({ top: '65%' }, 190, 'linear')
             .animate({ top: '75%' }, 150, 'linear', function() {
-                hatImg.attr('src',"clothes/" + hatColor + "_hat2.png");
+                hatImg.attr('src',"clothes_img/" + hatColor + "_hat2.png");
                 jumping = false;
                 
             });
             console.log(1);
         }
         if(clothesParameter){
-            clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
+            clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
             clothesImg.animate({ top: '65%' }, 190, 'linear')
             .animate({ top: '75%' }, 150, 'linear', function() {
-                clothesImg.attr('src',"clothes/" + clothesColor + "2.png");
+                clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
                 jumping = false;
             
             }); 
@@ -456,10 +456,10 @@ $(document).ready(function() {
                 character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
                 if(hatParameter){
-                    hatImg.attr('src',"clothes/" + hatColor + "_hat5.png");
+                    hatImg.attr('src',"clothes_img/" + hatColor + "_hat5.png");
                 }
                 if(clothesParameter){
-                    clothesImg.attr('src',"clothes/" + clothesColor + "5.png");
+                    clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes5.png");
                 }
                          
                 jumping = false;
@@ -467,11 +467,11 @@ $(document).ready(function() {
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                     currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
                     if(clothesParameter){
-                        clothesImg.attr('src',"clothes/" + clothesColor + (currentCharacterIndex + 2) + ".png");  
+                        clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes" +(currentCharacterIndex + 2) + ".png");  
                         clothesImg.css('top','75%');
                     }
                     if(hatParameter){
-                        hatImg.attr('src',"clothes/" + hatColor + "_hat" + (currentCharacterIndex + 2) + ".png");
+                        hatImg.attr('src',"clothes_img/" + hatColor + "_hat" + (currentCharacterIndex + 2) + ".png");
                         hatImg.css('top','75%');
                     }
                     if(!sadCheck){
@@ -489,7 +489,7 @@ $(document).ready(function() {
      function createBlock(block){
         const block_img = document.createElement('img');
         block_img.classList.add('block');
-        block_img.src = 'game_img/'+block.color+'_block.gif';
+        block_img.src = 'items_img/'+block.color+'_block.gif';
         block_img.style.left = window.innerWidth+'px'
         document.body.appendChild(block_img);
 
@@ -544,7 +544,7 @@ $(document).ready(function() {
         clearInterval(imageInterval);
         clearInterval(gamingInterval);
 
-        character.attr('src', 'game_img/start_character.png');
+        character.attr('src', 'characters_img/rhythme0.png');
 
         var index = 0;
 
@@ -559,7 +559,7 @@ $(document).ready(function() {
             
         }else{
             
-            hatImg.attr("src", "clothes/" + hatColor + "_hat1.png");
+            hatImg.attr("src", "clothes_img/" + hatColor + "_hat1.png");
 
         }
 
@@ -569,7 +569,7 @@ $(document).ready(function() {
             
         }else{
             
-            clothesImg.attr("src", "clothes/" + clothesColor + "1.png")
+            clothesImg.attr("src", "clothes_img/" + clothesColor + "_clothes1.png")
 
         }       
         
@@ -743,7 +743,7 @@ $(document).ready(function() {
 
     function showAchievement(index) {
         const achievementElement = $('.achievement').eq(index);
-        achievementElement.attr('src', 'game_img/' + scoreImages[index]);
+        achievementElement.attr('src', 'text_img/' + scoreImages[index]);
         
         
         achievementElement.fadeIn(100, function() {
