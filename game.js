@@ -21,8 +21,8 @@ const shadowImages = [
 ]
 
 const instructionImages = [
-    "game_img/game_instruction1.png",
-    "game_img/game_instruction2.png"
+    "game_img/pressSorK_text1.png",
+    "game_img/pressSorK_text2.png"
 ];
 
 class Block {
@@ -334,17 +334,17 @@ $(document).ready(function() {
 
     //게임오버 버튼 구현
     $('#reStart img').hover(function(){
-        $(this).attr("src", "game_img/restart_text2.png");
+        $(this).attr("src", "game_img/restart_btn1.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "game_img/restart_text1.png");
+        $(this).attr("src", "game_img/restart_btn2.png");
     });
     
     $('#quit img').hover(function(){
-        $(this).attr("src", "game_img/quit_text1.png");
+        $(this).attr("src", "game_img/quit_btn1.png");
         $(this).css('width','22vw');
     }, function() {
-        $(this).attr("src", "game_img/quit_text2.png");
+        $(this).attr("src", "game_img/quit_btn2.png");
     });
 
     $('#reStart').click(()=>{

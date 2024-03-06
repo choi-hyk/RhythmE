@@ -81,30 +81,30 @@ body {
 }
 
 .background:nth-child(1) {
-    background-image: url('game_img/game_background1.png'); 
+    background-image: url('game_img/evening_background1.png'); 
     left: 0; 
     z-index: 5; 
 }
 
 .background:nth-child(2) {
-    background-image: url('game_img/game_background2.png');
+    background-image: url('game_img/evening_background2.png');
     left: 100vw; 
     z-index: 4; 
 }
 .background:nth-child(3) {
-    background-image: url('game_img/game_background3.png'); 
+    background-image: url('game_img/evening_background3.png'); 
     left: 200vw; 
     z-index: 3;
 }
 
 .background:nth-child(4) {
-    background-image: url('game_img/game_background4.png'); 
+    background-image: url('game_img/evening_background4.png'); 
     left: 300vw; 
     z-index: 2; 
 }
 
 .background:nth-child(5) {
-    background-image: url('game_img/game_background1.png'); 
+    background-image: url('game_img/evening_background1.png'); 
     left: 400vw; 
     z-index: 1;
 }
