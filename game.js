@@ -279,6 +279,139 @@ const normal_blocks = [
     
 ];
 
+const hard_blocks = [ 
+    new Block(1200, 'yellow', 15, 5),
+    new Block(1700, 'blue', 15, 5),
+    new Block(2000, 'yellow', 15, 5),
+
+    new Block(2400, 'green', 15, 5),
+    new Block(2900, 'green', 15, 5),   
+    new Block(3400, 'green', 15, 5),
+    new Block(3900, 'green', 15, 5),
+
+
+    new Block(4500, 'yellow', 15, 5),
+    new Block(4800, 'blue', 15, 5),
+
+    new Block(5300, 'yellow', 15, 5),
+    new Block(5800, 'blue', 15, 5),
+    new Block(6300, 'yellow', 15, 5),
+    new Block(6800, 'blue', 15, 5),
+    new Block(7550, 'yellow', 15, 5),
+    new Block(7850, 'blue', 15, 5),
+
+    new Block(8400, 'green', 15, 5),
+    new Block(8900, 'green', 15, 5),
+    new Block(9400, 'green', 15, 5),
+    new Block(9900, 'green', 15, 5),
+    new Block(10400, 'yellow', 15, 5),
+    new Block(10800, 'blue', 15, 5),
+
+    new Block(11200, 'yellow', 15, 5),
+    new Block(11500, 'blue', 15, 5),
+    new Block(11900, 'blue', 15, 5),
+
+    new Block(12700, 'blue', 15, 5),
+    new Block(13100, 'blue', 15, 5),
+    new Block(13500, 'yellow', 15, 5),
+    new Block(13800, 'blue', 15, 5),
+    new Block(14400, 'blue', 15, 5),
+    new Block(14800, 'blue', 15, 5),
+    new Block(15250, 'yellow', 15, 5),
+
+
+
+    new Block(15550, 'blue', 15, 5),
+    new Block(16000, 'blue', 15, 5),
+    new Block(16400, 'blue', 15, 5),
+    new Block(16800, 'yellow', 15, 5),
+    new Block(17100, 'blue', 15, 5),
+    new Block(17600, 'yellow', 15, 5),
+    new Block(17900, 'blue', 15, 5),
+
+    new Block(18400, 'yellow', 15, 5),
+    new Block(18700, 'blue', 15, 5),
+    new Block(19100, 'blue', 15, 5),
+
+    new Block(19500, 'blue', 15, 5),
+    new Block(19950, 'blue', 15, 5),
+    new Block(20400, 'yellow', 15, 5),
+    new Block(20700, 'blue', 15, 5),
+
+    new Block(21200, 'green', 15, 5),
+    new Block(21650, 'green', 15, 5),
+    new Block(22100, 'green', 15, 5),
+    new Block(22550, 'green', 15, 5),
+    new Block(23300, 'blue', 15, 5),
+    new Block(23600, 'yellow', 15, 5),
+    new Block(24350, 'green', 15, 5),
+    new Block(24800, 'green', 15, 5),
+    new Block(25150, 'green', 15, 5),
+    new Block(25500, 'green', 15, 5),
+
+    new Block(25950, 'yellow', 15, 5),
+    new Block(26400, 'blue', 15, 5),
+    new Block(26850, 'yellow', 15, 5),
+    new Block(27300, 'blue', 15, 5),
+    new Block(27850, 'yellow', 15, 5),
+    new Block(28300, 'blue', 15, 5),
+    new Block(28750, 'yellow', 15, 5),
+    new Block(29200, 'blue', 15, 5),
+    new Block(29650, 'yellow', 15, 5),
+    new Block(30100, 'blue', 15, 5),
+    new Block(30550, 'yellow', 15, 5),
+    new Block(31000, 'blue', 15, 5),
+    new Block(31400, 'green', 15, 5),
+
+
+    new Block(31850, 'yellow', 15, 5),
+    new Block(32150, 'blue', 15, 5),
+
+    new Block(32550, 'yellow', 15, 5),
+    new Block(32850, 'blue', 15, 5),
+
+    new Block(33250, 'yellow', 15, 5),
+    new Block(33550, 'blue', 15, 5),
+
+    new Block(34000, 'yellow', 15, 5),
+    new Block(34450, 'blue', 15, 5),
+    new Block(34900, 'yellow', 15, 5),
+    new Block(35350, 'blue', 15, 5),
+    new Block(35800, 'yellow', 15, 5),
+    new Block(36250, 'blue', 15, 5),
+    new Block(36700, 'yellow', 15, 5),
+    new Block(37150, 'blue', 15, 5),
+    new Block(37600, 'yellow', 15, 5),
+    new Block(38050, 'blue', 15, 5),
+    new Block(38350, 'yellow', 15, 5),
+
+    new Block(38800, 'yellow', 15, 5),
+    new Block(39250, 'blue', 15, 5),
+    new Block(39900, 'yellow', 15, 5),
+    new Block(40350, 'blue', 15, 5),
+    new Block(40800, 'yellow', 15, 5),
+    new Block(41250, 'blue', 15, 5),
+
+
+    //////////////////////////////
+
+    new Block(44900, 'blue', 7, 5),
+    new Block(45350, 'blue', 7, 5),
+    new Block(45800, 'blue', 7, 5),
+    new Block(46250, 'blue', 7, 5),
+    new Block(46700, 'blue', 7, 5),
+    new Block(47150, 'blue', 7, 5),
+    new Block(47600, 'blue', 7, 5),
+    new Block(48050, 'blue', 7, 5),
+    new Block(48500, 'blue', 7, 5),
+    new Block(48950, 'blue', 7, 5),
+    new Block(49400, 'blue', 7, 5),
+    new Block(49850, 'blue', 7, 5),
+
+    
+
+] ;
+
 $(document).ready(function() {
     var difficulty = 0;
     // 현재 URL에서 query string을 가져옴
@@ -368,7 +501,7 @@ $(document).ready(function() {
         location.href=url;
     });
 
-    let score = 1000;
+    let score = 10000;
 
     // 점프 액션 이미지
     var character = $('.rhythme');
@@ -386,6 +519,11 @@ $(document).ready(function() {
     
     
     var instructionInterval;
+    
+    //난이도별 점프 속도
+    var jumpSpeed;
+    var jumpHeight;
+    var landSpeed;
 
     //block이 움직이는 속도
     const block_speed = 10;
@@ -413,17 +551,20 @@ $(document).ready(function() {
             JumpAction();
             
         }
+
+        if (jumping) {
+            event.preventDefault(); 
+        }
     });
 
 
     var jumping = false;
     var imageInterval;
-    var gamingInterval;
     var sadCheck = false;
 
     // 초기 점프 구현
     function JumpAction() {
-
+        
         jumping = true;
 
         clearInterval(imageInterval);
@@ -434,25 +575,25 @@ $(document).ready(function() {
 
         if(hatParameter){
             hatImg.attr('src',"clothes_img/" + hatColor + "_hat2.png");
-            hatImg.animate({ top: '65%' }, 190, 'linear')
-            .animate({ top: '75%' }, 150, 'linear', function() {
+            hatImg.animate({ top: jumpHeight + '%' }, jumpSpeed, 'linear')
+            .animate({ top: '75%' }, landSpeed, 'linear', function() {
                 hatImg.attr('src',"clothes_img/" + hatColor + "_hat2.png");
-                jumping = false;
                 
             });
             console.log(1);
         }
         if(clothesParameter){
             clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
-            clothesImg.animate({ top: '65%' }, 190, 'linear')
-            .animate({ top: '75%' }, 150, 'linear', function() {
+            clothesImg.animate({ top: jumpHeight + '%' }, jumpSpeed, 'linear')
+            .animate({ top: '75%' }, landSpeed, 'linear', function() {
                 clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes2.png");
-                jumping = false;
             
             }); 
         }
-        character.animate({ top: '65%' }, 190, 'linear')
-            .animate({ top: '75%' }, 150, 'linear', function() {
+
+        character.animate({ top: jumpHeight + '%' }, jumpSpeed, 'linear')
+            .animate({ top: '75%' }, landSpeed, 'linear', function() {
+                jumping = false;
                 character.attr('src', characterImages[3]);
                 shadow.attr('src',shadowImages[0]);
                 if(hatParameter){
@@ -460,9 +601,8 @@ $(document).ready(function() {
                 }
                 if(clothesParameter){
                     clothesImg.attr('src',"clothes_img/" + clothesColor + "_clothes5.png");
-                }
-                         
-                jumping = false;
+                }                         
+              
                 imageInterval = setInterval(function() {                 
                     currentCharacterIndex = (currentCharacterIndex + 1) % characterImages.length;
                     currentShadowIndex = (currentShadowIndex + 1) % (shadowImages.length-1);
@@ -515,16 +655,13 @@ $(document).ready(function() {
         start_check = true;
         bgm.play();
         $('#image').css('animation-play-state', 'running');
-        // gamingInterval = setInterval(() => {
-        //     const colors = ['green', 'blue', 'yellow'];
-        //     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        //     createBlock(randomColor);
-        //   }, block_createspeed);
+       
         $('.score').text(score);
+     
         moveBlock();
         
         //게임 컴플리트
-        setTimeout(gameComplete, 220000);
+        setTimeout(gameComplete, 76000);
 
     }
 
@@ -542,10 +679,9 @@ $(document).ready(function() {
         jumping = false;
 
         clearInterval(imageInterval);
-        clearInterval(gamingInterval);
 
         character.attr('src', 'characters_img/rhythme0.png');
-
+ 
         var index = 0;
 
         instructionInterval = setInterval(function() {
@@ -571,7 +707,27 @@ $(document).ready(function() {
             
             clothesImg.attr("src", "clothes_img/" + clothesColor + "_clothes1.png")
 
-        }       
+        }
+        
+        switch (difficulty) {
+            case 0:
+                jumpSpeed = 190; // 쉬운 난이도에서의 점프 속도
+                landSpeed = 150;
+                jumpHeight = 65;
+                break;
+            case 1:
+                jumpSpeed = 140; // 보통 난이도에서의 점프 속도
+                landSpeed = 125;
+                jumpHeight = 67;
+
+                break;
+            case 2:
+                jumpSpeed = 80; // 어려운 난이도에서의 점프 속도
+                landSpeed = 90;
+                jumpHeight = 71;
+
+                break;
+        }
         
     }
 
@@ -593,6 +749,9 @@ $(document).ready(function() {
                 break;
             case 1:
                 blocks = normal_blocks;
+                break;
+            case 2:
+                blocks = hard_blocks;
                 break;
 
 
@@ -831,6 +990,8 @@ $(document).ready(function() {
         
         // 뒤로가기 이미지 숨기기
         $('#back').hide();
+
+        bgm.pause();
     
         setTimeout(function(){
             
@@ -839,17 +1000,22 @@ $(document).ready(function() {
         
             // 캐릭터 애니메이션 중지
             character.stop();
+            
+            clearInterval(imageInterval);
         
             // 배경 애니메이션 중지
             $('#image').css('animation-play-state', 'paused');
+
     
             // 1초 후에 화면 블러 처리 및 점수 고정
             setTimeout(function() {
                 $("#image").css("filter", "blur(5px)");
                 $(".rhythme").css("filter", "blur(5px)");
                 $(".shadow").css("filter", "blur(5px)");
-                document.getElementById("gameCompleteScreen").style.display = "flex";
-                $(".score").text(score);
+                $(".hat").css("filter", "blur(5px)");
+                $(".clothes").css("filter", "blur(5px)");
+                $('.complete_score').text(score);
+                document.getElementById("gameCompleteScreen").style.display = "flex";                
                 document.getElementById("reStart").style.display = "flex";
                 document.getElementById("quit").style.display = "flex";
             }, 1000);
@@ -872,6 +1038,8 @@ $(document).ready(function() {
         $('#back').hide();
 
         $('.achievement').remove();
+
+        bgm.pause();
 
         setTimeout(function(){
 

@@ -167,6 +167,23 @@ body {
     2px 2px 0 #000; 
 }
 
+
+.complete_score{
+    width: 20vw;
+    height: 40vh;
+    color: #d77bba;
+    font-size: 2.8vw;
+    font-family: 'GalacticaGrid', sans-serif;
+    position: fixed;
+    top: 45%; 
+    left: 46%; 
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+}
+
 /* 게임오버 스크린 */
 #gameOverScreen {
     position: fixed;
@@ -184,6 +201,25 @@ body {
     width: 75vw;
     margin-top : -250px;
 }
+
+
+#gameCompleteScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* 반투명한 검은 배경 */
+    display: none; /* 초기에는 화면에 보이지 않음 */
+    justify-content: center;
+    align-items: center;
+}
+
+.gameComplete{    
+    width: 40vw;
+    margin-top : -250px;
+}
+
 
 button {
     border: none;
