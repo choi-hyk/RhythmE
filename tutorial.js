@@ -90,7 +90,7 @@ $(document).ready(function() {
         "shadow_img/shadow5.png"
     ]
 
-    var start_check;
+    var start_check = false;
     var currentCharacterIndex = 0;
     var currentShadowIndex = 1;
 
@@ -103,10 +103,9 @@ $(document).ready(function() {
 
     var instructionInterval;  
     var moveInterval;
-    var idx=0;
-    function init() {
+    var idx = 0;
 
-        start_check = false;
+    function init() {
 
         jumping = false;
 
@@ -153,35 +152,14 @@ $(document).ready(function() {
         instruction.hide();
     }
     
-    
     document.addEventListener("keydown", function(event) {
 
         if (!start_check && (event.key === 's' || event.key === 'S' || event.key === 'k' || event.key === 'K')) {
 
             start_check = true;
-            
-            
-            
-            
-            
-            
-            if(idx<=1){
-                moveBlock(idx);
-                hideInstructionImage();
-                init();
-            }
-            if(idx==2){
-                moveBlock(idx);
-                hideInstructionImage();
-            }
-            idx++;
-            
-            
-            
-            
-                
-            
-
+            moveBlock(idx);
+            hideInstructionImage();  
+                           
         $('#image').css('animation-play-state', 'running');
 
        
@@ -302,10 +280,10 @@ $(document).ready(function() {
                 const currentLeft = parseFloat(block_img.style.left);
                 if(currentLeft <= window.innerWidth*0.28 || currentLeft <= -30) {
                     clearInterval(moveInterval);
+        $('#image').css('animation-play-state', 'paused');
                     
                     correct = await enableKeyPress(blocks[i].color);
                     
-                    console.log(blocks[i].color);
                     block_img.remove();
                     return;
 
@@ -359,6 +337,7 @@ $(document).ready(function() {
                     if(green_kCheck == false){ //green block일 때 k를 아직 누르지 않았다면
                         green_sCheck = true;   //s 눌렀다고 표시
                     } else{     //k를 이미 누르고 s를 누른 상황
+                    idx++;
                         
                         showAchievement(2);
                         
@@ -377,6 +356,7 @@ $(document).ready(function() {
                 
                 if (event.key === 'k' || event.key === 'K') {
                     if(green_sCheck == true){ //s를 누르고 k를 누른 상황
+                    idx++;
                         
                         showAchievement(2);
                        
@@ -399,7 +379,7 @@ $(document).ready(function() {
                 // blue 블록이면 'k'를 눌러야 함
                 if (event.key === 'k' || event.key === 'K') {
                     correct_key = true;
-                    
+                    idx++;
                     showAchievement(2);
                     
                     document.removeEventListener("keydown", handleKPress); // 이벤트 리스너 삭제
@@ -419,8 +399,8 @@ $(document).ready(function() {
                 if (event.key === 's' || event.key === 'S') {
                     correct_key = true;
                    
-                    showAchievement(2);
-                    
+                    idx++;
+                    showAchievement(2); 
                     
                     document.removeEventListener("keydown", handleSPress); // 이벤트 리스너 삭제
                     
@@ -449,8 +429,14 @@ $(document).ready(function() {
     function showAchievement(index) {
         const achievementElement = $('.achievement').eq(index);
         achievementElement.attr('src', 'text_img/' + scoreImages[index]);
-        
-        
+        $('#image').css('animation-play-state', 'running');        
+        if(idx <= 2){
+        moveBlock(idx);
+        }
+        if(idx == 3){
+
+tutorialComplete();
+        }
         achievementElement.fadeIn(100, function() {
             achievementElement.animate({
                 top: '-=20px',
@@ -464,6 +450,37 @@ $(document).ready(function() {
         });
     }
 
+    function tutorialComplete(){
+
+        $('#back').hide();
+
+        
+        setTimeout(function(){
+            
+            // 블록 모두 제거
+        
+            // 캐릭터 애니메이션 중지
+            character.stop();
+            
+            clearInterval(imageInterval);
+        
+            // 배경 애니메이션 중지
+            $('#image').css('animation-play-state', 'paused');
+   
+            // 1초 후에 화면 블러 처리 및 점수 고정
+            setTimeout(function() {
+                $("#image").css("filter", "blur(5px)");
+                $(".rhythme").css("filter", "blur(5px)");
+                $(".shadow").css("filter", "blur(5px)");
+                $(".hat").css("filter", "blur(5px)");
+                $(".clothes").css("filter", "blur(5px)");
+                document.getElementById("gameCompleteScreen").style.display = "flex";                
+                document.getElementById("reStart").style.display = "flex";
+                document.getElementById("quit").style.display = "flex";
+            }, 1000);
+        },400);
 
 
+
+    }
 });
