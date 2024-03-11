@@ -63,6 +63,41 @@ $(document).ready(function() {
         console.log("옷 미사용여부 파라미터가 없습니다.");
     }
 
+    $('#reStart img').hover(function(){
+        $(this).attr("src", "buttons_img/restart_btn1.png");
+        $(this).css('width','22vw');
+    }, function() {
+        $(this).attr("src", "buttons_img/restart_btn2.png");
+    });
+    
+    $('#quit img').hover(function(){
+        $(this).attr("src", "buttons_img/quit_btn1.png");
+        $(this).css('width','22vw');
+    }, function() {
+        $(this).attr("src", "buttons_img/quit_btn2.png");
+    });
+
+    $('#reStart').click(()=>{
+        location.reload();
+    });
+
+    $('#quit').click(()=>{
+        var url = "index.html?";
+        location.href=url;
+    });
+
+    //뒤로가기 함수
+    $('#back img').hover(function(){
+        $(this).attr("src", "buttons_img/back_btn1.png");
+        $(this).css('width','7vw');
+    }, function() {
+        $(this).attr("src", "buttons_img/back_btn2.png");
+    });
+    $('#back').click(()=>{
+        var url = "setting_game.html?" + queryParams.toString();
+        location.href=url;
+    });
+
     var character = $('.rhythme');
     var shadow = $('.shadow');
     var hatImg = $('.hat');
@@ -98,7 +133,13 @@ $(document).ready(function() {
         "text_img/pressSorK_text1.png",
         "text_img/pressSorK_text2.png"
     ];
+
+    var pressS = $('.press_s');
     
+    var pressK = $('.press_k'); 
+
+    var pressSK = $('.press_Sk'); 
+        
     var instruction = $('.instruction');
 
     var instructionInterval;  
@@ -113,6 +154,11 @@ $(document).ready(function() {
 
         $('#image').css('animation-play-state', 'paused');
 
+        pressK.hide();
+
+        pressS.hide();
+
+        pressSK.hide();
 
         clearInterval(imageInterval);
 
@@ -305,8 +351,7 @@ $(document).ready(function() {
     var green_kCheck = false; //green block일때 k를 눌렀는지 확인
 
     // 블록이 일정 위치에 도달했을 때 키 입력을 받도록 설정하는 함수
-    function enableKeyPress(blockColor) { //return값이 true면 다음 block으로 넘어감, false면 다시 그 block 생성
-        
+    function enableKeyPress(blockColor) { //return값이 true면 다음 block으로 넘어감, false면 다시 그 block 생성        
         
         clearInterval(imageInterval);
         // clearInterval(moveInterval);
@@ -314,14 +359,23 @@ $(document).ready(function() {
         return new Promise(function(resolve){
             switch(blockColor){
                 case "blue":
+
+        pressK.show();
+
                     document.addEventListener("keydown", handleKPress);
                     
                     break;
                 case "yellow":
+
+        pressS.show();
+
                     document.addEventListener("keydown", handleSPress);
                     
                     break;
                 case "green":
+
+        pressSK.show();
+
                     document.addEventListener("keydown", handleKeyPress);
                     document.addEventListener("keydown", handleSameKeyPress);
                     break;        
@@ -338,6 +392,7 @@ $(document).ready(function() {
                         green_sCheck = true;   //s 눌렀다고 표시
                     } else{     //k를 이미 누르고 s를 누른 상황
                     idx++;
+        pressSK.hide();
                         
                         showAchievement(2);
                         
@@ -357,6 +412,7 @@ $(document).ready(function() {
                 if (event.key === 'k' || event.key === 'K') {
                     if(green_sCheck == true){ //s를 누르고 k를 누른 상황
                     idx++;
+        pressSK.hide();
                         
                         showAchievement(2);
                        
@@ -379,6 +435,9 @@ $(document).ready(function() {
                 // blue 블록이면 'k'를 눌러야 함
                 if (event.key === 'k' || event.key === 'K') {
                     correct_key = true;
+
+                    pressK.hide();
+
                     idx++;
                     showAchievement(2);
                     
@@ -388,6 +447,9 @@ $(document).ready(function() {
                 else if (event.key === 's' || event.key === 'S') {
                     correct_key = false;
                     showAchievement(3);
+
+                    pressK.hide();
+
                     
                     document.removeEventListener("keydown", handleKPress); // 이벤트 리스너 삭제
                     resolve(false);
@@ -398,6 +460,9 @@ $(document).ready(function() {
                 
                 if (event.key === 's' || event.key === 'S') {
                     correct_key = true;
+
+                    pressS.hide();
+
                    
                     idx++;
                     showAchievement(2); 
@@ -409,6 +474,9 @@ $(document).ready(function() {
                 }
                 else if (event.key === 'k' || event.key === 'K') {
                     correct_key = false;
+
+                    pressS.hide();
+
                     showAchievement(3);
                     
                     document.removeEventListener("keydown", handleSPress); // 이벤트 리스너 삭제
@@ -421,8 +489,6 @@ $(document).ready(function() {
         
         
     }
-
-   
 
     const scoreImages = ['cool_text.png', 'great_text.png', 'perfect_text.png','miss_text.png'];
 
@@ -456,9 +522,7 @@ tutorialComplete();
 
         
         setTimeout(function(){
-            
-            // 블록 모두 제거
-        
+                    
             // 캐릭터 애니메이션 중지
             character.stop();
             
@@ -474,6 +538,7 @@ tutorialComplete();
                 $(".shadow").css("filter", "blur(5px)");
                 $(".hat").css("filter", "blur(5px)");
                 $(".clothes").css("filter", "blur(5px)");
+                $(".block_guide").css("filter", "blur(5px)");
                 document.getElementById("gameCompleteScreen").style.display = "flex";                
                 document.getElementById("reStart").style.display = "flex";
                 document.getElementById("quit").style.display = "flex";
