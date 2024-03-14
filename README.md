@@ -2,10 +2,7 @@
   
 ![title](https://github.com/choi-hyk/RhythmE/assets/127075917/6a311286-87b6-4e84-9795-7b5c568b58d6)
 
-
 <br/><br/><br/>
-
-
 
 # Game Instroduction
 
@@ -16,6 +13,18 @@ Rhythme는 JavaScript를 이용하여 구현한 리듬게임 입니다.
 또한 게임을 완료한 후 플레이한 Rhythme, 게임 점수, 스테이지를 이미지 형식으로 저장할 수 있도록 제공하며 플레이어는 이미지를 GitHub내의 Reamd.md 파일에 삽입 할 수 있습니다.
 
 <br/><br/><br/>
+
+*game reference*
+
+Nintendo) Rhythm Heaven(리듬 세상) : [Night walking(나이트 워킹)](https://www.youtube.com/watch?v=24VFmHOFlko&pp=ygUc66as65Os7IS47IOBIOuCmOydtO2KuOybjO2CuQ%3D%3D)
+
+<br/><br/>
+
+*Music*
+
+링크 추가 예정
+
+<br/><br/>
 
 # Game Stage
 
@@ -33,7 +42,7 @@ Rhythme는 JavaScript를 이용하여 구현한 리듬게임 입니다.
 
 ### Hard Mode
 
-추후 추가 예정
+이미지 추가 예정
 
 <br/>
 
@@ -42,6 +51,5 @@ Rhythme는 JavaScript를 이용하여 구현한 리듬게임 입니다.
 <br/>
 
 ![block_guide_box](https://github.com/choi-hyk/RhythmE/assets/127075917/9161bfbc-a76a-4bff-93d8-34c0589c6b39)
-
 
 </div>
