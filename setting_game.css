@@ -6,6 +6,18 @@
     height: 100vh;
 }
 
+.difficulty_stage{
+
+    position : fixed;
+    width : 419.5px;
+    height : 280px;
+    top: 27.5%;
+    left:50%;
+    transform: translate(-50%, -50%); 
+    z-index:2;
+
+}
+
 .rhythme{
 
     position: fixed;

@@ -6,6 +6,7 @@ $(document).ready(function(){
     var clothesParameter = false;
     var hatImg = $('.wearing_hat');
     var clothesImg = $('.wearing_clothes');
+    var difficulty_stage = $('.difficulty_stage');
     var difficulty = 0;    //초기 난이도    
 
     console.log("setting_game 진입\n"+queryParams.toString());
@@ -15,6 +16,7 @@ $(document).ready(function(){
         difficulty = parseInt(queryParams.get("difficulty")); //difficulty : 난이도
         console.log("난이도: " + difficulty);
         console.log("난이도");
+        difficulty_stage.attr("src","backgrounds_img/evening_background3.png");
      
         } else {
             // "difficulty" 파라미터가 없는 경우의 처리
@@ -78,12 +80,15 @@ $(document).ready(function(){
         switch (difficulty) {
             case 0:
                 $('#difficulty img').attr("src", "buttons_img/easy_btn.png");
+                difficulty_stage.attr("src","backgrounds_img/evening_background3.png");
                 break;
             case 1:
                 $('#difficulty img').attr("src", "buttons_img/normal_btn.png");
+                difficulty_stage.attr("src","backgrounds_img/bridge_background1.png");
                 break;
             case 2:
                 $('#difficulty img').attr("src", "buttons_img/hard_btn.png");
+                difficulty_stage.attr("src","backgrounds_img/sunset_background.png");
                 break;
             default:
                 break;
