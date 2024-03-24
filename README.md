@@ -22,7 +22,7 @@ Nintendo) Rhythm Heaven(리듬 세상) : [Night walking(나이트 워킹)](https
 
 *Music*
 
-링크 추가 예정
+DENFIX - Beautiful Days (https://www.youtube.com/watch?v=c8TPYaguKCg&list=PLyrrhz0LjbCJ69qLMeiKPvHYR2xfKbAlN&index=8)
 
 <br/><br/>
 
