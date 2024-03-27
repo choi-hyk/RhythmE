@@ -30,8 +30,8 @@ body {
 .rhythme {
 
     position: fixed;
-    width: 95px;
-    height: 95px;
+    width: 9.5vw;
+    height: 9.5vw;
     top: 75%;
     left: 30%; 
     transform: translate(-50%, -50%); 
@@ -88,8 +88,8 @@ body {
     position: fixed;
     top: 75%;
     left: 30%; 
-    width: 95px;
-    height: 95px;
+    width: 9.5vw;
+    height: 9.5vw;
     transform: translate(-50%, -50%); 
     z-index: 7; 
 
@@ -100,8 +100,8 @@ body {
     position: fixed;
     top: 75%;
     left: 30%; 
-    width: 95px;
-    height: 95px;
+    width: 9.5vw;
+    height: 9.5vw;
     transform: translate(-50%, -50%); 
     z-index: 7; 
 
@@ -109,7 +109,7 @@ body {
 
 .shadow {
     position: fixed;
-    width: 60px;
+    width: 6vw;
     top: 79.9%;
     left: 30.4%; 
     opacity: 0.5;
@@ -165,16 +165,16 @@ body {
 
 .block {
     position:absolute;
-    height: 30px;
-    width: 60px;
+    height: 4vh;
+    width: 6vw;
     top: 78.5%;
     z-index: 5;
 }
 
 .block_guide{
     position: fixed;
-    width: 670px;
-    height: 260px;
+    width: 67vw;
+    height: 26vw;
     top: 17.5%;
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -185,8 +185,8 @@ body {
 .achievement {
     position: fixed;
     display: none;
-    width: 150px;
-    height: 30px;
+    width: 15vw;
+    height: 5vh;
     top: 65%;
     left: 20%; 
     transform: translate(-50%, -50%); 
@@ -196,8 +196,8 @@ body {
 
 .instruction {
     position: fixed;
-    width: 380px;
-    height: 38px;
+    width: 38vw;
+    height: 3.8vw;
     top: 55%;
     left: 50%; 
     transform: translate(-50%, -50%); 
@@ -214,8 +214,6 @@ body {
     transform: translate(-50%, -50%); 
     z-index: 7; 
 }
-
-
 
 
 .press_k {

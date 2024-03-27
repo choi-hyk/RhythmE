@@ -53,8 +53,8 @@ button {
 
 .press{
     position: fixed;
-    width: 400px;
-    height: 40px;
+    width: 30vw;
+    height: 5vh;
     top: 70%;
     left: 30%;
     transform: translate(-50%, -50%); 
@@ -167,17 +167,18 @@ width: 5vw;
 
 .rhythme {
     position: fixed;
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 20vw;
     top: 43%;
     left: 29.5%; 
     transform: translate(-50%, -50%); 
     z-index: 6; 
+    pointer-events: none;
 }
 
 .shadow {
     position: fixed;
-    width: 120px;
+    width: 12vw;
     top: 53%;
     left: 30.3%; 
     opacity: 0.5;
@@ -187,8 +188,8 @@ width: 5vw;
 
 .wearing_hat {
     position: fixed;
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 20vw;
     top: 43.1%;
     left: 29.5%;
     transform: translate(-50%, -50%); 
@@ -198,8 +199,8 @@ width: 5vw;
 
 .wearing_clothes {
     position: fixed;
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 20vw;
     top: 42.8%;
     left: 29.5%;
     transform: translate(-50%, -50%); 

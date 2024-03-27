@@ -9,8 +9,8 @@
 .difficulty_stage{
 
     position : fixed;
-    width : 419.5px;
-    height : 280px;
+    width : 39.2vw;
+    height : 38vh;
     top: 27.5%;
     left:50%;
     transform: translate(-50%, -50%); 
@@ -21,17 +21,18 @@
 .rhythme{
 
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 15vw;
+    height: 15vw;
     top: 46%;
     left: 14.5%; 
     transform: translate(-50%, -50%); 
     z-index: 2;
+    
 }
 
 .shadow {
     position: fixed;
-    width: 90px;
+    width: 9vw;
     top: 53%;
     left: 15.3%; 
     opacity: 0.5;
@@ -41,8 +42,8 @@
 
 .wearing_hat {
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 15vw;
+    height: 15vw;
     top: 46%;
     left: 14.4%;
     transform: translate(-50%, -50%); 
@@ -51,8 +52,8 @@
 
 .wearing_clothes {
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 15vw;
+    height: 15vw;
     top: 45.6%;
     left: 14.4%;
     transform: translate(-50%, -50%); 
