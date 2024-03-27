@@ -58,13 +58,13 @@ const easy_blocks = [
     new Block(11000, 'blue', 13, 5),
     
     new Block(12000, 'green', 13, 5),
-   
+    
     new Block(13000, 'green', 13, 5),
     
     new Block(14000, 'blue', 13, 5),
     
     new Block(15000, 'yellow', 13, 5),
-   
+    
     new Block(16000, 'yellow', 13, 5),
     
     new Block(17000, 'green', 13, 5),
