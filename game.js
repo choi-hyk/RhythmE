@@ -714,18 +714,25 @@ $(document).ready(function() {
                 jumpSpeed = 190; // 쉬운 난이도에서의 점프 속도
                 landSpeed = 150;
                 jumpHeight = 65;
+                $("#image img:nth-child(1)").attr("src", "backgrounds_img/evening_background1.png")
+                $("#image img:nth-child(2)").attr("src", "backgrounds_img/evening_background2.png")
+                $("#image img:nth-child(3)").attr("src", "backgrounds_img/evening_background3.png")
+                $("#image img:nth-child(4)").attr("src", "backgrounds_img/evening_background4.png")
                 break;
             case 1:
                 jumpSpeed = 140; // 보통 난이도에서의 점프 속도
                 landSpeed = 125;
                 jumpHeight = 67;
-
+                $("#image img:nth-child(1)").attr("src", "backgrounds_img/bridge_background1.png")
+                $("#image img:nth-child(2)").attr("src", "backgrounds_img/bridge_background2.png")
+                $("#image img:nth-child(3)").attr("src", "backgrounds_img/bridge_background3.png")
+                $("#image img:nth-child(4)").attr("src", "backgrounds_img/bridge_background1.png")
                 break;
             case 2:
                 jumpSpeed = 80; // 어려운 난이도에서의 점프 속도
                 landSpeed = 90;
                 jumpHeight = 71;
-
+                //똑같이 sunset background 추가
                 break;
         }
         
