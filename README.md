@@ -3,6 +3,10 @@
 ![title](https://github.com/choi-hyk/RhythmE/assets/127075917/6a311286-87b6-4e84-9795-7b5c568b58d6)
 
 <br/><br/><br/>
+![HTML5](https://img.shields.io/badge/HTML-E34F26.svg?&style=flat&logo=HTML5&logoColor=white&)
+![CSS3](https://img.shields.io/badge/CSS-1572B6.svg?&style=flat&logo=CSS3&logoColor=white&)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=flat&logo=JavaScript&logoColor=white&)
+
 
 # Game Instroduction
 
