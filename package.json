@@ -4,12 +4,12 @@
     "private": true,
     "description": "RhythmE static web game",
     "homepage": "https://choi-hyk.github.io/RhythmE",
-    "scripts": {
-        "start": "serve . -l 4173",
-        "deploy": "gh-pages -d ."
-    },
-    "devDependencies": {
-        "gh-pages": "^6.1.1",
-        "serve": "^14.2.4"
-    }
+  "scripts": {
+    "start": "serve . -l 4173",
+    "predeploy": "node scripts/prepare-gh-pages.js",
+    "deploy": "node scripts/deploy-gh-pages.js"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
 }
