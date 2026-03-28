@@ -1,0 +1,131 @@
+*{margin: 0; padding: 0; overflow: hidden;}
+
+#background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.difficulty_stage{
+
+    position : fixed;
+    width : 39.2vw;
+    height : 38vh;
+    top: 27.5%;
+    left:50%;
+    transform: translate(-50%, -50%); 
+    z-index:2;
+
+}
+
+.rhythme{
+
+    position: fixed;
+    width: 15vw;
+    height: 15vw;
+    top: 46%;
+    left: 14.5%; 
+    transform: translate(-50%, -50%); 
+    z-index: 2;
+    
+}
+
+.shadow {
+    position: fixed;
+    width: 9vw;
+    top: 53%;
+    left: 15.3%; 
+    opacity: 0.5;
+    transform: translate(-50%, -50%); 
+    z-index: 1; 
+}
+
+.wearing_hat {
+    position: fixed;
+    width: 15vw;
+    height: 15vw;
+    top: 46%;
+    left: 14.4%;
+    transform: translate(-50%, -50%); 
+    z-index: 7;
+}
+
+.wearing_clothes {
+    position: fixed;
+    width: 15vw;
+    height: 15vw;
+    top: 45.6%;
+    left: 14.4%;
+    transform: translate(-50%, -50%); 
+    z-index: 7;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+#difficulty {
+    position: absolute;
+    top: 60vh; 
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#raise_arrow {
+    position: absolute;
+    top: 60vh; 
+    left: 65vw;
+    transform: translate(-50%, -50%);
+}
+
+#lower_arrow {
+    position: absolute;
+    top: 60vh; 
+    left: 35vw;
+    transform: translate(-50%, -50%);
+}
+
+#start {
+    position: absolute;
+    top: 80vh; 
+    left: 50vw; 
+    transform: translate(-50%, -50%);
+}
+
+
+#characters {
+    position: absolute;
+    top: 65vh; 
+    left: 15.1vw; 
+    transform: translate(-50%, -50%);
+}
+
+#tutorial{
+
+    position: absolute;
+    top: 65vh; 
+    left: 85vw; 
+    transform: translate(-50%, -50%);
+
+}
+
+
+#back {
+    position: absolute;
+    top: 3.5vh; 
+    left: 3.6vw; 
+    transform: translate(-50%, -50%);        
+}
+
+.back_img{
+    width: 7vw
+}
+
+.arrow_img {
+    width: 5vw;
+}
+
+.button_img {
+    width: 22vw;
+}
