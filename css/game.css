@@ -1,0 +1,259 @@
+@font-face {
+    font-family: 'GalacticaGrid'; 
+    src: url("../assets/fonts/GalacticaGrid.ttf") format('truetype'); 
+}
+
+*{margin: 0; padding: 0; overflow: hidden; border: none;}
+
+body {
+    overflow: hidden; 
+}
+
+#image {
+    position: relative;
+    width: 500vw; 
+    height: 100vh;  
+    overflow: hidden; 
+    animation: moveBackground 25s linear infinite;
+}
+
+.rhythme {
+    position: fixed;
+    width: 9.5vw;
+    height: 9.5vw;
+    top: 75%;
+    left: 30%; 
+    transform: translate(-50%, -50%); 
+    z-index: 6; 
+}
+
+.hat{
+
+    position: fixed;
+    top: 75%;
+    left: 30%; 
+    width: 9.5vw;
+    height: 9.5vw;
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+
+}
+
+.clothes{
+
+    position: fixed;
+    top: 75%;
+    left: 30%; 
+    width: 9.5vw;
+    height: 9.5vw;
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+
+}
+
+.shadow {
+    position: fixed;
+    width: 6vw;
+    top: 79.9%;
+    left: 30.4%; 
+    opacity: 0.5;
+    transform: translate(-50%, -50%); 
+    z-index: 5; 
+}
+
+.instruction {
+    position: fixed;
+    width: 38vw;
+    height: 3.8vw;
+    top: 55%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background:nth-child(1) {
+    background-image: url('../assets/backgrounds/evening_background1.png'); 
+    left: 0; 
+    z-index: 5; 
+}
+
+.background:nth-child(2) {
+    background-image: url('../assets/backgrounds/evening_background2.png');
+    left: 100vw; 
+    z-index: 4; 
+}
+.background:nth-child(3) {
+    background-image: url('../assets/backgrounds/evening_background3.png'); 
+    left: 200vw; 
+    z-index: 3;
+}
+
+.background:nth-child(4) {
+    background-image: url('../assets/backgrounds/evening_background4.png'); 
+    left: 300vw; 
+    z-index: 2; 
+}
+
+.background:nth-child(5) {
+    background-image: url('../assets/backgrounds/evening_background1.png'); 
+    left: 400vw; 
+    z-index: 1;
+}
+
+
+@keyframes moveBackground {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-400vw); 
+    }
+}
+
+.block {
+    position:absolute;
+    height: 4vh;
+    width: 6vw;
+    top: 78.9%;
+}
+
+#back {
+    position: absolute;
+     top: 3.5vh; 
+    left: 3.6vw; 
+    transform: translate(-50%, -50%);        
+    background-color: transparent;
+}
+
+.back_img{
+    width: 7vw    
+}
+
+#score_board {
+    position : fixed;
+    top: 0vh;
+    left : 75%;
+    overflow: hidden;
+    width: 44vw;
+}
+
+.score_img{
+    width: 25vw;
+    float: left;
+}
+
+.score{
+    width: 20vw;
+    height: 40vh;
+    color: #d77bba;
+    font-size: 2.8vw;
+    font-family: 'GalacticaGrid', sans-serif;
+    position: fixed;
+    top: 1.4vh; 
+    left: 90%; 
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+}
+
+
+.complete_score{
+    width: 20vw;
+    height: 40vh;
+    color: #d77bba;
+    font-size: 2.8vw;
+    font-family: 'GalacticaGrid', sans-serif;
+    position: fixed;
+    top: 45%; 
+    left: 46%; 
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+}
+
+/* 게임오버 스크린 */
+#gameOverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* 반투명한 검은 배경 */
+    display: none; /* 초기에는 화면에 보이지 않음 */
+    justify-content: center;
+    align-items: center;
+}
+
+.gameOver{    
+    width: 75vw;
+    margin-top : -250px;
+}
+
+
+#gameCompleteScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* 반투명한 검은 배경 */
+    display: none; /* 초기에는 화면에 보이지 않음 */
+    justify-content: center;
+    align-items: center;
+}
+
+.gameComplete{    
+    width: 40vw;
+    margin-top : -250px;
+}
+
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.button_img {
+    width: 22vw;
+}
+
+#reStart{
+    position: absolute;
+    display: none;
+    top: 59vh; 
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#quit{
+    position: absolute;
+    display: none;
+    top: 73vh; 
+    left: 50vw; 
+    transform: translate(-50%, -50%);
+}
+
+.achievement {
+    position: fixed;
+    display: none;
+    width: 15vw;
+    height: 5vh;
+    top: 65%;
+    left: 20%; 
+    transform: translate(-50%, -50%); 
+    z-index: 7; 
+}
+
